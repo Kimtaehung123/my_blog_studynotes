@@ -1,0 +1,44 @@
+第四章 电脑操作
+==================
+
+1.1 网站
+--------------------
+-**编辑器相关**
+
+1. `visual studio code <https://code.visualstudio.com/>`_
+2. `Miktex <https://miktex.org/download>`_
+3. `Perl <http://strawberryperl.com/>`_
+
+1.2 软件安装
+--------------------
+
+-**Mathtype：Word加载项问题**::
+
+  * 需要把加载项和模板放到STARTUP文件夹中
+  * 这个位置在 桌面所在盘:\\Roaming\\Microsoft\\Word\\STARTUP
+  * 如，自定义桌面文件夹不在C盘而是G盘的时候，路径为
+    G:\\Roaming\\Microsoft\\Word\\STARTUP
+
+-**VSC上预览.tex文件**::
+
+  * VScode中安装tex插件（LaTex Workshop)——在VScode中方便预览、编译tex文件；
+  * Miktex(包含Latexmk和TeXworks编辑器)——LaTeX Workshop的功能依赖于Latexmk；
+  * Perl——Latexmk是一种Perl脚本，把LaTex编译器的很多功能一劳永逸地结合在一起，用户避免了从BibTex、术语、交叉引用等独立功能之间频繁切换；
+  * 在VSC设置保存的时候更新LaTeX预览PDF
+
+*Reference*:
+
+`VScode+Miktex配置的本质理解 <https://blog.csdn.net/cz2011301070/article/details/107893744>`_
+
+
+1.3 docker
+-----------------------
+
+-**初步理解**::
+
+  * docker是一只鲸鱼，下面的海洋是宿主机，鲸鱼上的集装箱是容器（各种应用）；
+  * 诞生是因为协作开发的时候，每个硬件机器上的环境配置总是很难完全一致，导致程序无法在所有的机器上可以运行成功，
+  本质上是解决了环境配置问题；
+  * 没有系统映射，程序运行在宿主机，比VM需要硬件映射快；
+  * 每个容器都有自己的库文件library,各自独立；
+  

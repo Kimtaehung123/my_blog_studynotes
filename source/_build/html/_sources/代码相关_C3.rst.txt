@@ -1,0 +1,317 @@
+第三章 python篇
+=================
+
+1.1 全国软件大赛
+--------------------
+
+1.1.1 第一次周赛——10.22 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+(`第一次周赛网址 <http://182.92.175.181/contest.php?cid=2186>`_)(`第一次周赛补题网址 <http://182.92.175.181/contest.php?cid=2189>`_)
+
+
++--------------+-------------------------------------------------------------------------+
+| （状态）题号 | 问题 >>> 修正                                                           |
++--------------+-------------------------------------------------------------------------+
+| （提交）1    | input，不是inputs >>>> 函数记忆错误                                     |
++--------------+-------------------------------------------------------------------------+
+| （提交）2    | 循环里一次输出，最后一次输出，导致了两次输出的错误 >>> 输出只写一次就好 |
++--------------+-------------------------------------------------------------------------+
+| （未提交）3  | 格式化输出函数format不熟悉 >>> a = "{:.6f}".format(variable)            |
++--------------+-------------------------------------------------------------------------+
+
+题目C::
+
+    # 第三题：输出格式浪费了很长时间 & 7舍8入不用管，这里是整数，对半开，小数部分只能是0或者5；
+    # 但是怎么控制舍入，不知道会不会考，按我自己的逻辑算的7舍8入不对
+    w,h,x,y = [int(i) for i in input().split(" ")]
+    num = 0
+    smax = (w*h)/2
+
+    zhengshu = "{:.6f}".format(smax)
+
+    if x==w/2 and y==h/2:
+        num = 1
+    print(zhengshu+' '+str(num))
+
+-----------------------------------------------------------------
+
+1.1.2 第一次选拔训练赛——10.25 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+(`第一次选拔训练赛网址 <http://182.92.175.181/contest.php?cid=2193>`_,密码yanjiusheng1025，`第一次选拔训练赛补题网址 <http://182.92.175.181/contest.php?cid=2195>`_)
+
+
+题目A::
+
+    #A**************多行输入，检测到一个输入，就输出一个结果**************************#
+     import sys 
+     for line in sys.stdin:
+         a = line.split(" ")
+         print(int(a[0])+int(a[1]))
+
+题目B::
+
+    #B*************输入个数，输入多行，输出多行**********************#
+    n = int(input())
+    while n>0:
+        a,b = [int(i) for i in input().split(" ")]
+        print(a+b)
+        n -= 1
+
+题目C::
+
+    #C************幂次运算符号记忆错误*****************#
+    # 幂次运算符号是两个乘号
+    import sys 
+    for line in sys.stdin:
+        value = int(line[:-1])
+        num = [int(i) for i in line[:-1]]
+        sum = 0
+        for i in range(7):
+            sum += num[i] ** 7
+        if sum == value:
+            print("Y")
+        else:
+            print("N")
+
+题目D::
+
+    #D***************字符串也是可迭代对象，可以循环取出里面的每一个字符***********#
+    sr = input()
+    n = int(sr)
+    num = [int(i) for i in sr]
+    sum = 0
+    for i in range(len(num)):
+        sum += num[i] ** 3
+    if n == sum:
+        print("YES")
+    else:
+        print("NO")
+
+题目E::
+
+    #E*************BUCTOJ做题罚时计算*****************#
+    import sys
+    for ti_jiao_ci_shu in sys.stdin:
+        ti_jiao_ci_shu = int(ti_jiao_ci_shu)
+        ti_jiao_time = []
+        ti_num = []
+        state = []
+        count = ti_jiao_ci_shu
+        while count > 0:
+            info = input().split(" ")
+            ti_jiao_time.append(info[0])
+            ti_num.append(info[1])
+            state.append(info[2])
+            count -= 1
+        # 找到答案正确的题号
+        ac_state_tinum = list(set([ti_num[i] for i in range(ti_jiao_ci_shu) if state[i] == "AC"]))
+
+        # 对每道正确的题计算罚时
+        pental = 0
+        start_time = 18 * 60 # 按照分钟计算，不用60进制计算时间
+
+        for i in range(len(ac_state_tinum)):
+            # 找到该题号正确的时间记录,单位：分钟
+            pass_time = [int(ti_jiao_time[j].split(":")[0])*60 + int(ti_jiao_time[j].split(":")[1]) for j in range(ti_jiao_ci_shu) if ti_num[j] == ac_state_tinum[i] and state[j] == "AC"]
+            # 找到该题号最早正确的时间,单位：分钟
+            pental += min(pass_time) - start_time
+            # 在这个时间之前错误提交的罚时
+            error_time = [int(ti_jiao_time[j].split(":")[0])*60 + int(ti_jiao_time[j].split(":")[1]) for j in range(ti_jiao_ci_shu) if ti_num[j] == ac_state_tinum[i] and state[j] != "AC"]
+            for k in error_time:
+                if k < min(pass_time):
+                    pental += 20
+
+        # 转换为小时：分钟字符串输出
+        hour = int(pental/60)
+        minute = pental % 60
+        if hour < 10:
+            hour_str = "0"+str(hour)
+        else:
+            hour_str = str(hour)
+
+        if minute < 10:
+            minute_str = "0"+str(minute)
+        else:
+            minute_str = str(minute)
+        print(hour_str+":"+minute_str)
+
+题目F::
+
+    #F***********必须改变一个字符能否成为回文串，必须改变 + 判断条件失误*********************#
+    n = int(input())
+    count = n
+    strings = []
+    while count > 0:
+        strings.append(input())
+        count -= 1
+
+    result = []
+
+    for i in range(n):
+        str_split = [j for j in strings[i]]
+        letter_len = len(str_split)
+        pair_num = int(letter_len/2)
+        count = 0
+        if letter_len == 1:
+            result.append('YES')
+        else:
+            if letter_len % 2 == 0:
+                
+                for k in range(pair_num):
+                    if str_split[k] != str_split[-k-1]:
+                        count += 1
+                if count == 1:
+                    result.append('YES')    
+                else:
+                    result.append('NO')
+            else:
+                
+                for k in range(pair_num):
+                    if str_split[k] != str_split[-k-1]:
+                        count += 1
+                if count <= 1:
+                    result.append('YES')    
+                else:
+                    result.append('NO')
+
+    for i in range(n):
+        print(result[i])
+
+题目G(时间超限)::
+
+    #G************质数，运行超时***************#
+    # 质数，倒数第四道，运行超时
+    def zs(a):
+        count = 0
+        for i in range(2,a):
+            if a%i == 0:
+                count += 1
+        if count == 0:
+            return "t"
+        
+    qq_num = int(input())
+    for i in range(2,qq_num):
+        if zs(i) == "t":
+            print(i)
+
+*Reference:*
+
+**参考1：** `素数筛 <https://blog.csdn.net/dy416524/article/details/86431057>`_
+
+题目H::
+
+    #H**************迭代，貌似禁用某某东西,numpy数组越界*******************#
+    # import numpy as np
+    # import sys
+    # for n in sys.stdin:
+    #     n = int(n)
+    #     f_0 = np.math.sin(n)
+    #     for i in range(n):
+    #         f_0 = np.math.sin(f_0)
+    #     print("{:.6f}".format(f_0))
+    
+    # 调用python自带的sin，忘记python有自带的怎么调用了，在math包里面，结果正确 #
+    import sys
+    import math
+    for n in sys.stdin:
+        n = int(n)
+        f_0 = math.sin(n)
+        for i in range(n):
+            f_0 = math.sin(f_0)
+        print("{:.6f}".format(f_0))
+
+题目I(时间超限)::
+
+    #I**************迭代，时间超限*******************#
+    # import sys,math
+    # for n in sys.stdin:
+    #     n = int(n)
+    #     f_0 = math.cos(n)
+    #     for i in range(n):
+    #         f_0 = math.cos(f_0)
+    #     print("{:.6f}".format(f_0))
+
+    # 转换为sin,依然时间超限
+    # import sys,math
+    # for n in sys.stdin:
+    #     n = int(n)
+    #     f_0 = math.cos(n)
+    #     for i in range(n):
+    #         f_0 = math.sin(f_0 + math.pi/2)
+    #     print("{:.6f}".format(f_0))
+
+题目J::
+
+    #J***********最后一道题，太简单了，错过时间没提交上去************#
+    n = int(input())
+    count = n
+    content = []
+    while count > 0:
+        content.append([int(i) for i in input().split(" ") ])  
+        count -= 1 
+        
+    for i in content:
+        print(sum(i))
+
+---------------------------------------------------------------------------------
+
+1.2 reStructedText语法
+------------------------
+
+1.2.1 标题等级
+^^^^^^^^^^^^^^^^^
+
+- 最多分6级标题
+- 对于相同的符号，有上标是一级标题，没有上标是二级标题。
+
+**Reference**
+
+`参考1 : reStructuredText(rst)快速入门语法说明 <https://regimen.readthedocs.io/zh/latest/books/rst_primer.html>`_
+
+1.2.2 警告及说明
+^^^^^^^^^^^^^^^^^^^
+
+1.  Duplicate explicit target name : 
+   
+    **说明：**
+    
+    链接目标名字相同
+    
+    **解决方法：**
+    
+    - 设置不同的链接名字
+    - 使用双下划线的匿名参考
+    - 忽略警告
+
+    **双下划线的匿名参考说明**::
+
+        **警告的：**
+
+        $ cat details.rst
+        -  `Details <https://github.com/signalfx/integrations/tree/release/collectd>`_
+        -  `Details <https://github.com/signalfx/integrations/tree/release/collectd-docker>`_
+        -  `Details <https://github.com/signalfx/integrations/tree/release/signalfx-metadata>`_
+
+        $ rst2html.py details.rst > /dev/null
+        details.rst:1: (WARNING/2) Duplicate explicit target name: "details".
+        details.rst:1: (WARNING/2) Duplicate explicit target name: "details".
+
+        **去警告的：**
+
+        $ cat details.rst
+        -  `Details <https://github.com/signalfx/integrations/tree/release/collectd>`__
+        -  `Details <https://github.com/signalfx/integrations/tree/release/collectd-docker>`__
+        -  `Details <https://github.com/signalfx/integrations/tree/release/signalfx-metadata>`__
+
+        use double underscores ``__`` to make references here!
+
+        $ rst2html.py details.rst > /dev/null
+        # => No warnings
+
+    **Reference**：
+
+    `Duplicate explicit target name errors #3921 <https://github.com/sphinx-doc/sphinx/issues/3921>`_
+        
+

@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>第三章 python篇 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="第四章 电脑操作" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" />
+    <link rel="prev" title="第二章 信号分解" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="python">
+<h1>第三章 python篇<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2>1.1 全国软件大赛<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3>1.1.1 第一次周赛——10.22<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>(<a class="reference external" href="http://182.92.175.181/contest.php?cid=2186">第一次周赛网址</a>)(<a class="reference external" href="http://182.92.175.181/contest.php?cid=2189">第一次周赛补题网址</a>)</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>（状态）题号</p></td>
+<td><p>问题 &gt;&gt;&gt; 修正</p></td>
+</tr>
+<tr class="row-even"><td><p>（提交）1</p></td>
+<td><p>input，不是inputs &gt;&gt;&gt;&gt; 函数记忆错误</p></td>
+</tr>
+<tr class="row-odd"><td><p>（提交）2</p></td>
+<td><p>循环里一次输出，最后一次输出，导致了两次输出的错误 &gt;&gt;&gt; 输出只写一次就好</p></td>
+</tr>
+<tr class="row-even"><td><p>（未提交）3</p></td>
+<td><p>格式化输出函数format不熟悉 &gt;&gt;&gt; a = “{:.6f}”.format(variable)</p></td>
+</tr>
+</tbody>
+</table>
+<p>题目C:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 第三题：输出格式浪费了很长时间 &amp; 7舍8入不用管，这里是整数，对半开，小数部分只能是0或者5；</span>
+<span class="c1"># 但是怎么控制舍入，不知道会不会考，按我自己的逻辑算的7舍8入不对</span>
+<span class="n">w</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)]</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">smax</span> <span class="o">=</span> <span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">h</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">zhengshu</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">smax</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="n">w</span><span class="o">/</span><span class="mi">2</span> <span class="ow">and</span> <span class="n">y</span><span class="o">==</span><span class="n">h</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zhengshu</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">num</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id5">
+<h3>1.1.2 第一次选拔训练赛——10.25<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>(<a class="reference external" href="http://182.92.175.181/contest.php?cid=2193">第一次选拔训练赛网址</a>,密码yanjiusheng1025，<a class="reference external" href="http://182.92.175.181/contest.php?cid=2195">第一次选拔训练赛补题网址</a>)</p>
+<p>题目A:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#A**************多行输入，检测到一个输入，就输出一个结果**************************#</span>
+ <span class="kn">import</span> <span class="nn">sys</span>
+ <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+     <span class="n">a</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+     <span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>题目B:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#B*************输入个数，输入多行，输出多行**********************#</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">while</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>题目C:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#C************幂次运算符号记忆错误*****************#</span>
+<span class="c1"># 幂次运算符号是两个乘号</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">line</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+        <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">7</span>
+    <span class="k">if</span> <span class="nb">sum</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Y&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>题目D:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#D***************字符串也是可迭代对象，可以循环取出里面的每一个字符***********#</span>
+<span class="n">sr</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sr</span><span class="p">]</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num</span><span class="p">)):</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="nb">sum</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;YES&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;NO&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>题目E:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#E*************BUCTOJ做题罚时计算*****************#</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">for</span> <span class="n">ti_jiao_ci_shu</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">ti_jiao_ci_shu</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ti_jiao_ci_shu</span><span class="p">)</span>
+    <span class="n">ti_jiao_time</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ti_num</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">ti_jiao_ci_shu</span>
+    <span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">info</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">ti_jiao_time</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ti_num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="c1"># 找到答案正确的题号</span>
+    <span class="n">ac_state_tinum</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">ti_num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ti_jiao_ci_shu</span><span class="p">)</span> <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;AC&quot;</span><span class="p">]))</span>
+
+    <span class="c1"># 对每道正确的题计算罚时</span>
+    <span class="n">pental</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="mi">18</span> <span class="o">*</span> <span class="mi">60</span> <span class="c1"># 按照分钟计算，不用60进制计算时间</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ac_state_tinum</span><span class="p">)):</span>
+        <span class="c1"># 找到该题号正确的时间记录,单位：分钟</span>
+        <span class="n">pass_time</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ti_jiao_time</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">ti_jiao_time</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ti_jiao_ci_shu</span><span class="p">)</span> <span class="k">if</span> <span class="n">ti_num</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">ac_state_tinum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">state</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;AC&quot;</span><span class="p">]</span>
+        <span class="c1"># 找到该题号最早正确的时间,单位：分钟</span>
+        <span class="n">pental</span> <span class="o">+=</span> <span class="nb">min</span><span class="p">(</span><span class="n">pass_time</span><span class="p">)</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="c1"># 在这个时间之前错误提交的罚时</span>
+        <span class="n">error_time</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ti_jiao_time</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">ti_jiao_time</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ti_jiao_ci_shu</span><span class="p">)</span> <span class="k">if</span> <span class="n">ti_num</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">ac_state_tinum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">and</span> <span class="n">state</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;AC&quot;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">error_time</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">pass_time</span><span class="p">):</span>
+                <span class="n">pental</span> <span class="o">+=</span> <span class="mi">20</span>
+
+    <span class="c1"># 转换为小时：分钟字符串输出</span>
+    <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pental</span><span class="o">/</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="n">pental</span> <span class="o">%</span> <span class="mi">60</span>
+    <span class="k">if</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">hour_str</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">hour_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">minute</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">minute_str</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">minute_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">minute</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">hour_str</span><span class="o">+</span><span class="s2">&quot;:&quot;</span><span class="o">+</span><span class="n">minute_str</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>题目F:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#F***********必须改变一个字符能否成为回文串，必须改变 + 判断条件失误*********************#</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">n</span>
+<span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+    <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">str_split</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">letter_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">str_split</span><span class="p">)</span>
+    <span class="n">pair_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">letter_len</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">letter_len</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;YES&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">letter_len</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pair_num</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">str_split</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="n">str_split</span><span class="p">[</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;YES&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;NO&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">pair_num</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">str_split</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">!=</span> <span class="n">str_split</span><span class="p">[</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;YES&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;NO&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>题目G(时间超限):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#G************质数，运行超时***************#</span>
+<span class="c1"># 质数，倒数第四道，运行超时</span>
+<span class="k">def</span> <span class="nf">zs</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">a</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;t&quot;</span>
+
+<span class="n">qq_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">qq_num</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">zs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>Reference:</em></p>
+<p><strong>参考1：</strong> <a class="reference external" href="https://blog.csdn.net/dy416524/article/details/86431057">素数筛</a></p>
+<p>题目H:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#H**************迭代，貌似禁用某某东西,numpy数组越界*******************#</span>
+<span class="c1"># import numpy as np</span>
+<span class="c1"># import sys</span>
+<span class="c1"># for n in sys.stdin:</span>
+<span class="c1">#     n = int(n)</span>
+<span class="c1">#     f_0 = np.math.sin(n)</span>
+<span class="c1">#     for i in range(n):</span>
+<span class="c1">#         f_0 = np.math.sin(f_0)</span>
+<span class="c1">#     print(&quot;{:.6f}&quot;.format(f_0))</span>
+
+<span class="c1"># 调用python自带的sin，忘记python有自带的怎么调用了，在math包里面，结果正确 #</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">f_0</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">f_0</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">f_0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f_0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>题目I(时间超限):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#I**************迭代，时间超限*******************#</span>
+<span class="c1"># import sys,math</span>
+<span class="c1"># for n in sys.stdin:</span>
+<span class="c1">#     n = int(n)</span>
+<span class="c1">#     f_0 = math.cos(n)</span>
+<span class="c1">#     for i in range(n):</span>
+<span class="c1">#         f_0 = math.cos(f_0)</span>
+<span class="c1">#     print(&quot;{:.6f}&quot;.format(f_0))</span>
+
+<span class="c1"># 转换为sin,依然时间超限</span>
+<span class="c1"># import sys,math</span>
+<span class="c1"># for n in sys.stdin:</span>
+<span class="c1">#     n = int(n)</span>
+<span class="c1">#     f_0 = math.cos(n)</span>
+<span class="c1">#     for i in range(n):</span>
+<span class="c1">#         f_0 = math.sin(f_0 + math.pi/2)</span>
+<span class="c1">#     print(&quot;{:.6f}&quot;.format(f_0))</span>
+</pre></div>
+</div>
+<p>题目J:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#J***********最后一道题，太简单了，错过时间没提交上去************#</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
+<span class="n">count</span> <span class="o">=</span> <span class="n">n</span>
+<span class="n">content</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">content</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span> <span class="p">])</span>
+    <span class="n">count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">content</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="restructedtext">
+<h2>1.2 reStructedText语法<a class="headerlink" href="#restructedtext" title="永久链接至标题">¶</a></h2>
+<section id="id9">
+<h3>1.2.1 标题等级<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>最多分6级标题</p></li>
+<li><p>对于相同的符号，有上标是一级标题，没有上标是二级标题。</p></li>
+</ul>
+<p><strong>Reference</strong></p>
+<p><a class="reference external" href="https://regimen.readthedocs.io/zh/latest/books/rst_primer.html">参考1 : reStructuredText(rst)快速入门语法说明</a></p>
+</section>
+<section id="id10">
+<h3>1.2.2 警告及说明<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<ol class="arabic">
+<li><p>Duplicate explicit target name :</p>
+<p><strong>说明：</strong></p>
+<p>链接目标名字相同</p>
+<p><strong>解决方法：</strong></p>
+<ul class="simple">
+<li><p>设置不同的链接名字</p></li>
+<li><p>使用双下划线的匿名参考</p></li>
+<li><p>忽略警告</p></li>
+</ul>
+<p><strong>双下划线的匿名参考说明</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**警告的：**
+
+$ cat details.rst
+-  `Details &lt;https://github.com/signalfx/integrations/tree/release/collectd&gt;`_
+-  `Details &lt;https://github.com/signalfx/integrations/tree/release/collectd-docker&gt;`_
+-  `Details &lt;https://github.com/signalfx/integrations/tree/release/signalfx-metadata&gt;`_
+
+$ rst2html.py details.rst &gt; /dev/null
+details.rst:1: (WARNING/2) Duplicate explicit target name: &quot;details&quot;.
+details.rst:1: (WARNING/2) Duplicate explicit target name: &quot;details&quot;.
+
+**去警告的：**
+
+$ cat details.rst
+-  `Details &lt;https://github.com/signalfx/integrations/tree/release/collectd&gt;`__
+-  `Details &lt;https://github.com/signalfx/integrations/tree/release/collectd-docker&gt;`__
+-  `Details &lt;https://github.com/signalfx/integrations/tree/release/signalfx-metadata&gt;`__
+
+use double underscores ``__`` to make references here!
+
+$ rst2html.py details.rst &gt; /dev/null
+# =&gt; No warnings
+</pre></div>
+</div>
+<p><strong>Reference</strong>：</p>
+<p><a class="reference external" href="https://github.com/sphinx-doc/sphinx/issues/3921">Duplicate explicit target name errors #3921</a></p>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 python篇</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 全国软件大赛</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" title="上一章">第二章 信号分解</a></li>
+      <li>Next: <a href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" title="下一章">第四章 电脑操作</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, xia liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/代码相关_C3.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

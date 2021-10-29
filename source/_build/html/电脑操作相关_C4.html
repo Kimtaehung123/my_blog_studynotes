@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>第四章 电脑操作 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="第三章 python篇" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>第四章 电脑操作<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2>1.1 网站<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>-<strong>编辑器相关</strong></p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/">visual studio code</a></p></li>
+<li><p><a class="reference external" href="https://miktex.org/download">Miktex</a></p></li>
+<li><p><a class="reference external" href="http://strawberryperl.com/">Perl</a></p></li>
+</ol>
+</section>
+<section id="id3">
+<h2>1.2 软件安装<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>-<strong>Mathtype：Word加载项问题</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* 需要把加载项和模板放到STARTUP文件夹中
+* 这个位置在 桌面所在盘:\\Roaming\\Microsoft\\Word\\STARTUP
+* 如，自定义桌面文件夹不在C盘而是G盘的时候，路径为
+  G:\\Roaming\\Microsoft\\Word\\STARTUP
+</pre></div>
+</div>
+<p>-<strong>VSC上预览.tex文件</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* VScode中安装tex插件（LaTex Workshop)——在VScode中方便预览、编译tex文件；
+* Miktex(包含Latexmk和TeXworks编辑器)——LaTeX Workshop的功能依赖于Latexmk；
+* Perl——Latexmk是一种Perl脚本，把LaTex编译器的很多功能一劳永逸地结合在一起，用户避免了从BibTex、术语、交叉引用等独立功能之间频繁切换；
+* 在VSC设置保存的时候更新LaTeX预览PDF
+</pre></div>
+</div>
+<p><em>Reference</em>:</p>
+<p><a class="reference external" href="https://blog.csdn.net/cz2011301070/article/details/107893744">VScode+Miktex配置的本质理解</a></p>
+</section>
+<section id="docker">
+<h2>1.3 docker<a class="headerlink" href="#docker" title="永久链接至标题">¶</a></h2>
+<p>-<strong>初步理解</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* docker是一只鲸鱼，下面的海洋是宿主机，鲸鱼上的集装箱是容器（各种应用）；
+* 诞生是因为协作开发的时候，每个硬件机器上的环境配置总是很难完全一致，导致程序无法在所有的机器上可以运行成功，
+本质上是解决了环境配置问题；
+* 没有系统映射，程序运行在宿主机，比VM需要硬件映射快；
+* 每个容器都有自己的库文件library,各自独立；
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第四章 电脑操作</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1 网站</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2 软件安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">1.3 docker</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html" title="上一章">第三章 python篇</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, xia liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/电脑操作相关_C4.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
