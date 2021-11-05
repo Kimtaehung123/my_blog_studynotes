@@ -314,4 +314,46 @@
 
     `Duplicate explicit target name errors #3921 <https://github.com/sphinx-doc/sphinx/issues/3921>`_
         
+1.2.3 图像
+^^^^^^^^^^^^^^^^^^^^^
 
+`插入图像 <https://docutils.sourceforge.io/docs/ref/rst/directives.html#images>`_
+
+1.2.4 链接及跳转
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+`LZP BLOG <https://longzeping.github.io/2018/08/03/%E5%AE%9E%E7%94%A8reStructuredText%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97/>`_
+
+1.2.5 数学公式
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`reStructuredText Interpreted Text Roles <https://docutils.sourceforge.io/docs/ref/rst/roles.html#standard-roles>`_
+reStructuredText 中支持的数学公式使用 LaTeX 语法.
+
+**Interpreted text roles**::
+
+    Interpreted text roles are an extension mechanism for inline markup in reStructuredText. 
+    Interpreted text uses backquotes (`) around the text. An explicit role marker may optionally appear 
+    before or after the text, delimited with colons. 
+
+    A default role may be defined by applications of reStructuredText; 
+    it is used if no explicit :role: prefix or suffix is given. 
+    The "default default role" is :title-reference:. 
+    It can be changed using the default-role directive.
+
+    A role marker is either a prefix or a suffix to the interpreted text, 
+    whichever reads better; it's up to the author
+    
+    Only pre-determined roles are recognized; unknown roles will generate errors.
+    A core set of standard roles is implemented in the reference parser.
+
+
+.. warning::
+    
+    **内联公式输入,使用 `` 放入数学公式文本的时候，不要在开头和结尾留空格，会导致不能正确渲染。**
+
+    例如：
+        - 在分界符之后使用了一个空格 —— :math:` \alpla`
+        - 在分界符之后使用了一个空格 —— :math:` \alpla`
+        - 不加空格 —— :math:`\alpha`
+    

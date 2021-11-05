@@ -1,15 +1,20 @@
 第四章 电脑操作
 ==================
 
-1.1 网站
+1.1 网站地址
 --------------------
 -**编辑器相关**
 
 1. `visual studio code <https://code.visualstudio.com/>`_
 2. `Miktex <https://miktex.org/download>`_
 3. `Perl <http://strawberryperl.com/>`_
+   
+-**代码学习资源相关**
 
-1.2 软件安装
+1. `github lab <https://lab.github.com/>`_
+2. `腾讯云 <https://cloudstudio.net/>`_
+
+1.2 设置问题
 --------------------
 
 -**Mathtype：Word加载项问题**::
@@ -25,6 +30,12 @@
   * Miktex(包含Latexmk和TeXworks编辑器)——LaTeX Workshop的功能依赖于Latexmk；
   * Perl——Latexmk是一种Perl脚本，把LaTex编译器的很多功能一劳永逸地结合在一起，用户避免了从BibTex、术语、交叉引用等独立功能之间频繁切换；
   * 在VSC设置保存的时候更新LaTeX预览PDF
+
+-**网络连接遇到了代理服务器错误问题**::
+
+  * 经常用一些代理软件就会出现这些代理错误；
+  * 在 电脑设置中搜索代理，手动设置代理，关闭了“使用代理服务器”
+  * 无线网络成功连接
 
 *Reference*:
 

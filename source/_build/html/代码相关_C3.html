@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="第四章 电脑操作" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" />
@@ -347,6 +348,48 @@ $ rst2html.py details.rst &gt; /dev/null
 </li>
 </ol>
 </section>
+<section id="id11">
+<h3>1.2.3 图像<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#images">插入图像</a></p>
+</section>
+<section id="id13">
+<h3>1.2.4 链接及跳转<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://longzeping.github.io/2018/08/03/%E5%AE%9E%E7%94%A8reStructuredText%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97/">LZP BLOG</a></p>
+</section>
+<section id="id14">
+<h3>1.2.5 数学公式<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/roles.html#standard-roles">reStructuredText Interpreted Text Roles</a>
+reStructuredText 中支持的数学公式使用 LaTeX 语法.</p>
+<p><strong>Interpreted text roles</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Interpreted text roles are an extension mechanism for inline markup in reStructuredText.
+Interpreted text uses backquotes (`) around the text. An explicit role marker may optionally appear
+before or after the text, delimited with colons.
+
+A default role may be defined by applications of reStructuredText;
+it is used if no explicit :role: prefix or suffix is given.
+The &quot;default default role&quot; is :title-reference:.
+It can be changed using the default-role directive.
+
+A role marker is either a prefix or a suffix to the interpreted text,
+whichever reads better; it&#39;s up to the author
+
+Only pre-determined roles are recognized; unknown roles will generate errors.
+A core set of standard roles is implemented in the reference parser.
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p><strong>内联公式输入,使用 `` 放入数学公式文本的时候，不要在开头和结尾留空格，会导致不能正确渲染。</strong></p>
+<dl class="simple">
+<dt>例如：</dt><dd><ul class="simple">
+<li><p>在分界符之后使用了一个空格 —— :math:` alpla`</p></li>
+<li><p>在分界符之后使用了一个空格 —— :math:` alpla`</p></li>
+<li><p>不加空格 —— <span class="math notranslate nohighlight">\(\alpha\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
 </section>
 </section>
 
@@ -377,6 +420,8 @@ $ rst2html.py details.rst &gt; /dev/null
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E5%BF%83%E8%AE%B0%E5%BD%95_C6.html">第六章 痕迹当下</a></li>
 </ul>
 
 <div class="relations">
