@@ -6,11 +6,11 @@
 
 **References:**
 
-`NO1: CS294A Lecture notes <http://web.stanford.edu/class/archive/cs/cs294a/cs294a.1104/sparseAutoencoder.pdf>`_
+[`点击跳转 <#N1>`__] `NO1: CS294A Lecture notes <http://web.stanford.edu/class/archive/cs/cs294a/cs294a.1104/sparseAutoencoder.pdf>`_  
 
-`NO2: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器 <https://www.zhihu.com/question/41490383/answer/103006793>`_
+[`点击跳转 <#N2>`__] `NO2: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器 <https://www.zhihu.com/question/41490383/answer/103006793>`_
 
-`NO3: AutoEncoder <https://en.m.wikipedia.org/wiki/Autoencoder#Regularized_autoencoders>`_
+[`点击跳转 <#N3>`__] `NO3: Regularized_autoencoders —— Sparse Autoencoder <https://en.m.wikipedia.org/wiki/Autoencoder#Regularized_autoencoders>`_
 
 -----------------------------------------------------------------
 
@@ -21,6 +21,8 @@
 -------------------------------------------------------
 
 **Contents:** 
+
+.. _N1:
 
 **NO1: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器**::
 
@@ -79,12 +81,14 @@
 .. _降噪自编码器原理图:
 
 .. figure::
-   images\\机器学习\\DAE.png
+   source\\images\\机器学习\\DAE.png
    :align: center
 
    **降噪自编码器原理图**
 
 -------------------------------------------------------------
+
+.. _N2:
 
 **NO2: CS294A Lecture notes_PDF阅读笔记**::
 
@@ -134,7 +138,8 @@
   11. 接下来就是根据  估计期望值  和 预设期望值  之间的差异，决定使 激活值变大还是变小；
   12. 根据一个神经元激活值的 计算公式，想要让激活值变小，可以减小 偏置值，反之则增大，用公式表示偏置更新，即
                        .. math:: b^{(1)}_i := b^{(1)}_i - \alpha\beta(\hat{\rho}_i - \rho)
-
+      也可以根据梯度公式，反向传播更新编码层的所有可训练参数，而不是只有偏置参数。
+      可以使用所有样本的平均值作为 实际稀疏度值，也可以像上述一样使用加权的平均值作为  实际训练过程中的稀疏度值。
   13. **总结：** 使用在线学习学习一个稀疏自编码器，需要3步：前向传递；反向传播；偏置更新。
   14. **可视化自编码器学习到的函数：**
           - 每个隐层单元学习到了什么特征？==什么样的输入会导致隐层单元的最大激活；
@@ -142,6 +147,44 @@
           - (补充；白化是给图像去除冗余的预处理过程，通过使相邻像素变得不相关)
           - 通过一个图像示例，说明了该示例中自编码器的每一个隐层单元试图学习检测图像中不同位置和方向的边缘。
 
+---------------------------------------------------------
+
+.. _N3:
+
 **NO3 : 稀疏自编码器稀疏性实现的方式**::
 
+   - 稀疏是一种语言描述，在机器学习中如何公式量化表示稀疏；
+   - 多种惩罚项的公式可以实现网络趋向于学习稀疏特征；
+  
+a sparsity penalty :math:`\Omega(h)`
+
+code layer :math:`h`
+
+training criterion : :math:`L(x,x')+\Omega(h)`
+
+:math:`h=f(Wx + b)`
+
+**method_1**::
+
+   KL散度（根据隐层激活值计算得到 运行稀疏值，与期望稀疏值之间  计算KL散度）
+
+:math:`\hat{\rho_j}=\frac{1}{m}\sum_{i=1}^m[h_j(x_i)]`
+
+:math:`\sum_{j=1}^s KL(\rho \parallel \hat{\rho_j}) = \sum_{j=1}^s [\rho log \frac{\rho}{\hat{\rho_j}} + (1-\rho) log \frac{1-\rho}{1-\hat{\rho_j}}]`
+  
+**method_2**::
+
+   L1和L2正则化项（对隐层激活值使用L1和L2正则）
+
+:math:`L(x,x') + \lambda \sum_i |h_i|`
+
+**method_3**::
    
+   手动使最大K个值的隐层单元不变，其他隐层单元的值调整为0.(k-sparse autoencoder )
+
+
+.. literalinclude:: SparseAutoEncoder.py
+   :linenos:
+   :language: python
+   :lines: 1-
+

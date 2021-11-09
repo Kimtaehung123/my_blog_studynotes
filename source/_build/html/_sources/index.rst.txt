@@ -15,7 +15,7 @@ Welcome to XIA's BLOG's documentation!
    代码相关_C3
    电脑操作相关_C4
    机器学习_C5
-   心记录_C6
+   
 
 
 Indices and tables

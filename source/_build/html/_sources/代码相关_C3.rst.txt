@@ -357,3 +357,53 @@ reStructuredText 中支持的数学公式使用 LaTeX 语法.
         - 在分界符之后使用了一个空格 —— :math:` \alpla`
         - 不加空格 —— :math:`\alpha`
     
+1.2.6 代码输出
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`代码输出、外部导入代码 <https://self-contained.github.io/reStructuredText/Advance.html#id2>`_ 
+
+导入代码模板::
+
+   .. literalinclude:: SparseAutoEncoder.py
+   :linenos:
+   :language: python
+   :lines: 0-
+
+1.3 Python 常见错误
+----------------------
+
+1.3.1 None类型错误
+^^^^^^^^^^^^^^^^^^^^
+
+列表的extend和append返回值为None，直接extend和append在原始变量上修改
+可以使用“+”合并两个列表
+
+::
+
+    错误——inputs_nums = [seq_length].extend(hidden_nums[:-1]) # 每个自编码器的输入维度
+
+    inputs_nums的值为None，不是拓展之后的列表
+
+    正确——inputs_nums = [seq_length] + hidden_nums[:-1] # 每个自编码器的输入维度
+
+1.3.2 Tensorflow搭建keras模型
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Model(inputs,outputs)
+
+::
+
+    使用Model(inputs,outputs)函数时，注意inputs要一直不变，outputs要一直变
+    （循环叠加相同的层时易出现没有单独留出输入的情况，导致错误）
+
+- TensorFlow的padding——same和valid
+  
+`TensorFlow中padding卷积的两种方式“SAME”和“VALID” <https://blog.csdn.net/syyyy712/article/details/80272071?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen>`_
+
+
+1.4 Python 语法记录
+----------------------------
+
+ .. literalinclude:: Python编程索引集.docx
+     :linenos:
+     :lines: 0-
