@@ -400,10 +400,10 @@ reStructuredText 中支持的数学公式使用 LaTeX 语法.
   
 `TensorFlow中padding卷积的两种方式“SAME”和“VALID” <https://blog.csdn.net/syyyy712/article/details/80272071?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen>`_
 
+1.4 Python编程索引集
+------------------------
 
-1.4 Python 语法记录
-----------------------------
-
- .. literalinclude:: Python编程索引集.docx
-     :linenos:
-     :lines: 0-
+.. literalinclude::Python编程索引集.htm
+   :linenos:
+   :language: python
+   :lines: 0-

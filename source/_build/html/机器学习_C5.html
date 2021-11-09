@@ -39,15 +39,20 @@
 <section id="id2">
 <h2>5.1 稀疏自编码器<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <p><strong>References:</strong></p>
-<p>[<a class="reference external" href="#N1">点击跳转</a>] <a class="reference external" href="http://web.stanford.edu/class/archive/cs/cs294a/cs294a.1104/sparseAutoencoder.pdf">NO1: CS294A Lecture notes</a></p>
-<p>[<a class="reference external" href="#N2">点击跳转</a>] <a class="reference external" href="https://www.zhihu.com/question/41490383/answer/103006793">NO2: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器</a></p>
-<p>[<a class="reference external" href="#N3">点击跳转</a>] <a class="reference external" href="https://en.m.wikipedia.org/wiki/Autoencoder#Regularized_autoencoders">NO3: Regularized_autoencoders —— Sparse Autoencoder</a></p>
+<p><a class="reference external" href="http://web.stanford.edu/class/archive/cs/cs294a/cs294a.1104/sparseAutoencoder.pdf">[1]CS294A Lecture notes</a></p>
+<p><a class="reference external" href="https://www.zhihu.com/question/41490383/answer/103006793">[2]一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器</a></p>
+<p><a class="reference external" href="https://en.m.wikipedia.org/wiki/Autoencoder#Regularized_autoencoders">[3]Regularized_autoencoders —— Sparse Autoencoder</a></p>
 <hr class="docutils" />
-<p><strong>Pictures:</strong></p>
-<p><a class="reference internal" href="#id3">降噪自编码器原理图</a></p>
+<p><strong>ContentJumpTo:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id4">降噪自编码器原理图</a></p></li>
+<li><p><a class="reference internal" href="#no1">NO1</a></p></li>
+<li><p><a class="reference internal" href="#no2">NO2</a></p></li>
+<li><p><a class="reference internal" href="#no3">NO3</a></p></li>
+</ul>
 <hr class="docutils" />
 <p><strong>Contents:</strong></p>
-<p id="n1"><strong>NO1: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器</strong>:</p>
+<p id="no1"><strong>NO1: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. 自编码器
    - 如果编码和解码的函数是恒等映射，那么自编码器相当于没有学习到任何新的东西，自始至终只有输入信息；
    - 基于上一点，为了防止恒等映射的发生，我们经常对中间信号（编码）做一定的约束，这样系统能学到一些有用的编码；
@@ -99,14 +104,14 @@
      believe that we still have a lot to improve in terms of our unsupervised learning algorithms.
 </pre></div>
 </div>
-<figure class="align-center" id="id4">
-<span id="id3"></span><img alt="source/images/机器学习/DAE.png" src="source/images/机器学习/DAE.png" />
+<figure class="align-center" id="id5">
+<span id="id4"></span><img alt="source/images/机器学习/DAE.png" src="source/images/机器学习/DAE.png" />
 <figcaption>
-<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id4" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
-<p id="n2"><strong>NO2: CS294A Lecture notes_PDF阅读笔记</strong>:</p>
+<p id="no2"><strong>NO2: CS294A Lecture notes_PDF阅读笔记</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="n">Introduction</span>
 <span class="mf">2.</span><span class="n">Neural</span> <span class="n">Networks</span><span class="p">(</span><span class="mf">2.1</span> <span class="n">neural</span> <span class="n">network</span> <span class="n">formulation</span><span class="p">;</span><span class="mf">2.2</span> <span class="n">backpropagation</span> <span class="n">algorithm</span><span class="p">)</span>
 <span class="mf">3.</span><span class="n">AutoEncoders</span> <span class="ow">and</span> <span class="n">sparsity</span>
@@ -178,7 +183,7 @@
 </li>
 </ul>
 <hr class="docutils" />
-<p id="n3"><strong>NO3 : 稀疏自编码器稀疏性实现的方式</strong>:</p>
+<p id="no3"><strong>NO3 : 稀疏自编码器稀疏性实现的方式</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- 稀疏是一种语言描述，在机器学习中如何公式量化表示稀疏；
 - 多种惩罚项的公式可以实现网络趋向于学习稀疏特征；
 </pre></div>

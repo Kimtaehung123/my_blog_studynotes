@@ -6,23 +6,27 @@
 
 **References:**
 
-[`点击跳转 <#N1>`__] `NO1: CS294A Lecture notes <http://web.stanford.edu/class/archive/cs/cs294a/cs294a.1104/sparseAutoencoder.pdf>`_  
+`[1]CS294A Lecture notes <http://web.stanford.edu/class/archive/cs/cs294a/cs294a.1104/sparseAutoencoder.pdf>`_  
 
-[`点击跳转 <#N2>`__] `NO2: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器 <https://www.zhihu.com/question/41490383/answer/103006793>`_
+`[2]一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器 <https://www.zhihu.com/question/41490383/answer/103006793>`_
 
-[`点击跳转 <#N3>`__] `NO3: Regularized_autoencoders —— Sparse Autoencoder <https://en.m.wikipedia.org/wiki/Autoencoder#Regularized_autoencoders>`_
+`[3]Regularized_autoencoders —— Sparse Autoencoder <https://en.m.wikipedia.org/wiki/Autoencoder#Regularized_autoencoders>`_
 
 -----------------------------------------------------------------
 
-**Pictures:**
+**ContentJumpTo:**
 
-降噪自编码器原理图_ 
+- 降噪自编码器原理图_ 
+- NO1_
+- NO2_
+- NO3_
+
 
 -------------------------------------------------------
 
 **Contents:** 
 
-.. _N1:
+.. _NO1:
 
 **NO1: 一文看懂自编码器、堆叠自编码器、稀疏自编码器、降噪自编码器**::
 
@@ -88,7 +92,7 @@
 
 -------------------------------------------------------------
 
-.. _N2:
+.. _NO2:
 
 **NO2: CS294A Lecture notes_PDF阅读笔记**::
 
@@ -149,7 +153,7 @@
 
 ---------------------------------------------------------
 
-.. _N3:
+.. _NO3:
 
 **NO3 : 稀疏自编码器稀疏性实现的方式**::
 
