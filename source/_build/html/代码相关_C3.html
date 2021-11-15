@@ -350,11 +350,27 @@ $ rst2html.py details.rst &gt; /dev/null
 </section>
 <section id="id11">
 <h3>1.2.3 图像<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>插入图像示例：（图像路径，对齐方式，图像标注）
+.. figure::
+   images\\机器学习\\DAE.png
+   :align: center
+
+   **降噪自编码器原理图**
+
+以上示例中，第二行的路径，如果是相对路径，是当前文档相对于图像文件的相对路径，这个路径有问题的画，图片不会显示。
+</pre></div>
+</div>
 <p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#images">插入图像</a></p>
 </section>
 <section id="id13">
 <h3>1.2.4 链接及跳转<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
-<p><a class="reference external" href="https://longzeping.github.io/2018/08/03/%E5%AE%9E%E7%94%A8reStructuredText%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97/">LZP BLOG</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>1. 普通超链接举例：`LZP BLOG &lt;https://longzeping.github.io/2018/08/03/%E5%AE%9E%E7%94%A8reStructuredText%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97/&gt;`_
+2. 锚点跳转：首先使用 .. _降噪自编码器原理图:   加上回车换行   来定义锚点，使用  降噪自编码器原理图_   来定义跳转到锚点。
+注意：引用锚点的时候，锚点名称前面需要加空格。
+3.链接到目录中的PDF文档，使用相对位置 放到  一般链接位置的地方即可，例如：
+`Condition Monitoring of Bearing Damage in Electromechanical Drive Systems by Using Motor Current Signals of Electric Motors: A Benchmark Data Set for Data-Driven Classification &lt;Condition Monitoring of Bearing Damage in Electromechanical Drive Systems by Using Motor Current Signals of Electric Motors.pdf&gt;`_
+</pre></div>
+</div>
 </section>
 <section id="id14">
 <h3>1.2.5 数学公式<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
@@ -401,9 +417,19 @@ A core set of standard roles is implemented in the reference parser.
 </pre></div>
 </div>
 </section>
-</section>
 <section id="id17">
-<h2>1.3 Python 常见错误<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+<h3>1.2.7 引用另一个文件中的数据<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">include</span><span class="p">::</span> <span class="n">文献阅读笔记</span>\\<span class="n">CvT</span><span class="o">-</span><span class="n">Introducing</span> <span class="n">Convolutions</span> <span class="n">to</span> <span class="n">Vision</span> <span class="n">Transformers</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>reStructedText的指令双冒号后面一定要有一个空格，否则解析不出来</p>
+</div>
+</section>
+</section>
+<section id="id18">
+<h2>1.3 Python 常见错误<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
 <section id="none">
 <h3>1.3.1 None类型错误<a class="headerlink" href="#none" title="永久链接至标题">¶</a></h3>
 <p>列表的extend和append返回值为None，直接extend和append在原始变量上修改
@@ -431,8 +457,39 @@ inputs_nums的值为None，不是拓展之后的列表
 <p><a class="reference external" href="https://blog.csdn.net/syyyy712/article/details/80272071?utm_source=app&amp;app_version=4.17.2&amp;code=app_1562916241&amp;uLinkId=usr1mkqgl919blen">TensorFlow中padding卷积的两种方式“SAME”和“VALID”</a></p>
 </section>
 </section>
-<section id="id18">
-<h2>1.4 Python编程索引集<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<section id="id19">
+<h2>1.4 Python编程索引集<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>生成目录树，方便快速理解一个项目的文件结构:
+Windows系统：<code class="code docutils literal notranslate"><span class="pre">tree</span> <span class="pre">/F</span> <span class="pre">&quot;E:\Programming\Python\DesignPattern&quot;</span> <span class="pre">&gt;</span> <span class="pre">dirtree.txt</span></code>,
+其中，<code class="code docutils literal notranslate"><span class="pre">/F</span></code>  参数设置显示文件夹和文件的目录结构，<code class="code docutils literal notranslate"><span class="pre">&quot;E:\Programming\Python\DesignPattern&quot;</span></code> 是目标文件夹，
+<code class="code docutils literal notranslate"><span class="pre">dirtree.txt</span></code> 是最终生成的目录树保存的路径。
+Linux系统： 没有权限安装tree，使用如下的python代码生成目录树：</p>
+<p><strong>generate tree.py</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">tree_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">def</span> <span class="nf">generate_tree</span><span class="p">(</span><span class="n">pathname</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">tree_str</span>
+    <span class="k">if</span> <span class="n">pathname</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+        <span class="n">tree_str</span> <span class="o">+=</span> <span class="s1">&#39;    |&#39;</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">pathname</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="k">elif</span> <span class="n">pathname</span><span class="o">.</span><span class="n">is_dir</span><span class="p">():</span>
+        <span class="n">tree_str</span> <span class="o">+=</span> <span class="s1">&#39;    |&#39;</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> \
+            <span class="nb">str</span><span class="p">(</span><span class="n">pathname</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">pathname</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="k">for</span> <span class="n">cp</span> <span class="ow">in</span> <span class="n">pathname</span><span class="o">.</span><span class="n">iterdir</span><span class="p">():</span>
+            <span class="n">generate_tree</span><span class="p">(</span><span class="n">cp</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/home/u2020200708/SparseAE/DenseSparseAE_L1L2&#39;</span>
+    <span class="n">generate_tree</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tree_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>使用模型预测一个输入样本的输出，注意 <code class="code docutils literal notranslate"><span class="pre">原始样本形状为（1200，）时，应该使用numpy.reshape变形为带有批量维度的形状，即（1，1200）,否则会报错</span></code> 。
+在使用matplotlib.pyplot.plot画图时，注意 <code class="code docutils literal notranslate"><span class="pre">画图x形状为（1，1200）时，应该改为（1200，）</span></code>。</p></li>
+<li></li>
+</ol>
 </section>
 </section>
 
@@ -460,12 +517,14 @@ inputs_nums的值为None，不是拓展之后的列表
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 python篇</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">1.1 全国软件大赛</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id17">1.3 Python 常见错误</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">1.4 Python编程索引集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">1.4 Python编程索引集</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
 </ul>
 
 <div class="relations">

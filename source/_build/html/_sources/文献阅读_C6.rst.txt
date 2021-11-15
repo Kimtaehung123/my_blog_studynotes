@@ -1,0 +1,12 @@
+第六章 文献阅读笔记
+=======================
+
+6.1 X-Transformers in CV
+----------------------------
+
+6.1.1 CvT:Introducing Convolutions to Vision Transformers 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. include:: 文献阅读笔记\\CvT-Introducing Convolutions to Vision Transformers.rst
+
+

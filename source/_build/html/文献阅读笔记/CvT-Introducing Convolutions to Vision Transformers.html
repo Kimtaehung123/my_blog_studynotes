@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <p>&#64;microsoft.com</p>
+<p><strong>Abstract</strong>:</p>
+<ul class="simple">
+<li><p>在性能和效率上改进Vision Transformer(ViT)</p></li>
+<li><p>结合ViT和卷积，结合两者的优点，产生最佳的模型</p></li>
+<li><p>主要通过两步：step1-包含 <code class="code docutils literal notranslate"><span class="pre">卷积符号嵌入convolutional</span> <span class="pre">token</span> <span class="pre">embedding</span></code> 的Transformer层级结构；
+step2-利用卷积映射的卷积Transformer块。</p></li>
+<li><p>卷积网络的特点（平移、伸缩、扭曲不变性）；Transformer的优点（动态注意力、全局上下文、更好的泛化能力）</p></li>
+<li><p>模型、参数量、浮点计算次数等方面验证所提方法的有效性；此外，采用预训练-微调方法性能也是好的；最后，在ViT中的位置编码可以在所提模型中移除，简化了对高分辨率视觉图像任务的设计。</p></li>
+</ul>
+<p><strong>Introduction</strong>：</p>
+<ul class="simple">
+<li><p>ViT是第一个仅依赖Transformer架构，在大尺度数据集上获得了较强的图像分类性能；</p></li>
+<li><p>ViT把图像分成不重叠的块（类似NLP中的符号token），再叠加特殊的位置编码信息表示粗粒度的空间信息，最后输入到重复的标准Transformer层中，对分类任务建立全局联系建模；</p></li>
+<li><p>在小样本数据上，ViT的性能仍低于相似尺寸的卷积网络。</p></li>
+</ul>
+<p><strong>Related Work</strong>:</p>
+<ul class="simple">
+<li><p>Vision Transformer</p></li>
+<li><p>Introducing Self-attentiions to CNNs</p></li>
+<li><p>Introducing Convolutions to Transformers</p></li>
+</ul>
+<p><strong>Convolutional vision Transformer</strong>:</p>
+<ul class="simple">
+<li><p>Convolutional Token Embedding</p></li>
+<li><dl class="simple">
+<dt>Convolutional Projection for Attention</dt><dd><ul>
+<li><p>Implementation Details</p></li>
+<li><p>Efficiency Considerations</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Methodological Discussions</dt><dd><ul>
+<li><p>Removing Positional Embeddings</p></li>
+<li><p>Relations to Concurrent Work</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Experiments</strong>:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Setup</dt><dd><ul>
+<li><p>Model Variants</p></li>
+<li><p>Training</p></li>
+<li><p>Fine-tuning</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Comparison to state of the art</p></li>
+<li><p>Downstream task transfer</p></li>
+<li><dl class="simple">
+<dt>Ablation Study</dt><dd><ul>
+<li><p>Removing Position Embedding</p></li>
+<li><p>Convolutional Token Embedding</p></li>
+<li><p>Convolution Projection</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Conclusion</strong>:</p>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">XIA's BLOG</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, xia liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/文献阅读笔记/CvT-Introducing Convolutions to Vision Transformers.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
