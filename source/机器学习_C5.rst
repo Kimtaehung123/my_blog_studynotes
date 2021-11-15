@@ -85,7 +85,7 @@
 .. _降噪自编码器原理图:
 
 .. figure::
-   ./images/机器学习/DAE.png
+   _static\\images\\机器学习\\DAE.png
    :align: center
 
    **降噪自编码器原理图**
@@ -187,7 +187,7 @@ training criterion : :math:`L(x,x')+\Omega(h)`
    手动使最大K个值的隐层单元不变，其他隐层单元的值调整为0.(k-sparse autoencoder )
 
 
-.. literalinclude:: SparseAutoEncoder.py
+.. literalinclude:: DenseSparseAE.py
    :linenos:
    :language: python
    :lines: 1-
