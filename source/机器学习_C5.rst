@@ -85,7 +85,7 @@
 .. _降噪自编码器原理图:
 
 .. figure::
-   images\\机器学习\\DAE.png
+   \\images\\机器学习\\DAE.png
    :align: center
 
    **降噪自编码器原理图**
