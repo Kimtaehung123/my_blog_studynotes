@@ -1,4 +1,4 @@
 第七章 数据集介绍说明
 =======================
 
-.. include:: 数据集介绍说明\paderborn university轴承数据集\paderborn university轴承数据说明.rst
+.. include:: _static\images\数据集介绍说明\paderborn university轴承数据集\paderborn university轴承数据说明.rst

@@ -17,6 +17,7 @@ Welcome to XIA's BLOG's documentation!
    机器学习_C5
    文献阅读_C6
    数据集_C7
+   期刊信息_C8
    
 
 

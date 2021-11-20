@@ -317,6 +317,10 @@
 1.2.3 图像
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. warning::
+
+    图像等文件放在source的_static目录下，sphinx在生成网页的时候会自动链接到这里。
+
 ::
 
     插入图像示例：（图像路径，对齐方式，图像标注）
@@ -461,4 +465,68 @@ reStructuredText 中支持的数学公式使用 LaTeX 语法.
 2. 使用模型预测一个输入样本的输出，注意 :code:`原始样本形状为（1200，）时，应该使用numpy.reshape变形为带有批量维度的形状，即（1，1200）,否则会报错` 。
    在使用matplotlib.pyplot.plot画图时，注意 :code:`画图x形状为（1，1200）时，应该改为（1200，）`。
 
-3. 
+3. 计算模型的浮点运算次数和参数量，用于比较模型之间的性能差异。`pytorch计算模型FLOPs和Params <https://zhuanlan.zhihu.com/p/337810633>`_
+   pip install ptflops 或者 pip install thop
+4. TorchVision `TorchVision <https://zhuanlan.zhihu.com/p/145810572>`_ 
+   
+   ::
+       
+       很多基于Pytorch的工具集都非常好用，比如处理自然语言的torchtext，处理音频的torchaudio，以及处理图像视频的torchvision。
+       torchvision包含一些常用的数据集、模型、转换函数等等。
+       当前版本0.5.0包括图片分类、语义切分、目标识别、实例分割、关键点检测、视频分类等工具。
+
+5. `一个好用的预训练库timm(PyTorch) <https://zhuanlan.zhihu.com/p/377060514>`_ 
+   
+   ::
+
+       timm is a deep-learning library created by Ross Wightman and is a collection of SOTA computer vision models, 
+       layers, utilities, optimizers, schedulers, data-loaders, augmentations 
+       and also training/validating scripts with ability to reproduce ImageNet training results.
+6. yaml等配置文件，方便管理
+7. `PyTorch 70.einops：优雅地操作张量维度 <https://zhuanlan.zhihu.com/p/342675997>`_ 
+   通过灵活而强大的张量操作符为你提供易读并可靠的代码。支持 numpy、pytorch、tensorflow 等等。
+8. `yacs的使用小记 <https://zhuanlan.zhihu.com/p/366289700>`_
+   
+   ::
+
+       A simple experiment configuration system for research.
+       yacs是作为一个轻量级库创建的，用于定义和管理系统配置，比如那些通常可以在为科学实验设计的软件中找到的配置。
+       这些“配置”通常包括用于训练机器学习模型的超参数或可配置模型超参数(如卷积神经网络的深度)等概念。
+       由于您正在进行科学研究，所以再现性是最重要的，因此您需要一种可靠的方法来序列化实验配置。
+       YACS使用YAML作为一种简单的、人类可读的序列化格式。
+       范例是:你的代码+实验E的yacs配置(+外部依赖+硬件+其他讨厌的术语…)=可重复的实验E。
+       虽然你不能控制一切，但至少你可以控制你的代码和你的实验配置。
+
+   需要创建CN()这个作为容器来装载我们的参数，这个容器可以嵌套::
+
+        from yacs.config import CfgNode as CN
+        __C = CN()
+        __C.name = 'test'
+        __C.model = CN()  # 嵌套使用
+        __C.model.backbone = 'resnet'
+        __C.model.depth = 18
+
+        print(__C)  
+        '''
+        name: test
+        model:
+            backbone: resnet
+            depth: 18
+        '''
+
+
+9.  `PyYAML <https://zhuanlan.zhihu.com/p/42678768>`
+    `Python模块之pyyaml <https://zhuanlan.zhihu.com/p/365653069>`_
+
+    简介::
+
+        YAML("Yet Another Markup Language")是一种标记性语言，可读性高，用来表达数据序列化的格式。
+        使用缩进表示层级关系，用来写项目配置文件，非常简洁和强大。
+
+10. `OpenCV-Python，计算机视觉开发利器 <https://zhuanlan.zhihu.com/p/49957946>`_
+    
+    ::
+
+        OpenCV 基于 C++ 编写，但提供了 Python、Ruby、MATLAB 等多种语言接口。
+        这对于习惯使用 Python 开发的人工智能从业者来说非常方便。
+
