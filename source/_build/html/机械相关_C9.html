@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>第九章 机械 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="第十章 琐碎" href="%E7%90%90%E7%A2%8E_C10.html" />
+    <link rel="prev" title="第八章 期刊信息" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>第九章 机械<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2>5.1 滚动轴承<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>滚动轴承接触角都是0°</p></li>
+<li><p>轴承节径应该是滚子中心线形成的直径，等于（内直径+外直径)/2.</p></li>
+<li><p>计算故障特征频率需要知道  滚子直径 <span class="math notranslate nohighlight">\(BD\)</span>、节径 <span class="math notranslate nohighlight">\(PD\)</span> （pitch diameter内外径均值）、滚动体个数 <span class="math notranslate nohighlight">\(n\)</span> 、接触角 <span class="math notranslate nohighlight">\(\phi\)</span>、转轴转速 <span class="math notranslate nohighlight">\(f\)</span></p></li>
+<li><p>轴承形状尺寸主要参数如下图。</p></li>
+</ol>
+<figure class="align-center" id="id5">
+<img alt="_images/节径定义.png" src="_images/节径定义.png" />
+<figcaption>
+<p><span class="caption-text"><strong>轴承节径</strong></span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id6">
+<img alt="_images/轴承主要参数.png" src="_images/轴承主要参数.png" />
+<figcaption>
+<p><span class="caption-text"><strong>轴承形状尺寸</strong></span><a class="headerlink" href="#id6" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>轴承故障特征频率计算公式如下图：</p></li>
+</ol>
+<figure class="align-center" id="id7">
+<img alt="_images/轴承故障特征频率计算公式.jpg" src="_images/轴承故障特征频率计算公式.jpg" />
+<figcaption>
+<p><span class="caption-text"><strong>轴承故障特征频率计算公式</strong></span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="5">
+<li><p>接触角定义如下图：</p>
+<p>定义是： 内外圈与滚动体接触的法线与 和轴向垂直的平面的夹角。</p>
+</li>
+</ol>
+<figure class="align-center" id="id8">
+<img alt="_images/接触角定义.png" src="_images/接触角定义.png" />
+<figcaption>
+<p><span class="caption-text"><strong>接触角定义</strong></span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id3">
+<h2>5.2 一些网址<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://www.nsk.com">NSK官网</a></p></li>
+<li><p><a class="reference external" href="https://www.skf.com">SKF官网</a></p></li>
+<li><p><a class="reference external" href="http://webtools3.skf.com/engcalc/CalcBearingFrequencies.do">输入轴承尺寸相关参数计算故障特征频率</a></p>
+<p>示例如图(左边是输入的参数，右边是输出的值，包括了内外圈滚动体的故障特征频率，对于左边输入不清楚的部分，可以点击 详情的！号查看输入帮助)：</p>
+<ul class="simple">
+<li><p>图中使用了SKF 6205的深沟球轴承 几何参数进行实验，结构正确；</p></li>
+<li><p>需要注意几何尺寸的单位（一般是英寸或者毫米）`在线网页长度尺寸转换 &lt;<a class="reference external" href="https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;tn=15007414_pg&amp;wd=%E8%8B%B1%E5%AF%B8%E6%8D%A2%E7%AE%97%E6%88%90%E6%AF%AB%E7%B1%B3&amp;oq=%25E8%258B%25B1%25E5%25AF%25B8%25E6%258D%25A2%25E7%25AE%2597%25E6%2588%2590%25E6%25AF%25AB%25E7%25B1%25B3&amp;rsv_pq=ae7e574b000076ae&amp;rsv_t=d614h2DoeJlo1Ev7WKxsDE6IvaquErLFNTjc3kif0dr4NIrf4ppBtwfVtc0fhoOw%2Ftk&amp;rqlang=cn&amp;rsv_dl=tb&amp;rsv_enter=0&amp;rsv_sug3=1&amp;rsv_sug1=1&amp;rsv_sug7=100&amp;rsv_btype=t&amp;rsv_sug4=1734">https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;tn=15007414_pg&amp;wd=%E8%8B%B1%E5%AF%B8%E6%8D%A2%E7%AE%97%E6%88%90%E6%AF%AB%E7%B1%B3&amp;oq=%25E8%258B%25B1%25E5%25AF%25B8%25E6%258D%25A2%25E7%25AE%2597%25E6%2588%2590%25E6%25AF%25AB%25E7%25B1%25B3&amp;rsv_pq=ae7e574b000076ae&amp;rsv_t=d614h2DoeJlo1Ev7WKxsDE6IvaquErLFNTjc3kif0dr4NIrf4ppBtwfVtc0fhoOw%2Ftk&amp;rqlang=cn&amp;rsv_dl=tb&amp;rsv_enter=0&amp;rsv_sug3=1&amp;rsv_sug1=1&amp;rsv_sug7=100&amp;rsv_btype=t&amp;rsv_sug4=1734</a>&gt;`_</p></li>
+<li></li>
+</ul>
+</li>
+</ol>
+<figure class="align-center" id="id9">
+<img alt="_images/SKF_Engineering_Calculator.png" src="_images/SKF_Engineering_Calculator.png" />
+<figcaption>
+<p><span class="caption-text"><strong>SKF Engineering Calculator</strong></span><a class="headerlink" href="#id9" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id10">
+<img alt="_images/CWRU_skf6205轴承尺寸参数及公式计算的故障特征频率.png" src="_images/CWRU_skf6205轴承尺寸参数及公式计算的故障特征频率.png" />
+<figcaption>
+<p><span class="caption-text"><strong>CWRU_skf6205轴承尺寸参数及公式计算的故障特征频率</strong></span><a class="headerlink" href="#id10" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第九章 机械</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1 滚动轴承</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">5.2 一些网址</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html" title="上一章">第八章 期刊信息</a></li>
+      <li>Next: <a href="%E7%90%90%E7%A2%8E_C10.html" title="下一章">第十章 琐碎</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, xia liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/机械相关_C9.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

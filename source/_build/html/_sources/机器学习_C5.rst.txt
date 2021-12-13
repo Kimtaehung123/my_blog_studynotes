@@ -192,3 +192,96 @@ training criterion : :math:`L(x,x')+\Omega(h)`
    :language: python
    :lines: 1-
 
+
+5.2 swin Transformer
+-------------------------
+
+`屠榜各大CV任务！Swin Transformer：层次化视觉Transformer <https://zhuanlan.zhihu.com/p/360225583>`_
+`swin transformer理解要点 <https://www.jianshu.com/p/0635969f478b>`_
+
+- 文本单词和视觉图片之间的差异，针对差异和问题对症下药；
+- 自注意力是局部的非重叠窗口内部计算的，允许跨窗口连接（窗口融合，patch减小，特征维度变大），移位的窗口方案带来了更高的效率；
+- 分层的体系结构，能在各种尺度上建模，并且相对于图像大小具有线性计算复杂度。
+- 图像领域中的low-resolution feature maps 
+- (additional tip) 增加分辨率的方法-upsampling or deconvolution
+- downsampling of resoulution,指的就是特征融合（如卷积中的输出神经元减少，在基于Transformer的背景下是token的减少）
+- 可以表述为 ： Transformer用于feature transformation特征转换
+- Transformer模块没有改变token的数量和特征维度；只有线性映射层linear layer在改变特征维度；patch merging layer块融合层在改变token数量，即分辨率
+- modeling power 建模能力
+- 又要保持non-overlapping 窗的高效计算，又要引入cross-window connections
+- alternate交换-轮替
+- **！！！重点**
+
+**1. Shifted window partitioning in successive blocks:**
+
+The window-based self-attention module lacks connections across windows,
+which limits its modeling power. To introduce cross-window connections while maintaining 
+the efficient computation of non-overlapping windows ,we propose **a shifted window partitioning approach 
+which alternates between two partitioning configurations in consecrtive Swin Transformer blocks**.
+
+移动窗分区方法 是 一种 在两种分区配置  之间切换的方法，在连续的Swin Transformer blocks上。
+
+即分区配置只有两种，是提前设计好的，是为了保证 小窗格内部的局部自注意力计算，同时进行小窗格之间的联系，以此增强模型的建模能力。
+
+**2. swin Transformer中的shifted window变换来的方法**
+
+在regular window 的基础上，向右向下移动一定的像素数
+
+**原文是：
+Then,the next module adopts a windowing configuration that is shifted from that of the preceding layer,
+by displacing the windows by** :math:`(\lfloor \frac{M}{2} \rfloor , \lfloor \frac{M}{2} \rfloor)` **pixels from the rergularly partitioned windows.**
+
+**3. 移动窗使得窗口数量变多 & 一些窗口的尺寸变小——针对这个问题的解决方案（efficient batch computation for shifted configuration）**
+
+**原文是：
+An issue with shifted window partitioning is that it willl result in more windows,from** 
+:math:`\lceil \frac{h}{M} \rceil \times \lceil \frac{w}{M} \rceil` **to** :math:`(\lceil \frac{h}{M} \rceil + 1) \times (\lceil \frac{w}{M} \rceil + 1)`
+**in the shifted configuration, and some of the windows will be smaller than** :math:`M \times M` 
+
+**A naive solution is to pad the smaller windows to a size of** :math:`M \times M` **and mask out the padded values when computing attention.**
+**简单的方法就是把小窗口填充，计算注意力的时候遮盖掉填充的值，但是这个方法的计算量相当大，是原来的规则窗口的好几倍，例如**
+:math:`2 \times 2 \to 3 \times 3`, **大了2.25倍**
+
+**在实际代码里，是通过对特征图移位，并给attention设置mask来间接实现的；在保持原有的window个数下，等价计算出结果。** 
+
+源码使用的特征图移位操作使用了 :code:`torch.roll` 来实现；移位操作就像是所有的块朝着  top-left 方向移动（先朝top方向移动，再朝left方向移动）；
+反移位操作就是反着方向进行 :code:`torch.roll`.
+
+**~~~精华~~~怎么保证所提的固定窗口计算cross-window方法（4个窗） 与  原始的移位窗计算方法（9个窗）是等价的**
+
+`图解Swin Transformer <https://zhuanlan.zhihu.com/p/367111046>`_
+
+
+因为swin-transformer的自注意力计算是在 窗口内的，所以非窗口内的自注意力计算应该忽略掉，如下图所示：
+
+.. figure::
+   _static\\images\\机器学习\\swin-transformer-shifted-window.png 
+   :align: center 
+
+上图中的红色窗格是局部窗，只计算这个局部窗格里面的注意力，左图是原始的shifted window，有9个窗格，比原始的regular partitioning window多了5个窗格，
+增加了计算复杂度；因此提出了使用cyclic shift得到的右图计算 等价的注意力。具体的等价原理参考下图。
+
+.. figure::
+   _static\\images\\机器学习\\swin-transformer-efficient-batch-computation-for-shifted-configuration.jpg
+   :align: center 
+
+使用0-8对9个shifted partitioning window 得到的窗格编号，由于设计本质就是窗格内部计算局部的注意力，所以等价的窗格分割也应该只保留窗格内部的注意力计算值，
+而忽略窗格之间的注意力计算值，如上图所示，即给窗格之间互注意力的位置加上mask。
+
+**the number of patches in a window == the number of tokens in a window**
+
+**tip:实数空间** :math:`\Re` **右上角表示的是空间每个维度的尺寸，用** :math:`\times` **分隔开来**,
+如 :math:`\Re^{M^2 \times d}` 表示空间是一个二维空间，第一维的长度为 :math:`M^2` ,第二维的长度为 :math:`d`
+
+
+**相对位置编码——relative position bias——使不同的位置为坐标原点，可以得到同一个位置的不同坐标值**
+**absolute position embedding**
+
+including a relative position bias :math:`B \in \Re^{M^2 \times M^2}` to each head in computing similarity:
+
+:math:`Attention(Q,K,V) = SoftMax(QK^T / \sqrt{d} + B)V`
+
+where :math:`Q,K,V \in \Re^{M^2 \times d}` are the query,key and value matrices;d is the query/key dimension,and :math:`M^2` is the number of patches in a window.
+Since the relative position along each axis lies in the range :math:`[-M+1,M-1]`,we parameterize a smaller-sized bias matrix :math:`\hat{B} \in \Re^{(2M-1) \times (2M-1))}`
+and values in B are taken from :math:`\hat{B}`
+

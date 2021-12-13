@@ -14,6 +14,10 @@
 1. `github lab <https://lab.github.com/>`_
 2. `腾讯云 <https://cloudstudio.net/>`_
 
+-**官网**
+
+1. `Java API 文档下载 <https://www.oracle.com/java/technologies/javase-jdk17-doc-downloads.html>`_
+
 1.2 设置问题
 --------------------
 
@@ -53,3 +57,19 @@
   * 没有系统映射，程序运行在宿主机，比VM需要硬件映射快；
   * 每个容器都有自己的库文件library,各自独立；
   
+1.4 shell相关
+---------------------------------
+
+1. `linux脚本解释,shell 脚本中的注释详解 <https://blog.csdn.net/weixin_39852688/article/details/116627581>`_
+   
+   单行注释使用 :code:`#` 号，多行注释有多种方法，如开头使用 :code:`:<` ，结尾输入 :code:`eof`
+
+
+1.5 office软件相关
+--------------------------
+
+1. 在OneNote中插入latex公式
+
+`LaTeX in PowerPoint and OneNote <https://docs.microsoft.com/zh-cn/archive/blogs/murrays/latex-math-in-office#latex-in-powerpoint-and-onenote>`_
+`在OneNote种使用Latex命令愉快地敲出数学公式 <https://blog.csdn.net/qq_15654993/article/details/82891480>`_
+

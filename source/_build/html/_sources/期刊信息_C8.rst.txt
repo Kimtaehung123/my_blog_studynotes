@@ -1,5 +1,5 @@
 第八章 期刊信息
 ===================
 
-- `Ieee Transactions on Industrial Electronics <http://www.letpub.com.cn/index.php?journalid=3391&page=journalapp&view=detail>`_
-- 
+- `Ieee Transactions on Industrial Electronics(1区) <http://www.letpub.com.cn/index.php?journalid=3391&page=journalapp&view=detail>`_
+- `IEEE SIGNAL PROCESSING LETTERS(3区) <https://www.letpub.com.cn/index.php?journalid=3353&page=journalapp&view=detail>`_

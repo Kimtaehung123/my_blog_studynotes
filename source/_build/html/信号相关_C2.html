@@ -14,6 +14,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="第三章 python篇" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html" />
@@ -37,7 +38,44 @@
   <section id="id1">
 <h1>第二章 信号分解<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <section id="id2">
-<h2>2.1 冗余字典稀疏分解<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h2>2.1 熵<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3>2.1.1 信息熵<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://blog.csdn.net/fengzhuqiaoqiu/article/details/121177862">【熵与特征提取】基于“信息熵”的特征指标及其MATLAB代码实现（功率谱熵、奇异谱熵、能量熵）</a></p>
+<p>信息熵是信息量的期望，信息量使用时间的自信息描述，即 <span class="math notranslate nohighlight">\(I(x) = - log P(x)\)</span> ，即概率越小的事件包含的信息量越多，</p>
+<p>如果对数 <span class="math notranslate nohighlight">\(log\)</span> 的底数为e，那么 <span class="math notranslate nohighlight">\(I(x)\)</span> 的单位就是奈特(nats)；
+如果以2为底数，单位就是比特(bit)。</p>
+<p>对信息量 计算期望，即各种情况的概率与信息量的乘积求和，即 <span class="math notranslate nohighlight">\(H(x) = - \sum\limits_{i=0}^n P(x) logP(x)\)</span></p>
+</section>
+</section>
+<section id="id4">
+<h2>2.2 概率分布<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<section id="conditional-distribution-marginal-distribution">
+<h3>2.2.1 conditional distribution &amp; marginal distribution<a class="headerlink" href="#conditional-distribution-marginal-distribution" title="永久链接至标题">¶</a></h3>
+<p><a class="reference external" href="https://zhuanlan.zhihu.com/p/415563058">《应用数学基础》 9 随机向量、边缘分布、条件分布、独立、可交换</a></p>
+<p>条件分布:</p>
+<blockquote>
+<div><p>条件分布（conditional distribution）是指某一随机变量依赖于其他随机变量的概率分布。
+连续型随机向量（X,Y）在条件Y=y下X的条件概率密度：</p>
+<p><span class="math notranslate nohighlight">\(f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}\)</span> ,其中 <span class="math notranslate nohighlight">\(f_Y(y)\)</span> 连续且恒大于0；</p>
+<p>离散型随机向量（X,Y）在条件 <span class="math notranslate nohighlight">\(Y = y_i\)</span> 下X的条件概率密度：</p>
+<p><span class="math notranslate nohighlight">\(P(X=x_i|Y=y_i) = \frac{P(X = x_i,Y = y_i)}{P(Y = y_i)}\)</span>,其中 <span class="math notranslate nohighlight">\(P(Y = y_i) &gt; 0\)</span>;</p>
+</div></blockquote>
+<p>边缘分布：</p>
+<blockquote>
+<div><p>边缘分布（marginal distribution）是指由随机向量任何一部分分量得出的分布。</p>
+<p>若 <span class="math notranslate nohighlight">\(F(x_1,x_2,\cdots,x_n)\)</span> 是随机向量 <span class="math notranslate nohighlight">\(X = (X_1,X_2,\cdots,X_n)\)</span> 的分布函数，任取 <span class="math notranslate nohighlight">\(k(1 \le k \le n)\)</span> ，例如前 k 个，而另其他的 <span class="math notranslate nohighlight">\(x_j\)</span> 都趋向于正无穷，即</p>
+<p><span class="math notranslate nohighlight">\(F(x_1,x_2,\cdots,x_k,+ \infty,\cdots,+ \infty) = \lim_{x_{k+1} \to + \infty,\cdots,x_n \to + \infty} F(x_1,x_2,\cdots,x_n)\)</span>,
+则称该k元分布函数 <span class="math notranslate nohighlight">\(F(x_1,x_2,\cdots,x_k,+ \infty,\cdots,+ \infty)\)</span> 为 <span class="math notranslate nohighlight">\(F(x_1,x_2,\cdots,x_n)\)</span> 的k维边缘分布函数。</p>
+<p>随机向量（X,Y）关于X的边缘概率密度：</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f_X(x) =
+\begin{cases}
+\int\limits_{-\infty}^{+\infty} f_{X,Y}(x,y)dy &amp; (X,Y)是连续型 \\
+\sum\limits_y f_{X,Y}(x,y) &amp; (X,Y)是离散型 \\
+\end{cases}\end{split}\]</div>
+</div></blockquote>
+</section>
 </section>
 </section>
 
@@ -62,7 +100,8 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第二章 信号分解</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.1 冗余字典稀疏分解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.1 熵</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2.2 概率分布</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
@@ -70,6 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
 </ul>
 
 <div class="relations">

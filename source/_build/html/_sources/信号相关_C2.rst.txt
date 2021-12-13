@@ -1,6 +1,58 @@
 ====================================
 第二章 信号分解
 ====================================
-2.1 冗余字典稀疏分解
+2.1 熵
 ----------------------------------
+
+2.1.1 信息熵
+^^^^^^^^^^^^^^^^^^^^
+
+`【熵与特征提取】基于“信息熵”的特征指标及其MATLAB代码实现（功率谱熵、奇异谱熵、能量熵） <https://blog.csdn.net/fengzhuqiaoqiu/article/details/121177862>`_
+
+信息熵是信息量的期望，信息量使用时间的自信息描述，即 :math:`I(x) = - log P(x)` ，即概率越小的事件包含的信息量越多，
+
+如果对数 :math:`log` 的底数为e，那么 :math:`I(x)` 的单位就是奈特(nats)；
+如果以2为底数，单位就是比特(bit)。
+
+对信息量 计算期望，即各种情况的概率与信息量的乘积求和，即 :math:`H(x) = - \sum\limits_{i=0}^n P(x) logP(x)`
+
+
+2.2 概率分布
+-------------------------------------------
+
+2.2.1 conditional distribution & marginal distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`《应用数学基础》 9 随机向量、边缘分布、条件分布、独立、可交换 <https://zhuanlan.zhihu.com/p/415563058>`_
+
+条件分布:
+
+    条件分布（conditional distribution）是指某一随机变量依赖于其他随机变量的概率分布。
+    连续型随机向量（X,Y）在条件Y=y下X的条件概率密度：
+
+    :math:`f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}` ,其中 :math:`f_Y(y)` 连续且恒大于0；
+
+    离散型随机向量（X,Y）在条件 :math:`Y = y_i` 下X的条件概率密度：
+
+    :math:`P(X=x_i|Y=y_i) = \frac{P(X = x_i,Y = y_i)}{P(Y = y_i)}`,其中 :math:`P(Y = y_i) > 0`;
+
+边缘分布：
+
+    边缘分布（marginal distribution）是指由随机向量任何一部分分量得出的分布。
+
+    若 :math:`F(x_1,x_2,\cdots,x_n)` 是随机向量 :math:`X = (X_1,X_2,\cdots,X_n)` 的分布函数，任取 :math:`k(1 \le k \le n)`个
+    :math:`x_i` ，例如前 k 个，而另其他的 :math:`x_j` 都趋向于正无穷，即
+
+    :math:`F(x_1,x_2,\cdots,x_k,+ \infty,\cdots,+ \infty) = \lim_{x_{k+1} \to + \infty,\cdots,x_n \to + \infty} F(x_1,x_2,\cdots,x_n)`,
+    则称该k元分布函数 :math:`F(x_1,x_2,\cdots,x_k,+ \infty,\cdots,+ \infty)` 为 :math:`F(x_1,x_2,\cdots,x_n)` 的k维边缘分布函数。
+
+    随机向量（X,Y）关于X的边缘概率密度：
+    
+    .. math::  
+
+        f_X(x) = 
+        \begin{cases}
+        \int\limits_{-\infty}^{+\infty} f_{X,Y}(x,y)dy & (X,Y)是连续型 \\
+        \sum\limits_y f_{X,Y}(x,y) & (X,Y)是离散型 \\
+        \end{cases}
 

@@ -18,6 +18,8 @@ Welcome to XIA's BLOG's documentation!
    文献阅读_C6
    数据集_C7
    期刊信息_C8
+   机械相关_C9
+   琐碎_C10
    
 
 

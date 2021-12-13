@@ -105,10 +105,10 @@
      believe that we still have a lot to improve in terms of our unsupervised learning algorithms.
 </pre></div>
 </div>
-<figure class="align-center" id="id5">
+<figure class="align-center" id="id7">
 <span id="id4"></span><img alt="_images/DAE.png" src="_images/DAE.png" />
 <figcaption>
-<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id5" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -780,6 +780,71 @@
 </pre></div>
 </td></tr></table></div>
 </section>
+<section id="swin-transformer">
+<h2>5.2 swin Transformer<a class="headerlink" href="#swin-transformer" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://zhuanlan.zhihu.com/p/360225583">屠榜各大CV任务！Swin Transformer：层次化视觉Transformer</a>
+<a class="reference external" href="https://www.jianshu.com/p/0635969f478b">swin transformer理解要点</a></p>
+<ul class="simple">
+<li><p>文本单词和视觉图片之间的差异，针对差异和问题对症下药；</p></li>
+<li><p>自注意力是局部的非重叠窗口内部计算的，允许跨窗口连接（窗口融合，patch减小，特征维度变大），移位的窗口方案带来了更高的效率；</p></li>
+<li><p>分层的体系结构，能在各种尺度上建模，并且相对于图像大小具有线性计算复杂度。</p></li>
+<li><p>图像领域中的low-resolution feature maps</p></li>
+<li><p>(additional tip) 增加分辨率的方法-upsampling or deconvolution</p></li>
+<li><p>downsampling of resoulution,指的就是特征融合（如卷积中的输出神经元减少，在基于Transformer的背景下是token的减少）</p></li>
+<li><p>可以表述为 ： Transformer用于feature transformation特征转换</p></li>
+<li><p>Transformer模块没有改变token的数量和特征维度；只有线性映射层linear layer在改变特征维度；patch merging layer块融合层在改变token数量，即分辨率</p></li>
+<li><p>modeling power 建模能力</p></li>
+<li><p>又要保持non-overlapping 窗的高效计算，又要引入cross-window connections</p></li>
+<li><p>alternate交换-轮替</p></li>
+<li><p><strong>！！！重点</strong></p></li>
+</ul>
+<p><strong>1. Shifted window partitioning in successive blocks:</strong></p>
+<p>The window-based self-attention module lacks connections across windows,
+which limits its modeling power. To introduce cross-window connections while maintaining
+the efficient computation of non-overlapping windows ,we propose <strong>a shifted window partitioning approach
+which alternates between two partitioning configurations in consecrtive Swin Transformer blocks</strong>.</p>
+<p>移动窗分区方法 是 一种 在两种分区配置  之间切换的方法，在连续的Swin Transformer blocks上。</p>
+<p>即分区配置只有两种，是提前设计好的，是为了保证 小窗格内部的局部自注意力计算，同时进行小窗格之间的联系，以此增强模型的建模能力。</p>
+<p><strong>2. swin Transformer中的shifted window变换来的方法</strong></p>
+<p>在regular window 的基础上，向右向下移动一定的像素数</p>
+<p><strong>原文是：
+Then,the next module adopts a windowing configuration that is shifted from that of the preceding layer,
+by displacing the windows by</strong> <span class="math notranslate nohighlight">\((\lfloor \frac{M}{2} \rfloor , \lfloor \frac{M}{2} \rfloor)\)</span> <strong>pixels from the rergularly partitioned windows.</strong></p>
+<p><strong>3. 移动窗使得窗口数量变多 &amp; 一些窗口的尺寸变小——针对这个问题的解决方案（efficient batch computation for shifted configuration）</strong></p>
+<p><strong>原文是：
+An issue with shifted window partitioning is that it willl result in more windows,from</strong>
+<span class="math notranslate nohighlight">\(\lceil \frac{h}{M} \rceil \times \lceil \frac{w}{M} \rceil\)</span> <strong>to</strong> <span class="math notranslate nohighlight">\((\lceil \frac{h}{M} \rceil + 1) \times (\lceil \frac{w}{M} \rceil + 1)\)</span>
+<strong>in the shifted configuration, and some of the windows will be smaller than</strong> <span class="math notranslate nohighlight">\(M \times M\)</span></p>
+<p><strong>A naive solution is to pad the smaller windows to a size of</strong> <span class="math notranslate nohighlight">\(M \times M\)</span> <strong>and mask out the padded values when computing attention.</strong>
+<strong>简单的方法就是把小窗口填充，计算注意力的时候遮盖掉填充的值，但是这个方法的计算量相当大，是原来的规则窗口的好几倍，例如</strong>
+<span class="math notranslate nohighlight">\(2 \times 2 \to 3 \times 3\)</span>, <strong>大了2.25倍</strong></p>
+<p><strong>在实际代码里，是通过对特征图移位，并给attention设置mask来间接实现的；在保持原有的window个数下，等价计算出结果。</strong></p>
+<p>源码使用的特征图移位操作使用了 <code class="code docutils literal notranslate"><span class="pre">torch.roll</span></code> 来实现；移位操作就像是所有的块朝着  top-left 方向移动（先朝top方向移动，再朝left方向移动）；
+反移位操作就是反着方向进行 <code class="code docutils literal notranslate"><span class="pre">torch.roll</span></code>.</p>
+<p><strong>~~~精华~~~怎么保证所提的固定窗口计算cross-window方法（4个窗） 与  原始的移位窗计算方法（9个窗）是等价的</strong></p>
+<p><a class="reference external" href="https://zhuanlan.zhihu.com/p/367111046">图解Swin Transformer</a></p>
+<p>因为swin-transformer的自注意力计算是在 窗口内的，所以非窗口内的自注意力计算应该忽略掉，如下图所示：</p>
+<figure class="align-center">
+<img alt="_images/swin-transformer-shifted-window.png" src="_images/swin-transformer-shifted-window.png" />
+</figure>
+<p>上图中的红色窗格是局部窗，只计算这个局部窗格里面的注意力，左图是原始的shifted window，有9个窗格，比原始的regular partitioning window多了5个窗格，
+增加了计算复杂度；因此提出了使用cyclic shift得到的右图计算 等价的注意力。具体的等价原理参考下图。</p>
+<figure class="align-center">
+<img alt="_images/swin-transformer-efficient-batch-computation-for-shifted-configuration.jpg" src="_images/swin-transformer-efficient-batch-computation-for-shifted-configuration.jpg" />
+</figure>
+<p>使用0-8对9个shifted partitioning window 得到的窗格编号，由于设计本质就是窗格内部计算局部的注意力，所以等价的窗格分割也应该只保留窗格内部的注意力计算值，
+而忽略窗格之间的注意力计算值，如上图所示，即给窗格之间互注意力的位置加上mask。</p>
+<p><strong>the number of patches in a window == the number of tokens in a window</strong></p>
+<p><strong>tip:实数空间</strong> <span class="math notranslate nohighlight">\(\Re\)</span> <strong>右上角表示的是空间每个维度的尺寸，用</strong> <span class="math notranslate nohighlight">\(\times\)</span> <strong>分隔开来</strong>,
+如 <span class="math notranslate nohighlight">\(\Re^{M^2 \times d}\)</span> 表示空间是一个二维空间，第一维的长度为 <span class="math notranslate nohighlight">\(M^2\)</span> ,第二维的长度为 <span class="math notranslate nohighlight">\(d\)</span></p>
+<p><strong>相对位置编码——relative position bias——使不同的位置为坐标原点，可以得到同一个位置的不同坐标值</strong>
+<strong>absolute position embedding</strong></p>
+<p>including a relative position bias <span class="math notranslate nohighlight">\(B \in \Re^{M^2 \times M^2}\)</span> to each head in computing similarity:</p>
+<p><span class="math notranslate nohighlight">\(Attention(Q,K,V) = SoftMax(QK^T / \sqrt{d} + B)V\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(Q,K,V \in \Re^{M^2 \times d}\)</span> are the query,key and value matrices;d is the query/key dimension,and <span class="math notranslate nohighlight">\(M^2\)</span> is the number of patches in a window.
+Since the relative position along each axis lies in the range <span class="math notranslate nohighlight">\([-M+1,M-1]\)</span>,we parameterize a smaller-sized bias matrix <span class="math notranslate nohighlight">\(\hat{B} \in \Re^{(2M-1) \times (2M-1))}\)</span>
+and values in B are taken from <span class="math notranslate nohighlight">\(\hat{B}\)</span></p>
+</section>
 </section>
 
 
@@ -807,10 +872,14 @@
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第五章 机器学习</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">5.1 稀疏自编码器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#swin-transformer">5.2 swin Transformer</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
 </ul>
 
 <div class="relations">

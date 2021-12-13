@@ -362,6 +362,7 @@ $ rst2html.py details.rst &gt; /dev/null
    **降噪自编码器原理图**
 
 以上示例中，第二行的路径，如果是相对路径，是当前文档相对于图像文件的相对路径，这个路径有问题的画，图片不会显示。
+图像文件名中包含空格的话，图像显示会有问题，应该需要专门的方法解决。
 </pre></div>
 </div>
 <p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#images">插入图像</a></p>
@@ -409,6 +410,14 @@ A core set of standard roles is implemented in the reference parser.
 </dd>
 </dl>
 </div>
+<dl>
+<dt>reStructedText中的数学公式指令：</dt><dd><p><a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#math">rst/directives.html#math</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">即</span><span class="o">..</span> <span class="n">math</span><span class="p">::</span>
+<span class="n">指令之后要空一行</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </section>
 <section id="id15">
 <h3>1.2.6 代码输出<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
@@ -553,6 +562,141 @@ YACS使用YAML作为一种简单的、人类可读的序列化格式。
 </pre></div>
 </div>
 </li>
+<li><p><cite>Django 中文教程 &lt;https://www.w3cschool.cn/django/&gt;</cite></p>
+<p>简介:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Django是一个可以使Web开发工作愉快并且高效的Web开发框架。
+使用Django，使你能够以最小的代价构建和维护高质量的Web应用。
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/32756176">__future__模块</a></p></li>
+<li><p>pytorch中的钩子（Hook）有何作用？
+相当于插件。可以实现一些额外的功能，而又不用修改主体代码。把这些额外功能实现了挂在主代码上，所以叫钩子，很形象。</p>
+<p>钩子实际上是一个处理消息的程序段，通过系统调用，把它挂入系统。每当特定的消息发出，在没有到达目的窗口前，钩子程序就先捕获该消息，亦即钩子函数先得到控制权。
+这时钩子函数即可以加工处理（改变）该消息，也可以不作处理而继续传递该消息，还可以强制结束消息的传递。</p>
+</li>
+<li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/256411087#:~:text=%E6%88%91%E4%BB%AC%E9%83%BD%E7%9F%A5%E9%81%93Pyt,%E5%B8%B8%E5%AE%B9%E6%98%93%E4%B9%9F%E5%BE%88%E8%88%92%E6%9C%8D%E3%80%82">博特智能|浅谈Pytorch与Torch的关系</a></p></li>
+</ol>
+</section>
+<section id="id20">
+<h2>1.4 python语法<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>python函数注释说明</p>
+<figure class="align-center" id="id30">
+<img alt="_images/python函数参数定义说明.png" src="_images/python函数参数定义说明.png" />
+<figcaption>
+<p><span class="caption-text"><strong>python函数参数定义解释说明示例1</strong></span><a class="headerlink" href="#id30" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id31">
+<img alt="_images/python函数参数解释说明示例2.png" src="_images/python函数参数解释说明示例2.png" />
+<figcaption>
+<p><span class="caption-text"><strong>python函数参数定义解释说明示例2</strong></span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id32">
+<img alt="_images/positional_keyword_params.png" src="_images/positional_keyword_params.png" />
+<figcaption>
+<p><span class="caption-text"><strong>函数定义参数类型：位置型和关键词型</strong></span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id33">
+<img alt="_images/函数定义.png" src="_images/函数定义.png" />
+<figcaption>
+<p><span class="caption-text"><strong>函数定义语法</strong></span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>单引号内的内容为字符串，原样照搬；
+方框内的内容意思为  可选内容，可有可无；
+专有术语：identifier,expression,parameter,
+FUNCTION DEFINITIONS:
+
+parameter               ::=    identifier [&quot;:&quot; expression]   # 创造参数：唯一标识符必有，关于参数的解释可选
+defparameter            ::=    parameter [&quot;=&quot; expression]    # 参数定义：创造参数 + 参数的赋值assignment表达式可选
+parameter_list_starargs ::=    &quot;*&quot; [parameter] (&quot;,&quot; defparameter)* [&quot;,&quot; [&quot;**&quot;] parameter]
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 代码示例1</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">string</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">f</span><span class="p">:</span><span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="n">f</span><span class="p">}</span>
+<span class="n">bl</span> <span class="o">=</span> <span class="n">b</span>
+<span class="k">return</span> <span class="n">list1</span><span class="p">,</span> <span class="n">tup</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span><span class="n">bl</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;hhhh&quot;</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+<span class="c1"># 结果：([0, 1, 2, 3, 4], (&#39;hhhh&#39;, &#39;hhhh&#39;, &#39;hhhh&#39;), {&#39;a&#39;: 2.3}, False)</span>
+<span class="o">----------------------------------------------------------------------------------------</span>
+<span class="c1"># 代码示例2</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">string</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="n">list1</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">list1</span>
+
+<span class="c1"># 使用or关键字表示多种类型</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>typing常用的类型：
+
+int,long,float: 整型,长整形,浮点型;
+
+bool,str: 布尔型，字符串类型；
+
+List, Tuple, Dict, Set:列表，元组，字典, 集合;
+
+Iterable,Iterator:可迭代类型，迭代器类型；
+
+Generator：生成器类型；
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>在冒号前为参数，冒号 <code class="code docutils literal notranslate"><span class="pre">:</span></code> 后为参数类型建议符，对参数进行说明;</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">-&gt;</span></code> 后面是返回值的类型建议符；</p></li>
+<li><p>类型建议符并非强制规定和检查，也就是说即使传入的实际参数与建议参数不符，也不会报错。</p></li>
+<li><p>在参数注解后还有=号，表示这个如果没有参数传入时候就会默认后面等号的值（相当于默认参数！！)</p></li>
+<li><p>不论是对参数还是返回值的注释，都是使用 expression来描述，具体expression是什么形式就很多样；</p></li>
+<li><p>this expression will be evaluated when the function definition is executed.当函数定义被执行，这些表达式的值都会被计算估计。</p></li>
+<li><p>If the form “<a href="#id21"><span class="problematic" id="id22">*</span></a>identifier” is present, it is initialized to a tuple receiving any excess positional parameters, defaulting to the empty tuple.
+If the form “<a href="#id23"><span class="problematic" id="id24">**</span></a>identifier” is present, it is initialized to a new ordered mapping receiving any excess keyword arguments, defaulting to a new empty mapping of the same type.</p></li>
+<li><p>Parameters after “*” or “<a href="#id25"><span class="problematic" id="id26">*</span></a>identifier” are keyword-only parameters and may only be passed by keyword arguments.
+Parameters before “/” are positional-only parameters and may only be passed by positional arguments.</p></li>
+<li><p>The type system supports unions, generic types, and a special type named Any which is consistent with (i.e. assignable to and from) all types.
+This latter feature is taken from the idea of gradual typing.
+Gradual typing and the full type system are explained in PEP 483.</p></li>
+<li><p>类型注释，静态分析static analysis</p></li>
+<li><p>Type hints may be built-in classes (including those defined in standard library or third-party extension modules), abstract base classes, types available in the types module,
+and user-defined classes (including those defined in the standard library or third-party modules).</p></li>
+<li><p>Annotations must be valid expressions that evaluate without raising exceptions at the time the function is defined</p></li>
+<li><p>In addition to the above, the following special constructs defined below may be used: None, Any, Union, Tuple, Callable,
+all ABCs and stand-ins for concrete classes exported from typing (e.g. Sequence and Dict), type variables, and type aliases.</p></li>
+<li><p>All newly introduced names used to support features described in following sections (such as Any and Union) are available in the typing module.</p></li>
+<li><p>It is possible to declare the return type of a callable without specifying the call signature by
+substituting a literal ellipsis (three dots) for the list of arguments</p></li>
+<li><p>Additionally, <code class="code docutils literal notranslate"><span class="pre">Any</span></code> is a valid value for every type variable.</p></li>
+</ul>
+<p><strong>Reference</strong>：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.cnblogs.com/cwp-bg/p/7825729.html">python模块分析之typing</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-3107/">PEP 3107 – Function Annotations</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html#function-definitions">function definition</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0526">PEP 526 – Syntax for Variable Annotations</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0484/#id15">acceptable type hints</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0484">PEP 484 – Type Hints</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/sunt2018/article/details/83022493">python函数注释,参数后面加冒号:,函数后面的箭头→是什么？</a></p></li>
+<li><p><a class="reference external" href="https://www.cnblogs.com/ArsenalfanInECNU/p/10724203.html">Python函数参数中的冒号与箭头</a></p></li>
+<li><p><a class="reference external" href="https://blog.csdn.net/yinhui_zhang/article/details/86629045">Python3 函数中类型注解（Function Annotations）</a></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>python的pep
+“PEP的全称是Python Enhancement Proposals,其中Enhancement是增强改进的意思,Proposals则可译为提案或建议书,所以合起来,比较常见的翻译是Python增强提案或Python改进建议书。”</p></li>
+<li><p>函数signature
+<a class="reference external" href="https://blog.csdn.net/weixin_39683241/article/details/109619639">python signature函数-对python函数签名的方法详解</a></p></li>
+<li><p>python中省略号的意思
+<a class="reference external" href="https://www.cnblogs.com/zhuyunbk/p/11452921.html">python 中省略号的意思</a></p></li>
 </ol>
 </section>
 </section>
@@ -583,6 +727,7 @@ YACS使用YAML作为一种简单的、人类可读的序列化格式。
 <li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id19">1.4 Python编程索引集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">1.4 python语法</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
@@ -590,6 +735,8 @@ YACS使用YAML作为一种简单的、人类可读的序列化格式。
 <li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
 </ul>
 
 <div class="relations">

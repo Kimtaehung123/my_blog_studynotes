@@ -1,0 +1,66 @@
+第九章 机械
+==================
+
+5.1 滚动轴承
+------------------
+
+1. 滚动轴承接触角都是0°
+2. 轴承节径应该是滚子中心线形成的直径，等于（内直径+外直径)/2.
+3. 计算故障特征频率需要知道  滚子直径 :math:`BD`、节径 :math:`PD` （pitch diameter内外径均值）、滚动体个数 :math:`n` 、接触角 :math:`\phi`、转轴转速 :math:`f`
+4. 轴承形状尺寸主要参数如下图。
+
+.. figure::
+    _static\\images\\机械相关\\节径定义.png
+    :align: center
+
+    **轴承节径**
+
+
+.. figure::
+    _static\\images\\机械相关\\轴承主要参数.png
+    :align: center
+
+    **轴承形状尺寸**
+
+4. 轴承故障特征频率计算公式如下图：
+
+.. figure::
+    _static\\images\\机械相关\\轴承故障特征频率计算公式.jpg
+    :align: center
+
+    **轴承故障特征频率计算公式**   
+
+5. 接触角定义如下图：
+   
+   定义是： 内外圈与滚动体接触的法线与 和轴向垂直的平面的夹角。
+   
+.. figure::
+    _static\\images\\机械相关\\接触角定义.png
+    :align: center
+
+    **接触角定义**  
+
+5.2 一些网址
+-------------------------
+
+1. `NSK官网 <https://www.nsk.com>`_
+2. `SKF官网 <https://www.skf.com>`_
+3. `输入轴承尺寸相关参数计算故障特征频率 <http://webtools3.skf.com/engcalc/CalcBearingFrequencies.do>`_
+   
+   示例如图(左边是输入的参数，右边是输出的值，包括了内外圈滚动体的故障特征频率，对于左边输入不清楚的部分，可以点击 详情的！号查看输入帮助)：
+
+   * 图中使用了SKF 6205的深沟球轴承 几何参数进行实验，结构正确；
+   * 需要注意几何尺寸的单位（一般是英寸或者毫米）`在线网页长度尺寸转换 <https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=15007414_pg&wd=%E8%8B%B1%E5%AF%B8%E6%8D%A2%E7%AE%97%E6%88%90%E6%AF%AB%E7%B1%B3&oq=%25E8%258B%25B1%25E5%25AF%25B8%25E6%258D%25A2%25E7%25AE%2597%25E6%2588%2590%25E6%25AF%25AB%25E7%25B1%25B3&rsv_pq=ae7e574b000076ae&rsv_t=d614h2DoeJlo1Ev7WKxsDE6IvaquErLFNTjc3kif0dr4NIrf4ppBtwfVtc0fhoOw%2Ftk&rqlang=cn&rsv_dl=tb&rsv_enter=0&rsv_sug3=1&rsv_sug1=1&rsv_sug7=100&rsv_btype=t&rsv_sug4=1734>`_
+   * 
+
+.. figure::
+    _static\\images\\机械相关\\SKF_Engineering_Calculator.png   
+    :align: center
+
+    **SKF Engineering Calculator**
+
+.. figure::
+    _static\\images\\机械相关\\CWRU_skf6205轴承尺寸参数及公式计算的故障特征频率.png   
+    :align: center
+
+    **CWRU_skf6205轴承尺寸参数及公式计算的故障特征频率**
