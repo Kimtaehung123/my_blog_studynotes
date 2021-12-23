@@ -680,3 +680,12 @@ reStructedText中的数学公式指令：
 
 4. python中省略号的意思
    `python 中省略号的意思 <https://www.cnblogs.com/zhuyunbk/p/11452921.html>`_
+
+1.5 pytorch学习
+-------------------
+
+.. literalinclude:: pytorch_learn.py
+   :linenos:
+   :language: python
+   :lines: 0-
+   

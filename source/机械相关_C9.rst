@@ -1,5 +1,5 @@
 第九章 机械
-==================
+================
 
 5.1 滚动轴承
 ------------------
@@ -22,15 +22,20 @@
 
     **轴承形状尺寸**
 
-4. 轴承故障特征频率计算公式如下图：
+5. 轴承故障特征频率计算公式如下图：（`滚动轴承故障特征频率计算公式说明 <https://www.dgzj.com/jixie/80361.html>`_）
+   
+   重要说明：
+   
+    * 滚动故障的计算公式是针对球撞击内圈或者外圈情况。如果有疵点的滚球同时撞击内外圈，那么其频率值应该加倍。
+    * 有很多滚动体故障时，滚动体故障频率是以偶数倍频出现的。
 
 .. figure::
-    _static\\images\\机械相关\\轴承故障特征频率计算公式.jpg
+    _static\\images\\机械相关\\轴承故障特征频率计算公式.png
     :align: center
 
     **轴承故障特征频率计算公式**   
 
-5. 接触角定义如下图：
+6. 接触角定义如下图：
    
    定义是： 内外圈与滚动体接触的法线与 和轴向垂直的平面的夹角。
    
@@ -40,6 +45,105 @@
 
     **接触角定义**  
 
+    参考书上的定义如下图：
+
+.. figure::
+    _static\\images\\机械相关\\书籍接触角定义.jpg
+    :align: center
+
+    **参考书接触角定义**  
+
+.. figure::
+    _static\\images\\机械相关\\常见轴承接触角大小.jpg
+    :align: center
+
+    **常见轴承接触角大小**  
+
+7. N205E轴承的几何尺寸
+   
+.. figure::
+    _static\\images\\机械相关\\N205轴承尺寸参数.jpg
+    :align: center
+
+    **N205轴承尺寸参数**
+
+8. 测量滚动轴承振动的装置
+
+    测量滚动轴承振动的装置都有以下四个部分：传感器系统、测量放大器、驱动主轴和加载器。下图为速度型振动测量仪的原理图。
+
+.. figure::
+    _static\\images\\机械相关\\速度型振动测量仪原理图.jpg
+    :align: center
+
+9. 滚动轴承噪声和振动的关系 & 滚动轴承噪声的表示方法
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动和噪声的关系.png
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\速滚动轴承噪声的表示方法.png
+    :align: center
+
+10. 滚动轴承的失效形式及原因
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承的失效形式及原因1.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承的失效形式及原因2.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承的失效形式及原因3.jpg
+    :align: center
+
+11. 滚动轴承故障诊断技术的分类与选择
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承故障诊断技术的分类与选择1.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承故障诊断技术的分类与选择2.jpg
+    :align: center
+
+12. 滚动轴承的振动频率分析
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承的振动频率分析1.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承的振动频率分析2.jpg
+    :align: center
+
+13. 滚动轴承的振动诊断技术
+    
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动诊断技术1.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动诊断技术2.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动诊断技术3.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动诊断技术4.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动诊断技术5.jpg
+    :align: center
+
+.. figure::
+    _static\\images\\机械相关\\滚动轴承振动诊断技术6.jpg
+    :align: center
 5.2 一些网址
 -------------------------
 
