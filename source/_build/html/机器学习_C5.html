@@ -105,10 +105,10 @@
      believe that we still have a lot to improve in terms of our unsupervised learning algorithms.
 </pre></div>
 </div>
-<figure class="align-center" id="id7">
+<figure class="align-center" id="id8">
 <span id="id4"></span><img alt="_images/DAE.png" src="_images/DAE.png" />
 <figcaption>
-<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id7" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -845,6 +845,47 @@ An issue with shifted window partitioning is that it willl result in more window
 Since the relative position along each axis lies in the range <span class="math notranslate nohighlight">\([-M+1,M-1]\)</span>,we parameterize a smaller-sized bias matrix <span class="math notranslate nohighlight">\(\hat{B} \in \Re^{(2M-1) \times (2M-1))}\)</span>
 and values in B are taken from <span class="math notranslate nohighlight">\(\hat{B}\)</span></p>
 </section>
+<section id="id7">
+<h2>5.3 基本概念<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>CategoricalCrossentropy</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>用于分类问题</p></li>
+<li><p>二类及以上类别数问题的分类；</p></li>
+<li><p>多分类交叉熵</p></li>
+<li><p>标签是one-hot表示</p></li>
+<li><p>真实标签与预测值的形状都为（批量数，分类数）</p></li>
+<li><p>公式看着是两项，实则只保留了一项</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p>t_k是真实类别k的二值标签（为1），</p></li>
+<li><p>p_k是对真实类别k的预测概率</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
 </section>
 
 
@@ -873,6 +914,7 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第五章 机器学习</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id2">5.1 稀疏自编码器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#swin-transformer">5.2 swin Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">5.3 基本概念</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>

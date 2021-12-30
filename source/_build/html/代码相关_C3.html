@@ -577,33 +577,35 @@ YACS使用YAML作为一种简单的、人类可读的序列化格式。
 </li>
 <li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/256411087#:~:text=%E6%88%91%E4%BB%AC%E9%83%BD%E7%9F%A5%E9%81%93Pyt,%E5%B8%B8%E5%AE%B9%E6%98%93%E4%B9%9F%E5%BE%88%E8%88%92%E6%9C%8D%E3%80%82">博特智能|浅谈Pytorch与Torch的关系</a></p></li>
 </ol>
+<hr class="docutils" />
+<p><strong>旧版python语法相关文档</strong></p>
 </section>
 <section id="id20">
-<h2>1.4 python语法<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<h2>1.5 python语法<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <ol class="arabic">
 <li><p>python函数注释说明</p>
-<figure class="align-center" id="id30">
+<figure class="align-center" id="id31">
 <img alt="_images/python函数参数定义说明.png" src="_images/python函数参数定义说明.png" />
 <figcaption>
-<p><span class="caption-text"><strong>python函数参数定义解释说明示例1</strong></span><a class="headerlink" href="#id30" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id31">
-<img alt="_images/python函数参数解释说明示例2.png" src="_images/python函数参数解释说明示例2.png" />
-<figcaption>
-<p><span class="caption-text"><strong>python函数参数定义解释说明示例2</strong></span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>python函数参数定义解释说明示例1</strong></span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id32">
-<img alt="_images/positional_keyword_params.png" src="_images/positional_keyword_params.png" />
+<img alt="_images/python函数参数解释说明示例2.png" src="_images/python函数参数解释说明示例2.png" />
 <figcaption>
-<p><span class="caption-text"><strong>函数定义参数类型：位置型和关键词型</strong></span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>python函数参数定义解释说明示例2</strong></span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id33">
+<img alt="_images/positional_keyword_params.png" src="_images/positional_keyword_params.png" />
+<figcaption>
+<p><span class="caption-text"><strong>函数定义参数类型：位置型和关键词型</strong></span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id34">
 <img alt="_images/函数定义.png" src="_images/函数定义.png" />
 <figcaption>
-<p><span class="caption-text"><strong>函数定义语法</strong></span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>函数定义语法</strong></span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -690,17 +692,26 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 <li><p><a class="reference external" href="https://www.cnblogs.com/ArsenalfanInECNU/p/10724203.html">Python函数参数中的冒号与箭头</a></p></li>
 <li><p><a class="reference external" href="https://blog.csdn.net/yinhui_zhang/article/details/86629045">Python3 函数中类型注解（Function Annotations）</a></p></li>
 </ul>
-<ol class="arabic simple" start="2">
+<ol class="arabic" start="2">
 <li><p>python的pep
 “PEP的全称是Python Enhancement Proposals,其中Enhancement是增强改进的意思,Proposals则可译为提案或建议书,所以合起来,比较常见的翻译是Python增强提案或Python改进建议书。”</p></li>
 <li><p>函数signature
 <a class="reference external" href="https://blog.csdn.net/weixin_39683241/article/details/109619639">python signature函数-对python函数签名的方法详解</a></p></li>
 <li><p>python中省略号的意思
 <a class="reference external" href="https://www.cnblogs.com/zhuyunbk/p/11452921.html">python 中省略号的意思</a></p></li>
+<li><p>删除文件和文件夹</p>
+<p><a class="reference external" href="https://www.cnblogs.com/aaronthon/p/9509538.html">使用python删除一个文件或文件夹</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># path是文件的路径，如果这个路径是一个文件夹，则会抛出OSError的错误，这时需用用rmdir()来删除</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># path是文件夹路径，注意文件夹需要时空的才能被删除</span>
+<span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="s1">&#39;F:\新建文本文档.txt&#39;</span><span class="p">)</span>  <span class="c1"># unlink的功能和remove一样是删除一个文件，但是删除一个删除一个正在使用的文件会报错。</span>
+</pre></div>
+</div>
+</li>
 </ol>
 </section>
 <section id="pytorch">
-<h2>1.5 pytorch学习<a class="headerlink" href="#pytorch" title="永久链接至标题">¶</a></h2>
+<h2>1.6 pytorch学习<a class="headerlink" href="#pytorch" title="永久链接至标题">¶</a></h2>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">  1</span>
 <span class="normal">  2</span>
 <span class="normal">  3</span>
@@ -1387,6 +1398,270 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 </pre></div>
 </td></tr></table></div>
 </section>
+<section id="java">
+<h2>1.7 Java学习<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h2>
+<div class="highlight-java notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">}</span> <span class="c1">// end class// public类的源文件名应该与类名一致</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeerSong</span><span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span> <span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">beerNum</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+        <span class="n">String</span> <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;bottles&quot;</span><span class="p">;</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="n">beerNum</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">beerNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;bottle&quot;</span><span class="p">;</span> <span class="c1">// singular, as in ONE bottle.</span>
+            <span class="p">}</span>
+
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">beerNum</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s">&quot; of beer on the wall&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">beerNum</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s">&quot; of beer.&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Take one down.&quot;</span><span class="p">);</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Pass it around.&quot;</span><span class="p">);</span>
+            <span class="n">beerNum</span> <span class="o">=</span> <span class="n">beerNum</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">beerNum</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">word</span> <span class="o">=</span> <span class="s">&quot;bottle&quot;</span><span class="p">;</span>
+            <span class="p">}</span> <span class="c1">// 补充</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">beerNum</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">beerNum</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">word</span> <span class="o">+</span> <span class="s">&quot; of beer on the wall&quot;</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;No more bottles of beer on the wall&quot;</span><span class="p">);</span>
+            <span class="p">}</span> <span class="c1">// end else</span>
+        <span class="p">}</span> <span class="c1">// end while loop</span>
+    <span class="p">}</span> <span class="c1">// end main method</span>
+<span class="p">}</span> <span class="c1">// end class</span>
+</pre></div>
+</td></tr></table></div>
+</section>
+<section id="pythonmat-matlab-python">
+<h2>1.8 python对mat数据的处理（matlab，python)(数据处理)<a class="headerlink" href="#pythonmat-matlab-python" title="永久链接至标题">¶</a></h2>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span>
+<span class="normal">92</span>
+<span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span>
+<span class="normal">98</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">datadict</span><span class="p">[</span><span class="s1">&#39;ic_H1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># out: (512362, 1)</span>
+<span class="c1">#%%</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">sio</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1">#%%[markdown]</span>
+<span class="c1"># 简化数据文件名和变量名</span>
+
+<span class="c1">#%% 输入部分</span>
+<span class="sd">&#39;&#39;&#39;需要修改的部分，只有如下三行&#39;&#39;&#39;</span>
+<span class="n">tar_dir</span> <span class="o">=</span> <span class="s2">&quot;F:</span><span class="se">\\</span><span class="s2">STUDY</span><span class="se">\\</span><span class="s2">数据</span><span class="se">\\</span><span class="s2">109小轴承试验台轴承复合故障数据集</span><span class="se">\\</span><span class="s2">1500</span><span class="se">\\</span><span class="s2">outer&quot;</span>
+<span class="n">old_represent</span> <span class="o">=</span> <span class="s2">&quot;outer&quot;</span> <span class="c1"># 旧的命名</span>
+<span class="n">new_represent</span> <span class="o">=</span> <span class="s1">&#39;o&#39;</span> <span class="c1"># 新的命名</span>
+<span class="sd">&#39;&#39;&#39;需要修改部分的截止线&#39;&#39;&#39;</span>
+
+<span class="n">filename_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原始文件名有：&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">filename_list</span><span class="p">))</span>
+
+<span class="c1">#%%</span>
+<span class="n">data_variable_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.mat&#39;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">filename_list</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原始变量名有：&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">data_variable_name</span><span class="p">))</span>
+
+<span class="c1">#%%</span>
+<span class="c1"># 使用简化表示代替原始表示</span>
+<span class="n">new_filename_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old_represent</span><span class="p">,</span><span class="n">new_represent</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">filename_list</span><span class="p">]</span>
+<span class="n">new_data_variable_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;.mat&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">new_filename_list</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filename_list</span><span class="p">)):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">,</span><span class="n">filename_list</span><span class="p">[</span><span class="n">i</span><span class="p">]))[</span><span class="n">data_variable_name</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">,</span><span class="n">new_filename_list</span><span class="p">[</span><span class="n">i</span><span class="p">]),{</span><span class="n">new_data_variable_name</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">data</span><span class="p">})</span>
+
+<span class="c1">#%%</span>
+<span class="c1"># 查看新的mat文件包含的键值</span>
+<span class="n">datadict</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;F:\STUDY\数据</span><span class="se">\\</span><span class="s2">109小轴承试验台轴承复合故障数据集\900\inner</span><span class="se">\\</span><span class="s2">i_H1.mat&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datadict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1"># out:  dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;i_H1&#39;])</span>
+
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">======================================================================================================</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="c1">#%%[markdown]</span>
+<span class="c1"># 对数据采集软件原始的mat数据文件整理，把各个通道的数据单独分离出来   </span>
+<span class="c1"># 原始数据文件的键值字典  [&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;File_Header&#39;, &#39;Channel_1_Header&#39;, &#39;Channel_2_Header&#39;, &#39;Channel_3_Header&#39;, &#39;Channel_1_Data&#39;, &#39;Channel_2_Data&#39;, &#39;Channel_3_Data&#39;]</span>
+
+<span class="c1"># 包含数据的键值为： [&#39;Channel_1_Data&#39;, &#39;Channel_2_Data&#39;, &#39;Channel_3_Data&#39;] </span>
+ 
+<span class="c1"># &#39;File_Header&#39;—— 包含了采样率、通道数等文件信息的结构体。</span>
+<span class="c1"># &#39;Channel_1_Header&#39;和&#39;Channel_2_Header&#39;和&#39;Channel_3_Header&#39; ——包括了通道的单位、信号名字等。</span>
+
+<span class="c1"># 109小轴承试验台复合故障数据采集，各通道和对应传感器关系如下：</span>
+<span class="c1"># 1通道——垂直V振动加速度传感器；</span>
+<span class="c1"># 2通道——水平H加速度传感器；</span>
+<span class="c1"># 3通道——转速计信号</span>
+
+<span class="c1"># 目标文件名和变量名的格式： 轴承状态_H/V文件序号</span>
+<span class="c1"># 原始文件名的格式： 有点混乱，但是最后是“_序号”这样的格式，可以使用正则化表达式得到文件序号；</span>
+
+<span class="c1">#%%</span>
+<span class="n">rpm</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;900&#39;</span><span class="p">,</span><span class="s1">&#39;1200&#39;</span><span class="p">,</span><span class="s1">&#39;1500&#39;</span><span class="p">]</span>
+<span class="n">base_dir</span> <span class="o">=</span> <span class="s2">&quot;F:\STUDY\数据</span><span class="se">\\</span><span class="s2">109小轴承试验台轴承复合故障数据集&quot;</span>
+
+<span class="c1"># 需要修改的部分</span>
+<span class="n">old_represent</span> <span class="o">=</span> <span class="s2">&quot;roller_cage&quot;</span>
+<span class="n">new_represent</span> <span class="o">=</span> <span class="s1">&#39;rc&#39;</span>
+<span class="c1">#%%</span>
+<span class="c1"># 遍历不同转速，同一健康状态的数据文件</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rpm</span><span class="p">)):</span>
+    <span class="n">tar_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span><span class="n">rpm</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">old_represent</span><span class="p">)</span> <span class="c1"># out 示例：&quot;F:\STUDY\数据\\109小轴承试验台轴承复合故障数据集\900\inner_cage&quot;</span>
+
+    <span class="c1"># 得到文件序号（倒数第五个字符）或者（使用正则化方法，先找到_1.mat这种格式的字符串，再提取字符串中的数字）</span>
+    <span class="c1"># 本复合故障数据，每个类型数据文件的数量没有超过10个，直接使用查找倒数第五个字符即可。</span>
+
+    <span class="n">filename_list</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">)</span>
+    <span class="n">file_nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">filename_list</span><span class="p">]</span> <span class="c1"># 倒数第五位是文件号字符串</span>
+
+    <span class="c1"># 统一mat文件命名格式：“轴承状态_H/V文件序号.mat”</span>
+    <span class="c1"># 包含数据的键值为： [&#39;Channel_1_Data&#39;, &#39;Channel_2_Data&#39;, &#39;Channel_3_Data&#39;]</span>
+    <span class="c1"># 1通道——垂直V振动加速度传感器；</span>
+    <span class="c1"># 2通道——水平H加速度传感器；</span>
+    <span class="c1"># 3通道——转速计信号</span>
+    
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">file_nums</span><span class="p">)):</span>
+        <span class="n">data_h</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">,</span><span class="n">filename_list</span><span class="p">[</span><span class="n">j</span><span class="p">]))[</span><span class="s1">&#39;Channel_2_Data&#39;</span><span class="p">]</span>
+        <span class="n">data_v</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">,</span><span class="n">filename_list</span><span class="p">[</span><span class="n">j</span><span class="p">]))[</span><span class="s1">&#39;Channel_1_Data&#39;</span><span class="p">]</span>
+        <span class="n">data_h_name</span> <span class="o">=</span> <span class="n">new_represent</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="s2">&quot;H&quot;</span> <span class="o">+</span> <span class="n">file_nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">data_v_name</span> <span class="o">=</span> <span class="n">new_represent</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="s2">&quot;V&quot;</span> <span class="o">+</span> <span class="n">file_nums</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">data_h_name</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="s1">&#39;data_h&#39;</span><span class="p">)</span>
+        <span class="n">exec</span><span class="p">(</span><span class="n">data_v_name</span> <span class="o">+</span> <span class="s2">&quot;=&quot;</span> <span class="o">+</span> <span class="s1">&#39;data_v&#39;</span><span class="p">)</span>
+        <span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">,</span><span class="n">data_h_name</span> <span class="o">+</span> <span class="s1">&#39;.mat&#39;</span><span class="p">),{</span><span class="n">data_h_name</span><span class="p">:</span><span class="n">data_h</span><span class="p">})</span>
+        <span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tar_dir</span><span class="p">,</span><span class="n">data_v_name</span> <span class="o">+</span> <span class="s1">&#39;.mat&#39;</span><span class="p">),{</span><span class="n">data_h_name</span><span class="p">:</span><span class="n">data_h</span><span class="p">})</span>
+
+        <span class="c1"># print(sio.loadmat(os.path.join(tar_dir,data_v_name + &#39;.mat&#39;)).keys())</span>
+
+<span class="c1">#%%</span>
+<span class="c1"># 查看新的mat文件包含的键值</span>
+<span class="n">datadict</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;F:\STUDY\数据</span><span class="se">\\</span><span class="s2">109小轴承试验台轴承复合故障数据集\900\inner_cage</span><span class="se">\\</span><span class="s2">ic_H1.mat&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datadict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1"># out:  dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;ic_H1&#39;])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datadict</span><span class="p">[</span><span class="s1">&#39;ic_H1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># out: (512362, 1)</span>
+</pre></div>
+</td></tr></table></div>
+</section>
 </section>
 
 
@@ -1415,8 +1690,10 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 <li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id19">1.4 Python编程索引集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">1.4 python语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pytorch">1.5 pytorch学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">1.5 python语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch">1.6 pytorch学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#java">1.7 Java学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pythonmat-matlab-python">1.8 python对mat数据的处理（matlab，python)(数据处理)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>

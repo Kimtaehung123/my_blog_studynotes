@@ -13,11 +13,24 @@
 
 1. `github lab <https://lab.github.com/>`_
 2. `腾讯云 <https://cloudstudio.net/>`_
+3. `预印版网站 <https://arxiv.org/>`_
+
+   * 查看文章相关论文图，
+   * 预印开源文档，
+   * 查看作者相关论文,
+   * 查看相关的视频讲解（YouTube视频），演示文档（PPT），代码实现（现在多用pytorch，github库）
 
 -**官网**
 
 1. `Java API 文档下载 <https://www.oracle.com/java/technologies/javase-jdk17-doc-downloads.html>`_
+2. `国家标准-全国标准信息公共服务平台 <http://std.samr.gov.cn/gb>`_
+   
+   * 查看文献引用最新标准
+   * 还有很多其他标准
 
+-**语言学习**
+1. `德语学习网站 <www.patreon.com>`_
+   
 1.2 设置问题
 --------------------
 

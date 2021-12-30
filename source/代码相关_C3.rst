@@ -555,7 +555,9 @@ reStructedText中的数学公式指令：
 
 14. `博特智能|浅谈Pytorch与Torch的关系 <https://zhuanlan.zhihu.com/p/256411087#:~:text=%E6%88%91%E4%BB%AC%E9%83%BD%E7%9F%A5%E9%81%93Pyt,%E5%B8%B8%E5%AE%B9%E6%98%93%E4%B9%9F%E5%BE%88%E8%88%92%E6%9C%8D%E3%80%82>`_
 
-1.4 python语法
+-------------------------------------------------------------------------
+
+1.5 python语法
 -----------------------
 
 1. python函数注释说明
@@ -681,7 +683,18 @@ reStructedText中的数学公式指令：
 4. python中省略号的意思
    `python 中省略号的意思 <https://www.cnblogs.com/zhuyunbk/p/11452921.html>`_
 
-1.5 pytorch学习
+5. 删除文件和文件夹
+   
+   `使用python删除一个文件或文件夹 <https://www.cnblogs.com/aaronthon/p/9509538.html>`_ 
+   
+   ::
+       
+       import os
+       os.remove(path)  # path是文件的路径，如果这个路径是一个文件夹，则会抛出OSError的错误，这时需用用rmdir()来删除
+       os.rmdir(path)  # path是文件夹路径，注意文件夹需要时空的才能被删除
+       os.unlink('F:\新建文本文档.txt')  # unlink的功能和remove一样是删除一个文件，但是删除一个删除一个正在使用的文件会报错。
+
+1.6 pytorch学习
 -------------------
 
 .. literalinclude:: pytorch_learn.py
@@ -689,3 +702,19 @@ reStructedText中的数学公式指令：
    :language: python
    :lines: 0-
    
+1.7 Java学习
+--------------------
+
+.. literalinclude:: BeerSong.java
+    :linenos:
+    :language: java 
+    :lines: 0-
+
+1.8 python对mat数据的处理（matlab，python)(数据处理)
+----------------------------------------------------------
+
+.. literalinclude:: mat_data_process.py
+    :linenos:
+    :language: python 
+    :lines: 0-
+

@@ -285,3 +285,28 @@ where :math:`Q,K,V \in \Re^{M^2 \times d}` are the query,key and value matrices;
 Since the relative position along each axis lies in the range :math:`[-M+1,M-1]`,we parameterize a smaller-sized bias matrix :math:`\hat{B} \in \Re^{(2M-1) \times (2M-1))}`
 and values in B are taken from :math:`\hat{B}`
 
+5.3 基本概念
+------------------------
+
+1. CategoricalCrossentropy
+   
+   * **类别：**  
+       损失函数losses
+
+   * **基本说明：** 
+       * 用于分类问题
+       * 二类及以上类别数问题的分类；
+       * 多分类交叉熵
+       * 标签是one-hot表示
+       * 真实标签与预测值的形状都为（批量数，分类数）
+       * 公式看着是两项，实则只保留了一项
+  
+   * **公式：** 
+       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))`
+       * n是样本数，
+       * t_k是真实类别k的二值标签（为1），
+       * p_k是对真实类别k的预测概率
+  
+   * **参考资料：** 
+       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+
