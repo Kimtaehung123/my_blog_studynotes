@@ -105,10 +105,10 @@
      believe that we still have a lot to improve in terms of our unsupervised learning algorithms.
 </pre></div>
 </div>
-<figure class="align-center" id="id8">
+<figure class="align-center" id="id22">
 <span id="id4"></span><img alt="_images/DAE.png" src="_images/DAE.png" />
 <figcaption>
-<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id8" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -847,6 +847,9 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 </section>
 <section id="id7">
 <h2>5.3 基本概念<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id8">
+<h2>5.3.1 损失函数相关<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>CategoricalCrossentropy</p>
 <ul class="simple">
@@ -871,8 +874,8 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <dt><strong>公式：</strong></dt><dd><ul>
 <li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))\)</span></p></li>
 <li><p>n是样本数，</p></li>
-<li><p>t_k是真实类别k的二值标签（为1），</p></li>
-<li><p>p_k是对真实类别k的预测概率</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_k\)</span> 是真实类别k的二值标签（为1），</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_k\)</span> 是对真实类别k的预测概率</p></li>
 </ul>
 </dd>
 </dl>
@@ -884,7 +887,435 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 </li>
 </ul>
 </li>
+<li><p>MSE-均方误差</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>主要用于回归问题</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = \frac{1}{n} \sum_{i = 1}^{n} (p_i - t_i)^2\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是标签，</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测值；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>RMSE-均方根误差</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>主要用于回归问题</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = \sqrt{\frac{1}{n} \sum_{i = 1}^{n} (p_i - t_i)^2}\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是标签，</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测值；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>BinaryCrossentropy</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>用于分类问题</p></li>
+<li><p>二分类交叉熵</p></li>
+<li><p>from_logits，指的是预测值与概率值符合logit函数关系，
+预测值是来自logit函数，所以通过对预测值做logit反函数变换，可以得到概率值(0,1)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_i (ln p_i) + (1-t_i)(ln(1-p_i)))\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是真实二值标签，</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测概率；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a>
+<a class="reference external" href="https://zhuanlan.zhihu.com/p/181553413">Binary Cross Entropy Loss</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>SparseCategoricalCrossentropy</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>用于分类问题</p></li>
+<li><p>二类及以上类别数问题的分类；</p></li>
+<li><p>标签是整数表示形式；</p></li>
+<li><p>如果预测形状为（批量数，类别数），那么真实标签形状应该为（批量数），真实标签空间比预测空间少一个维度</p></li>
+<li><p>预测输出最后一个维度包括了各个类别的概率，标签只包含了真实的类别索引值（即，标签是整数，非one-hot形式的表示)</p></li>
+<li><p>稀疏多分类交叉熵</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_k\)</span> 是真实类别k的二值标签（为1），</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_k\)</span> 是对真实类别k的预测概率；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>logit（log-odds) (abbreviation for logistic units</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>概率</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>计算步骤是 ：先计算 <span class="math notranslate nohighlight">\(odds = p_出现/p_不出现\)</span> ；然后对odds取对数；即log it，其中的it指代odds</p></li>
+<li><p>odds值的范围在 <span class="math notranslate nohighlight">\([0,\infty)\)</span> ；</p></li>
+<li><p>logit取值范围在 <span class="math notranslate nohighlight">\((- \infty,+ \infty)\)</span></p></li>
+<li><p>logit相比于出现的概率，更加强化了出现概率要高。</p></li>
+<li><p>它的函数表达式的反函数是 <span class="math notranslate nohighlight">\(y = \frac{1}{1-e^{-x}}\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(logit(p) = ln \frac{p}{1-p} = ln odds\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(odds = \frac{p}{1-p}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(logit^{-1}(p) = \frac{1}{1-e^(-p)}\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/27188729">Logit究竟是个啥？——离散选择模型之三</a>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Logit">Wikipedia Logit</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
 </ol>
+</section>
+<section id="id13">
+<h2>5.3.2 机器学习方法<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>curriculum learning</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><p>The main concept in curriculum learning is to start the training with simpler tasks and
+gradually increase the level of difficulty.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="transformer">
+<h2>5.4 Transformer相关<a class="headerlink" href="#transformer" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="vanilla-transformer">
+<h2>5.4.1 vanilla transformer<a class="headerlink" href="#vanilla-transformer" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id14">
+<h2>5.4.1.1 参考<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<p><a class="reference external" href="https://blog.csdn.net/sinat_37574187/article/details/119890682">vanilla transformer</a></p>
+<p><a class="reference external" href="https://blog.csdn.net/u010366748/article/details/114301942">论文笔记-Vanilla Transformer：Character-Level Language Modeling with Deeper Self-Attention</a></p>
+</section>
+<section id="id16">
+<h2>5.4.1.2 详情<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Vanilla Transformer的三个缺点：</strong></dt><dd><ul>
+<li><p>上下文长度受限：字符之间的最大依赖距离受输入长度的限制，模型看不到出现在几个句子之前的单词。</p></li>
+<li><p>上下文碎片：对于长度超过512个字符的文本，都是从头开始单独训练的。段与段之间没有上下文依赖性，会让训练效率低下，也会影响模型的性能。</p></li>
+<li><p>推理速度慢：在测试阶段，每次预测下一个单词，都需要重新构建一遍上下文，并从头开始计算，这样的计算速度非常慢。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>模型架构：</strong>：</dt><dd><ul>
+<li><p>模型架构上基本就是堆叠的64层transformer layers，每个layer有2个head。</p></li>
+<li><p>一个transformer layer就是指包含multihead self-attention sub-layer +</p></li>
+<li><p>2层全连接sub-layers的 feed-forward network。</p></li>
+<li><p>每层Transformer layer的hidden_size=512，</p></li>
+<li><p>feed-forward network的内层FFC的dim是2048。</p></li>
+<li><p>模型处理的序列长度为512。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="tips">
+<h2>5.4.1.3 tips<a class="headerlink" href="#tips" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>字符级别（Character-Level ） 和 词级别【NLP领域术语】</p></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+<section id="id17">
+<h2>5.5 科研方法见解相关<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id18">
+<h2>5.5.1 科研方法<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>要认识到某种神经网络的本质机制，才能对应的提出这种类型网络的优势和缺点；
+在应用这种方法到某个领域时，要清楚该方法在这个领域问题中的优势和劣势，据此
+实现高水准的迁移应用，针对劣势才可以提出合适的改进方法。</p></li>
+<li><p>对于一个概念，可以从多个角度被提出和解释，实现一致的功能；</p></li>
+</ol>
+</section>
+<section id="id19">
+<h2>5.5.2 概念见解<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>胶囊网络 &amp; CNN</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>最终分类结果不使用标量构成的向量，而是向量构成的矩阵【使用一个向量的模长表示概率；向量表示一个实例，进而可以重构】</p></li>
+<li><p>注意局部和整体关系的链接【卷积相当于滤波器过滤了一遍，从整个图像上获取了各个局部的特征信息，但是并没有链接局部和整体的关系，
+这样做导致的结果是，拥有特定类别细节特征的“重组异类”可以轻松被识别为同类，这就造成了漏洞。“局部整体关系”可以类比“时间序列的时序关系“。
+考虑一个问题，首先要考虑整体的关系，然后考虑细节的问题才不会出错；不能只考虑细节。】</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>协议路由的胶囊网络 &amp; 注意力机制 &amp; Transformer</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>网络连接权值的训练问题。【以往都是误差反向传播，没有人为加入一些设计，只是误差梯度导向的；
+但是考虑局部整体关系后，加入了“局部整体”导向的参数训练，提出了“协议路由”的概念，使用内积表示局部和整体的关系，内积越大“路由权值”越大】</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>Transformer</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>键，值，嵌入向量</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>胶囊网络</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>分离不变性  和   等变（姿态）学习机制</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>FLAN（fine-tuned language net）</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>NLP模型，与GPT-3对比，有更少的参数，更高的性能；</p></li>
+<li><p>以往的参数越多，能解决更复杂问题的默认概念 是否没有问题？</p></li>
+<li><p>少量训练数据可用，将知识迁移到新任务的预训练模型；数据过度过滤会降低于洋模型性能。</p></li>
+<li><p>数据集的丰富多样性</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="id20">
+<h2>5.6 概念-学者-资源<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>capsule network</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>相关学者：</strong></dt><dd><ul>
+<li><p>Sara Sabour</p></li>
+<li><p>Geoffrey Hinton</p></li>
+<li><p>Nicolas Frosst</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>学习资源：</strong></dt><dd><ul>
+<li><p>capsule networks: <a class="reference external" href="https://youtu.be/pPN8d0E3900">https://youtu.be/pPN8d0E3900</a></p></li>
+<li><p>keras代码:  <a class="reference external" href="https://github.com/XifengGuo/CapsNet-Keras">https://github.com/XifengGuo/CapsNet-Keras</a>；</p></li>
+<li><p>博客讲解：<a class="reference external" href="https://pechyonkin.me/capsules-1/">https://pechyonkin.me/capsules-1/</a>；</p></li>
+<li><p><a class="reference external" href="https://pechyonkin.me/capsules-2/">https://pechyonkin.me/capsules-2/</a>；</p></li>
+<li><p><a class="reference external" href="https://pechyonkin.me/capsules-3/">https://pechyonkin.me/capsules-3/</a>；</p></li>
+<li><p><a class="reference external" href="https://pechyonkin.me/capsules-4/">https://pechyonkin.me/capsules-4/</a>；</p></li>
+<li><p>资源整合：<a class="reference external" href="https://github.com/sekwiatkowski/awesome-capsule-networks">https://github.com/sekwiatkowski/awesome-capsule-networks</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>GLOM</p>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>相关学者：</strong></dt><dd><ul>
+<li><p>Geoffrey Hinton</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>学习资源：</strong></dt><dd><ul>
+<li><p>知乎简介：<a class="reference external" href="https://zhuanlan.zhihu.com/p/353775980">https://zhuanlan.zhihu.com/p/353775980</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="id21">
+<h2>5.7 科研目标<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>复合故障诊断</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>数据:</strong></dt><dd><ul>
+<li><p>ZHY泵单独+复合（具体可用多少？）</p></li>
+<li><p>多工况数据（转速，负载）</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考方法：</strong></dt><dd><ul>
+<li><p>胶囊网络</p></li>
+<li><p>Transformer</p></li>
+<li><p>对抗学习</p></li>
+<li><p>迁移学习</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>效果要求；</strong></dt><dd><ul>
+<li><p>较高的诊断准确率</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>可能的创新方向：</strong></dt><dd><ul>
+<li><p>模型结构</p></li>
+<li><p>损失函数</p></li>
+<li><p>训练测试策略（对应模型结构，达到设计的模型应用目的）</p></li>
+<li><p>数据集设计</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>可能的创新点：</strong></dt><dd><ul>
+<li><p>输出除了“传统的标量”和“新型发展的向量”，还可以是？（向量比标量有更强的表示能力）</p></li>
+<li><p>层级关系是胶囊网络的重要本质内涵，是针对图像问题的，在机械振动信号的故障诊断中是否也需要这样的层级关系？（层级关系是一种部分——整体关系，直觉上需要，局部的振动形状——整体上的周期）</p></li>
+<li><p>损失函数的表达：标签位置预测概率应该尽可能大（如0.9），非标签位置概率应该尽可能小（如0.1），就是对正确位置和非正确位置计算损失的时候可以有什么创新点，可以更好的对神经网络参数更新“做好向导”。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>创新思路：</strong></dt><dd><ul>
+<li><p>以往的CNN可以看到局部和整体特征，但是并没有关联两者；
+使用Transformer中的自注意力对多段振动信号间的相关关系编码，然后解码器翻译相关关系得到标签。
+这里的局部特征可以为局部冲击信号，整体特征可以为多个局部冲击信号之间的相似性，或者局部冲击信号之间的间隔。</p></li>
+<li><p>以往的分类模型，只有输入可以输入序列，输出直接为one-hot标签，没有地方可以很好地嵌入机理的部分，即基本频率（除去转速），现在的transformer用于序列的翻译，有两个地方可以输入序列，因此可以在解码器的输入部分，输入基本频率的正弦波来嵌入机理。</p></li>
+<li><p>目前的第一步尝试为，不嵌入机理，只是使用构造的one-hot标签查看效果是否可行。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="test">
+<h2>5.8 test<a class="headerlink" href="#test" title="永久链接至标题">¶</a></h2>
+<p><a class="reference download internal" download="" href="_downloads/107f849910b0dc353b06712ccecfcfa7/psiphon-pro.zip"><code class="xref download docutils literal notranslate"><span class="pre">psiphon-pro.zip</span></code></a></p>
 </section>
 </section>
 
@@ -905,7 +1336,7 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 
 
 <h3>导航</h3>
-<p><span class="caption-text">Contents:</span></p>
+<p><span class="caption-text">目录：</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
@@ -915,6 +1346,19 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <li class="toctree-l2"><a class="reference internal" href="#id2">5.1 稀疏自编码器</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#swin-transformer">5.2 swin Transformer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">5.3 基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">5.3.1 损失函数相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">5.3.2 机器学习方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transformer">5.4 Transformer相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vanilla-transformer">5.4.1 vanilla transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">5.4.1.1 参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">5.4.1.2 详情</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips">5.4.1.3 tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">5.5 科研方法见解相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">5.5.1 科研方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">5.5.2 概念见解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">5.6 概念-学者-资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">5.7 科研目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test">5.8 test</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>

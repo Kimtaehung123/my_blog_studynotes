@@ -3,12 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to XIA's BLOG's documentation!
+**笔记NicholasTeo**
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
+   :caption: 目录：
 
    How_to_build_a_blog_C1
    信号相关_C2
@@ -20,6 +20,7 @@ Welcome to XIA's BLOG's documentation!
    期刊信息_C8
    机械相关_C9
    琐碎_C10
+   test
    
 
 

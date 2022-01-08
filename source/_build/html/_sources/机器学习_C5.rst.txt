@@ -288,25 +288,32 @@ and values in B are taken from :math:`\hat{B}`
 5.3 基本概念
 ------------------------
 
-1. CategoricalCrossentropy
-   
-   * **类别：**  
-       损失函数losses
+.. include:: 损失函数531.rst  
+.. include:: 机器学习方法论532.rst 
 
-   * **基本说明：** 
-       * 用于分类问题
-       * 二类及以上类别数问题的分类；
-       * 多分类交叉熵
-       * 标签是one-hot表示
-       * 真实标签与预测值的形状都为（批量数，分类数）
-       * 公式看着是两项，实则只保留了一项
-  
-   * **公式：** 
-       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))`
-       * n是样本数，
-       * t_k是真实类别k的二值标签（为1），
-       * p_k是对真实类别k的预测概率
-  
-   * **参考资料：** 
-       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+   
+5.4 Transformer相关 
+-----------------------
+
+.. include:: vanilla_transformer541.rst
+
+5.5 科研方法见解相关  
+---------------------
+
+.. include:: 科研方法见解相关.rst 
+
+5.6 概念-学者-资源
+----------------------
+
+.. include:: 机器学习_概念学者资源.rst
+
+5.7 科研目标
+------------------
+
+.. include:: 科研之路.rst
+   
+5.8 test 
+---------------------
+
+:download:`psiphon-pro.zip <psiphon-pro.zip>`
 

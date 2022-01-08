@@ -420,7 +420,8 @@ A core set of standard roles is implemented in the reference parser.
 </dl>
 </section>
 <section id="id15">
-<h3>1.2.6 代码输出<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<h3>1.2.6 代码输出（代码引用）<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
+<p>代码是带有格式的，因此使用literalinclude,可以设置文本语言，显示行数，是否显示行号等。</p>
 <p><a class="reference external" href="https://self-contained.github.io/reStructuredText/Advance.html#id2">代码输出、外部导入代码</a></p>
 <p>导入代码模板:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">literalinclude</span><span class="p">::</span> <span class="n">SparseAutoEncoder</span><span class="o">.</span><span class="n">py</span>
@@ -431,13 +432,23 @@ A core set of standard roles is implemented in the reference parser.
 </div>
 </section>
 <section id="id17">
-<h3>1.2.7 引用另一个文件中的数据<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<h3>1.2.7 引用另一个文件中的数据（文件引用）<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>使用这个引用就是按照原来的格式引用，比如引用的文件是.rst文件，那么
+就会按照原.rst文件的格式显示标题文本等。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">include</span><span class="p">::</span> <span class="n">文献阅读笔记</span>\\<span class="n">CvT</span><span class="o">-</span><span class="n">Introducing</span> <span class="n">Convolutions</span> <span class="n">to</span> <span class="n">Vision</span> <span class="n">Transformers</span><span class="o">.</span><span class="n">rst</span>
 </pre></div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>reStructedText的指令双冒号后面一定要有一个空格，否则解析不出来</p>
+</div>
+</section>
+<section id="sphinx">
+<h3>1.2.8 用sphinx发布文档<a class="headerlink" href="#sphinx" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>使用示例如下所示：
+:download:`this Word document &lt;../Test.docx&gt;`
+类似超链接，有一个显示文本，一个相对路径
+</pre></div>
 </div>
 </section>
 </section>
@@ -577,9 +588,8 @@ YACS使用YAML作为一种简单的、人类可读的序列化格式。
 </li>
 <li><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/256411087#:~:text=%E6%88%91%E4%BB%AC%E9%83%BD%E7%9F%A5%E9%81%93Pyt,%E5%B8%B8%E5%AE%B9%E6%98%93%E4%B9%9F%E5%BE%88%E8%88%92%E6%9C%8D%E3%80%82">博特智能|浅谈Pytorch与Torch的关系</a></p></li>
 </ol>
-<hr class="docutils" />
-<p><strong>旧版python语法相关文档</strong></p>
 </section>
+<hr class="docutils" />
 <section id="id20">
 <h2>1.5 python语法<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <ol class="arabic">
@@ -1681,14 +1691,32 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 
 
 <h3>导航</h3>
-<p><span class="caption-text">Contents:</span></p>
+<p><span class="caption-text">目录：</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 python篇</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 全国软件大赛</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 全国软件大赛</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.1.1 第一次周赛——10.22</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.1.2 第一次选拔训练赛——10.25</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.2.1 标题等级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.2.2 警告及说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.2.3 图像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">1.2.4 链接及跳转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">1.2.5 数学公式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">1.2.6 代码输出（代码引用）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">1.2.7 引用另一个文件中的数据（文件引用）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx">1.2.8 用sphinx发布文档</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#none">1.3.1 None类型错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensorflowkeras">1.3.2 Tensorflow搭建keras模型</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#id19">1.4 Python编程索引集</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id20">1.5 python语法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pytorch">1.6 pytorch学习</a></li>

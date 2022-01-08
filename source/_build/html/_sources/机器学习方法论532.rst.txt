@@ -1,0 +1,8 @@
+5.3.2 机器学习方法
+--------------------
+
+1. curriculum learning
+   
+   * **基本说明：**
+       The main concept in curriculum learning is to start the training with simpler tasks and 
+       gradually increase the level of difficulty.

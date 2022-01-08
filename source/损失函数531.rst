@@ -1,0 +1,124 @@
+5.3.1 损失函数相关
+------------------------
+
+1. CategoricalCrossentropy
+   
+   * **类别：**  
+       损失函数losses
+
+   * **基本说明：** 
+       * 用于分类问题
+       * 二类及以上类别数问题的分类；
+       * 多分类交叉熵
+       * 标签是one-hot表示
+       * 真实标签与预测值的形状都为（批量数，分类数）
+       * 公式看着是两项，实则只保留了一项
+  
+   * **公式：** 
+       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))`
+       * n是样本数，
+       * :math:`t_k` 是真实类别k的二值标签（为1），
+       * :math:`p_k` 是对真实类别k的预测概率
+  
+   * **参考资料：** 
+       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+
+2. MSE-均方误差
+   
+   * **类别：**  
+       损失函数losses
+
+   * **基本说明：** 
+       * 主要用于回归问题
+  
+   * **公式：** 
+       * :math:`loss = \frac{1}{n} \sum_{i = 1}^{n} (p_i - t_i)^2`
+       * n是样本数，
+       * :math:`t_i` 是标签，
+       * :math:`p_i` 是预测值；
+  
+   * **参考资料：** 
+       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+
+3. RMSE-均方根误差
+   
+   * **类别：**  
+       损失函数losses
+
+   * **基本说明：** 
+       * 主要用于回归问题
+  
+   * **公式：** 
+       * :math:`loss = \sqrt{\frac{1}{n} \sum_{i = 1}^{n} (p_i - t_i)^2}`
+       * n是样本数，
+       * :math:`t_i` 是标签，
+       * :math:`p_i` 是预测值；
+  
+   * **参考资料：** 
+       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+
+4. BinaryCrossentropy
+   
+   * **类别：**  
+       损失函数losses
+
+   * **基本说明：** 
+       * 用于分类问题 
+       * 二分类交叉熵
+       * from_logits，指的是预测值与概率值符合logit函数关系，
+         预测值是来自logit函数，所以通过对预测值做logit反函数变换，可以得到概率值(0,1)
+
+   * **公式：** 
+       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_i (ln p_i) + (1-t_i)(ln(1-p_i)))`
+       * n是样本数，
+       * :math:`t_i` 是真实二值标签，
+       * :math:`p_i` 是预测概率；
+  
+   * **参考资料：** 
+       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+       `Binary Cross Entropy Loss <https://zhuanlan.zhihu.com/p/181553413>`_
+
+5. SparseCategoricalCrossentropy
+   
+   * **类别：**  
+       损失函数losses
+
+   * **基本说明：** 
+       * 用于分类问题
+       * 二类及以上类别数问题的分类；
+       * 标签是整数表示形式；
+       * 如果预测形状为（批量数，类别数），那么真实标签形状应该为（批量数），真实标签空间比预测空间少一个维度 
+       * 预测输出最后一个维度包括了各个类别的概率，标签只包含了真实的类别索引值（即，标签是整数，非one-hot形式的表示)
+       * 稀疏多分类交叉熵
+
+   * **公式：** 
+       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))`
+       * n是样本数，
+       * :math:`t_k` 是真实类别k的二值标签（为1），
+       * :math:`p_k` 是对真实类别k的预测概率；
+  
+   * **参考资料：** 
+       `机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵 <https://blog.csdn.net/At_a_lost/article/details/109531309>`_
+
+6. logit（log-odds) (abbreviation for logistic units
+   
+   * **类别：**  
+       概率
+
+   * **基本说明：** 
+       * 计算步骤是 ：先计算 :math:`odds = p_出现/p_不出现` ；然后对odds取对数；即log it，其中的it指代odds
+       *  odds值的范围在 :math:`[0,\infty)` ；
+       *  logit取值范围在 :math:`(- \infty,+ \infty)`
+       *  logit相比于出现的概率，更加强化了出现概率要高。
+       *  它的函数表达式的反函数是 :math:`y = \frac{1}{1-e^{-x}}` 
+
+   * **公式：** 
+       * :math:`logit(p) = ln \frac{p}{1-p} = ln odds`
+       * :math:`odds = \frac{p}{1-p}`
+       * :math:`logit^{-1}(p) = \frac{1}{1-e^(-p)}` 
+  
+   * **参考资料：** 
+       `Logit究竟是个啥？——离散选择模型之三 <https://zhuanlan.zhihu.com/p/27188729>`_
+       `Wikipedia Logit <https://en.wikipedia.org/wiki/Logit>`_
+
+       

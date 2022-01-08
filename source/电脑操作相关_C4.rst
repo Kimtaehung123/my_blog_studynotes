@@ -91,3 +91,14 @@
 `word里面不能用latex形式输入分数吗？\frac{a}{b} (转载) <https://exp.newsmth.net/topic/article/8b449e2b993ebd686bf0789fddc22ddc>`_
 
 使用 :code:`a/b`就可以。
+
+1.6 文件系统相关
+-------------------------
+
+1. `.htm和.html的区别 <https://www.cnblogs.com/sccwxl/p/9828458.html>`_
+
+.htm与.html没有本质上的区别，表示的是同一种文件，只是适用于不同的环境之下。
+
+2. xps （Microsoft研发的静态文档文件格式）
+
+XPS是 XML Paper Specification的简称，它是微软公司开发的一种文档保存与查看的规范。

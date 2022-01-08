@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>5.3.1 损失函数相关 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>5.3.1 损失函数相关<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<ol class="arabic simple">
+<li><p>CategoricalCrossentropy</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>用于分类问题</p></li>
+<li><p>二类及以上类别数问题的分类；</p></li>
+<li><p>多分类交叉熵</p></li>
+<li><p>标签是one-hot表示</p></li>
+<li><p>真实标签与预测值的形状都为（批量数，分类数）</p></li>
+<li><p>公式看着是两项，实则只保留了一项</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_k\)</span> 是真实类别k的二值标签（为1），</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_k\)</span> 是对真实类别k的预测概率</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>MSE-均方误差</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>主要用于回归问题</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = \frac{1}{n} \sum_{i = 1}^{n} (p_i - t_i)^2\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是标签，</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测值；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>RMSE-均方根误差</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>主要用于回归问题</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = \sqrt{\frac{1}{n} \sum_{i = 1}^{n} (p_i - t_i)^2}\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是标签，</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测值；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>BinaryCrossentropy</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>用于分类问题</p></li>
+<li><p>二分类交叉熵</p></li>
+<li><p>from_logits，指的是预测值与概率值符合logit函数关系，
+预测值是来自logit函数，所以通过对预测值做logit反函数变换，可以得到概率值(0,1)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_i (ln p_i) + (1-t_i)(ln(1-p_i)))\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是真实二值标签，</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测概率；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a>
+<a class="reference external" href="https://zhuanlan.zhihu.com/p/181553413">Binary Cross Entropy Loss</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>SparseCategoricalCrossentropy</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>损失函数losses</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>用于分类问题</p></li>
+<li><p>二类及以上类别数问题的分类；</p></li>
+<li><p>标签是整数表示形式；</p></li>
+<li><p>如果预测形状为（批量数，类别数），那么真实标签形状应该为（批量数），真实标签空间比预测空间少一个维度</p></li>
+<li><p>预测输出最后一个维度包括了各个类别的概率，标签只包含了真实的类别索引值（即，标签是整数，非one-hot形式的表示)</p></li>
+<li><p>稀疏多分类交叉熵</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))\)</span></p></li>
+<li><p>n是样本数，</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_k\)</span> 是真实类别k的二值标签（为1），</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_k\)</span> 是对真实类别k的预测概率；</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://blog.csdn.net/At_a_lost/article/details/109531309">机器学习常见损失函数，二元交叉熵，类别交叉熵，MSE，稀疏类别交叉熵</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>logit（log-odds) (abbreviation for logistic units</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>类别：</strong></dt><dd><p>概率</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>基本说明：</strong></dt><dd><ul>
+<li><p>计算步骤是 ：先计算 <span class="math notranslate nohighlight">\(odds = p_出现/p_不出现\)</span> ；然后对odds取对数；即log it，其中的it指代odds</p></li>
+<li><p>odds值的范围在 <span class="math notranslate nohighlight">\([0,\infty)\)</span> ；</p></li>
+<li><p>logit取值范围在 <span class="math notranslate nohighlight">\((- \infty,+ \infty)\)</span></p></li>
+<li><p>logit相比于出现的概率，更加强化了出现概率要高。</p></li>
+<li><p>它的函数表达式的反函数是 <span class="math notranslate nohighlight">\(y = \frac{1}{1-e^{-x}}\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>公式：</strong></dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(logit(p) = ln \frac{p}{1-p} = ln odds\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(odds = \frac{p}{1-p}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(logit^{-1}(p) = \frac{1}{1-e^(-p)}\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>参考资料：</strong></dt><dd><p><a class="reference external" href="https://zhuanlan.zhihu.com/p/27188729">Logit究竟是个啥？——离散选择模型之三</a>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Logit">Wikipedia Logit</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p><span class="caption-text">目录：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, xia liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/损失函数531.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

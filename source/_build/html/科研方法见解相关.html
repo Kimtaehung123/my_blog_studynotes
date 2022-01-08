@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+    <title>5.5.1 科研方法 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="id1">
+<h1>5.5.1 科研方法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<ol class="arabic simple">
+<li><p>要认识到某种神经网络的本质机制，才能对应的提出这种类型网络的优势和缺点；
+在应用这种方法到某个领域时，要清楚该方法在这个领域问题中的优势和劣势，据此
+实现高水准的迁移应用，针对劣势才可以提出合适的改进方法。</p></li>
+<li><p>对于一个概念，可以从多个角度被提出和解释，实现一致的功能；</p></li>
+</ol>
+</section>
+<section id="id2">
+<h1>5.5.2 概念见解<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
+<ol class="arabic simple">
+<li><p>胶囊网络 &amp; CNN</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>最终分类结果不使用标量构成的向量，而是向量构成的矩阵【使用一个向量的模长表示概率；向量表示一个实例，进而可以重构】</p></li>
+<li><p>注意局部和整体关系的链接【卷积相当于滤波器过滤了一遍，从整个图像上获取了各个局部的特征信息，但是并没有链接局部和整体的关系，
+这样做导致的结果是，拥有特定类别细节特征的“重组异类”可以轻松被识别为同类，这就造成了漏洞。“局部整体关系”可以类比“时间序列的时序关系“。
+考虑一个问题，首先要考虑整体的关系，然后考虑细节的问题才不会出错；不能只考虑细节。】</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>协议路由的胶囊网络 &amp; 注意力机制 &amp; Transformer</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>网络连接权值的训练问题。【以往都是误差反向传播，没有人为加入一些设计，只是误差梯度导向的；
+但是考虑局部整体关系后，加入了“局部整体”导向的参数训练，提出了“协议路由”的概念，使用内积表示局部和整体的关系，内积越大“路由权值”越大】</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>Transformer</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>键，值，嵌入向量</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>胶囊网络</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>分离不变性  和   等变（姿态）学习机制</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+<li><p>FLAN（fine-tuned language net）</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>思路：</strong></dt><dd><ul>
+<li><p>NLP模型，与GPT-3对比，有更少的参数，更高的性能；</p></li>
+<li><p>以往的参数越多，能解决更复杂问题的默认概念 是否没有问题？</p></li>
+<li><p>少量训练数据可用，将知识迁移到新任务的预训练模型；数据过度过滤会降低于洋模型性能。</p></li>
+<li><p>数据集的丰富多样性</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+
+
+
+
+
+
+
+
+<h3>导航</h3>
+<p><span class="caption-text">目录：</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">快速搜索</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="转向" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, xia liu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/科研方法见解相关.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
