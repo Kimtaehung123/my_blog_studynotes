@@ -297,6 +297,8 @@ and values in B are taken from :math:`\hat{B}`
 
 .. include:: vanilla_transformer541.rst
 
+.. include:: a_survey_of_transformers_arXiv_2106.04554v2_542.rst
+
 5.5 科研方法见解相关  
 ---------------------
 

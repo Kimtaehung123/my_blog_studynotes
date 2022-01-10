@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>5.4.1 vanilla transformer &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <title>5.4.2 a_survey_of_transformers &#8212; XIA&#39;s BLOG 1.0 文档</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -32,46 +32,78 @@
 
           <div class="body" role="main">
             
-  <section id="vanilla-transformer">
-<h1>5.4.1 vanilla transformer<a class="headerlink" href="#vanilla-transformer" title="永久链接至标题">¶</a></h1>
-</section>
-<section id="id1">
-<h1>5.4.1.1 参考<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<p><a class="reference external" href="https://blog.csdn.net/sinat_37574187/article/details/119890682">vanilla transformer</a></p>
-<p><a class="reference external" href="https://blog.csdn.net/u010366748/article/details/114301942">论文笔记-Vanilla Transformer：Character-Level Language Modeling with Deeper Self-Attention</a></p>
-</section>
-<section id="id3">
-<h1>5.4.1.2 详情<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
-<ul class="simple">
+  <section id="a-survey-of-transformers">
+<h1>5.4.2 a_survey_of_transformers<a class="headerlink" href="#a-survey-of-transformers" title="永久链接至标题">¶</a></h1>
+<ol class="arabic">
+<li><p><strong>主要内容：</strong></p>
+<ol class="loweralpha simple">
+<li><p>vanilla Transformer &amp;  X-formers</p></li>
 <li><dl class="simple">
-<dt><strong>Vanilla Transformer的三个缺点：</strong></dt><dd><ul>
-<li><p>上下文长度受限：字符之间的最大依赖距离受输入长度的限制，模型看不到出现在几个句子之前的单词。</p></li>
-<li><p>上下文碎片：对于长度超过512个字符的文本，都是从头开始单独训练的。段与段之间没有上下文依赖性，会让训练效率低下，也会影响模型的性能。</p></li>
-<li><p>推理速度慢：在测试阶段，每次预测下一个单词，都需要重新构建一遍上下文，并从头开始计算，这样的计算速度非常慢。</p></li>
+<dt>X-formers from three perspectives:</dt><dd><ul class="simple">
+<li><p>architectural modification</p></li>
+<li><p>pre-training</p></li>
+<li><p>applications</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><dl class="simple">
-<dt><strong>模型架构：</strong>：</dt><dd><ul>
-<li><p>模型架构上基本就是堆叠的64层transformer layers，每个layer有2个head。</p></li>
-<li><p>一个transformer layer就是指包含multihead self-attention sub-layer +</p></li>
-<li><p>2层全连接sub-layers的 feed-forward network。</p></li>
-<li><p>每层Transformer layer的hidden_size=512，</p></li>
-<li><p>feed-forward network的内层FFC的dim是2048。</p></li>
-<li><p>模型处理的序列长度为512。</p></li>
-</ul>
-</dd>
-</dl>
+<li><p>potential directions</p></li>
+</ol>
+</li>
+<li><p><strong>关键词：</strong></p>
+<ol class="loweralpha simple">
+<li><p>Transformer</p></li>
+<li><p>Self-Attention</p></li>
+<li><p>Pre-trained Models</p></li>
+<li><p>Deep Learning</p></li>
+</ol>
+</li>
+<li><p><strong>Introduction:</strong></p>
+<ul>
+<li><p><em>fields</em> : NLP, CV, speech processing,Transformer-based pre-trained models (PTMs)</p></li>
+<li><p><em>origin</em> : 机器翻译的序列到序列模型</p></li>
+<li><p><em>X-formers improvements</em> ：These X-formers improve the vanilla Transformer from different perspectives:</p>
+<blockquote>
+<div><ul>
+<li><p>model efficience :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">long</span> <span class="n">sequences</span><span class="p">,</span> <span class="n">computation</span> <span class="ow">and</span> <span class="n">memory</span> <span class="n">complexity</span> <span class="n">of</span> <span class="bp">self</span><span class="o">-</span><span class="n">attention</span>
+</pre></div>
+</div>
+</li>
+<li><p>model generalization:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">makes</span> <span class="n">few</span> <span class="n">assumptions</span> <span class="n">on</span> <span class="n">the</span> <span class="n">structural</span> <span class="n">bias</span> <span class="n">of</span> <span class="nb">input</span> <span class="n">data</span><span class="p">,</span>
+<span class="n">it</span> <span class="ow">is</span> <span class="n">hard</span> <span class="n">to</span> <span class="n">train</span> <span class="n">on</span> <span class="n">small</span><span class="o">-</span><span class="n">scale</span> <span class="n">data</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>model adaptation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt</span> <span class="n">the</span> <span class="n">Transformer</span> <span class="n">to</span> <span class="n">specific</span> <span class="n">downstream</span> <span class="n">tasks</span> <span class="ow">and</span> <span class="n">applications</span><span class="o">.</span>
+</pre></div>
+</div>
 </li>
 </ul>
-</section>
-<section id="tips">
-<h1>5.4.1.3 tips<a class="headerlink" href="#tips" title="永久链接至标题">¶</a></h1>
-<ul class="simple">
-<li><p>字符级别（Character-Level ） 和 词级别【NLP领域术语】</p></li>
-<li><p>vanilla在计算机领域指的就是最原始的意思。</p></li>
+</div></blockquote>
+</li>
 </ul>
+<blockquote>
+<div><ul>
+<li><p><em>organization of the article</em> :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sec. 2 : introduces the architecture and the key components of Transformer.</p></li>
+<li><p>Sec. 3 : clarifies the categorization of Transformer variants.</p></li>
+<li><p>Sec. 4∼5 : review the module-level modifications, including attention module, position encoding, layer normalization and feed-forward layer.</p></li>
+<li><p>Sec. 6 : reviews the architecture-level variants.</p></li>
+<li><p>Sec. 7 : introduces some of the representative Transformer-based PTMs.</p></li>
+<li><p>Sec. 8 : introduces the application of Transformer to various different fields.</p></li>
+<li><p>Sec. 9 : discusses some aspects of Transformer that researchers might find intriguing and summarizes the paper.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
 </section>
 
 
@@ -142,7 +174,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/vanilla_transformer541.rst.txt"
+      <a href="_sources/a_survey_of_transformers_arXiv_2106.04554v2_542.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
