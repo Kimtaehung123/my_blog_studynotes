@@ -4,4 +4,4 @@
 1.1 参考
 ---------------------------------
 
-` <如何使用python搭建自己的博客? - Lumos的回答 - 知乎 https://www.zhihu.com/question/342416006/answer/1992318387>`_
+`如何使用python搭建自己的博客? - Lumos的回答 - 知乎 <https://www.zhihu.com/question/342416006/answer/1992318387>`_

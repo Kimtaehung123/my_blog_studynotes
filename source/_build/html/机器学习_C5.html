@@ -1118,9 +1118,9 @@ gradually increase the level of difficulty.</p>
 </section>
 <section id="a-survey-of-transformers">
 <h2>5.4.2 a_survey_of_transformers<a class="headerlink" href="#a-survey-of-transformers" title="永久链接至标题">¶</a></h2>
-<ol class="arabic">
-<li><p><strong>主要内容：</strong></p>
-<ol class="loweralpha simple">
+<p><strong>主要内容：</strong></p>
+<blockquote>
+<div><ol class="loweralpha simple">
 <li><p>vanilla Transformer &amp;  X-formers</p></li>
 <li><dl class="simple">
 <dt>X-formers from three perspectives:</dt><dd><ul class="simple">
@@ -1133,15 +1133,17 @@ gradually increase the level of difficulty.</p>
 </li>
 <li><p>potential directions</p></li>
 </ol>
-</li>
-<li><p><strong>关键词：</strong></p>
-<ol class="loweralpha simple">
+</div></blockquote>
+<p><strong>关键词：</strong></p>
+<blockquote>
+<div><ol class="loweralpha simple">
 <li><p>Transformer</p></li>
 <li><p>Self-Attention</p></li>
 <li><p>Pre-trained Models</p></li>
 <li><p>Deep Learning</p></li>
 </ol>
-</li>
+</div></blockquote>
+<ol class="arabic">
 <li><p><strong>Introduction:</strong></p>
 <ul>
 <li><p><em>fields</em> : NLP, CV, speech processing,Transformer-based pre-trained models (PTMs)</p></li>
@@ -1150,20 +1152,20 @@ gradually increase the level of difficulty.</p>
 <blockquote>
 <div><ul>
 <li><p>model efficience :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">long</span> <span class="n">sequences</span><span class="p">,</span> <span class="n">computation</span> <span class="ow">and</span> <span class="n">memory</span> <span class="n">complexity</span> <span class="n">of</span> <span class="bp">self</span><span class="o">-</span><span class="n">attention</span>
-</pre></div>
-</div>
+<blockquote>
+<div><p>long sequences, computation and memory complexity of self-attention</p>
+</div></blockquote>
 </li>
 <li><p>model generalization:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">makes</span> <span class="n">few</span> <span class="n">assumptions</span> <span class="n">on</span> <span class="n">the</span> <span class="n">structural</span> <span class="n">bias</span> <span class="n">of</span> <span class="nb">input</span> <span class="n">data</span><span class="p">,</span>
-<span class="n">it</span> <span class="ow">is</span> <span class="n">hard</span> <span class="n">to</span> <span class="n">train</span> <span class="n">on</span> <span class="n">small</span><span class="o">-</span><span class="n">scale</span> <span class="n">data</span><span class="o">.</span>
-</pre></div>
-</div>
+<blockquote>
+<div><p>makes few assumptions on the structural bias of input data,
+it is hard to train on small-scale data.</p>
+</div></blockquote>
 </li>
 <li><p>model adaptation:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">adapt</span> <span class="n">the</span> <span class="n">Transformer</span> <span class="n">to</span> <span class="n">specific</span> <span class="n">downstream</span> <span class="n">tasks</span> <span class="ow">and</span> <span class="n">applications</span><span class="o">.</span>
-</pre></div>
-</div>
+<blockquote>
+<div><p>adapt the Transformer to specific downstream tasks and applications.</p>
+</div></blockquote>
 </li>
 </ul>
 </div></blockquote>
@@ -1174,16 +1176,34 @@ gradually increase the level of difficulty.</p>
 <li><p><em>organization of the article</em> :</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>Sec. 2 : introduces the architecture and the key components of Transformer.</p></li>
+<li><p>Sec. 2 : the architecture and the key components of Transformer.</p></li>
 <li><p>Sec. 3 : clarifies the categorization of Transformer variants.</p></li>
 <li><p>Sec. 4∼5 : review the module-level modifications, including attention module, position encoding, layer normalization and feed-forward layer.</p></li>
-<li><p>Sec. 6 : reviews the architecture-level variants.</p></li>
-<li><p>Sec. 7 : introduces some of the representative Transformer-based PTMs.</p></li>
-<li><p>Sec. 8 : introduces the application of Transformer to various different fields.</p></li>
+<li><p>Sec. 6 : reviews the <strong>architecture-level variants</strong>.</p></li>
+<li><p>Sec. 7 : introduces some of the representative <strong>Transformer-based PTMs</strong> (pre-trained models).</p></li>
+<li><p>Sec. 8 : introduces the <strong>application of Transformer</strong> to various different fields.</p></li>
 <li><p>Sec. 9 : discusses some aspects of Transformer that researchers might find intriguing and summarizes the paper.</p></li>
 </ul>
 </div></blockquote>
 </li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>background:</strong></p>
+<blockquote>
+<div><ul>
+<li><p><em>vanilla transformer</em> :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>multi-head self-attention module(MHA)</p></li>
+<li><p>a position-wise feed-forward network(FFN)</p></li>
+<li><p>layer normalization module</p></li>
+<li><p>cross-attention modules</p></li>
+<li><p>(deeper model) residual connection</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li></li>
 </ul>
 </div></blockquote>
 </li>
