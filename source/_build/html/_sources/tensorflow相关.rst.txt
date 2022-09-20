@@ -1,0 +1,9 @@
+1. tensorflow中的两种卷积填充方式padding——valid和same  
+
+    `参考1 <https://blog.csdn.net/Hunter_Murphy/article/details/108742120?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.pc_relevant_paycolumn_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.pc_relevant_paycolumn_v2&utm_relevant_index=2>`_ 
+
+    * same意思是卷积核可以按照步长移动到图像边缘；
+    * valid不对图像进行填充，实际能有多少个输出就是多少个。
+    * same的计算公式: :math:`output \_ size = \lceil input \_ size / stride \rceil`
+    * valid的计算公式：:math:`output \_ size = \lfloor (input \_ size - kernel \_ size)/stride + 1 \rfloor`
+    * 因此 **只使用same不能保证输出尺寸不变**，必须 **使用same且stride为1**

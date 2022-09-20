@@ -50,9 +50,8 @@
 
     * *vanilla transformer* :
 
-        * multi-head self-attention module(MHA)
+        * multi-head self-attention module(MHA)(self-attention modules)(masked self-attention modules)(cross-attention modules)
         * a position-wise feed-forward network(FFN)
-        * layer normalization module 
-        * cross-attention modules
-        * (deeper model) residual connection
+        * residual connection(deeper model) & layer normalization module 
+        * position encoding
     * 

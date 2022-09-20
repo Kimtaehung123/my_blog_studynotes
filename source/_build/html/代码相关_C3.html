@@ -594,28 +594,28 @@ YACS使用YAML作为一种简单的、人类可读的序列化格式。
 <h2>1.5 python语法<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <ol class="arabic">
 <li><p>python函数注释说明</p>
-<figure class="align-center" id="id31">
+<figure class="align-center" id="id32">
 <img alt="_images/python函数参数定义说明.png" src="_images/python函数参数定义说明.png" />
 <figcaption>
-<p><span class="caption-text"><strong>python函数参数定义解释说明示例1</strong></span><a class="headerlink" href="#id31" title="永久链接至图片">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id32">
-<img alt="_images/python函数参数解释说明示例2.png" src="_images/python函数参数解释说明示例2.png" />
-<figcaption>
-<p><span class="caption-text"><strong>python函数参数定义解释说明示例2</strong></span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>python函数参数定义解释说明示例1</strong></span><a class="headerlink" href="#id32" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id33">
-<img alt="_images/positional_keyword_params.png" src="_images/positional_keyword_params.png" />
+<img alt="_images/python函数参数解释说明示例2.png" src="_images/python函数参数解释说明示例2.png" />
 <figcaption>
-<p><span class="caption-text"><strong>函数定义参数类型：位置型和关键词型</strong></span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>python函数参数定义解释说明示例2</strong></span><a class="headerlink" href="#id33" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <figure class="align-center" id="id34">
+<img alt="_images/positional_keyword_params.png" src="_images/positional_keyword_params.png" />
+<figcaption>
+<p><span class="caption-text"><strong>函数定义参数类型：位置型和关键词型</strong></span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id35">
 <img alt="_images/函数定义.png" src="_images/函数定义.png" />
 <figcaption>
-<p><span class="caption-text"><strong>函数定义语法</strong></span><a class="headerlink" href="#id34" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>函数定义语法</strong></span><a class="headerlink" href="#id35" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 </li>
@@ -1672,6 +1672,23 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 </pre></div>
 </td></tr></table></div>
 </section>
+<section id="tensorflow">
+<h2>1.9 tensorflow相关<a class="headerlink" href="#tensorflow" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>tensorflow中的两种卷积填充方式padding——valid和same</p>
+<blockquote>
+<div><p><a class="reference external" href="https://blog.csdn.net/Hunter_Murphy/article/details/108742120?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.pc_relevant_paycolumn_v2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.pc_relevant_paycolumn_v2&amp;utm_relevant_index=2">参考1</a></p>
+<ul class="simple">
+<li><p>same意思是卷积核可以按照步长移动到图像边缘；</p></li>
+<li><p>valid不对图像进行填充，实际能有多少个输出就是多少个。</p></li>
+<li><p>same的计算公式: <span class="math notranslate nohighlight">\(output \_ size = \lceil input \_ size / stride \rceil\)</span></p></li>
+<li><p>valid的计算公式：<span class="math notranslate nohighlight">\(output \_ size = \lfloor (input \_ size - kernel \_ size)/stride + 1 \rfloor\)</span></p></li>
+<li><p>因此 <strong>只使用same不能保证输出尺寸不变</strong>，必须 <strong>使用same且stride为1</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</section>
 </section>
 
 
@@ -1722,6 +1739,7 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 <li class="toctree-l2"><a class="reference internal" href="#pytorch">1.6 pytorch学习</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#java">1.7 Java学习</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pythonmat-matlab-python">1.8 python对mat数据的处理（matlab，python)(数据处理)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tensorflow">1.9 tensorflow相关</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>

@@ -709,6 +709,37 @@ reStructedText中的数学公式指令：
        os.rmdir(path)  # path是文件夹路径，注意文件夹需要时空的才能被删除
        os.unlink('F:\新建文本文档.txt')  # unlink的功能和remove一样是删除一个文件，但是删除一个删除一个正在使用的文件会报错。
 
+6. python类方法、静态方法和实例方法
+   
+   类方法和静态方法都可以直接“类名.方法名”或者“实例对象.方法名”的形式进行调用；
+   但实例方法只能“实例对象.实例方法”的形式进行调用；
+
+   类方法和静态方法不可以访问实例属性，只有实例方法可以访问；
+   类属性直接放在类定义里面，和类方法、实例方法、静态方法并列。
+
+   类方法有关键字“cls"，用，实例方法有关键字"self".
+
+   类方法使用@classmethod修饰，静态方法使用@staticmethod修饰
+
+7. 运算符
+
+    * // ：向下取整的地板除法
+    * ** ：二次幂
+
+8. 概率相关
+
+    * 累计分布函数cdf ： `数理基础（概率论）------scipy正态分布、二项分布、泊松分布、均匀分布、指数分布概率计算练习 <https://blog.csdn.net/m0_47405013/article/details/121093044>`_
+
+    ::
+
+        import scipy.stats # 导入必须写这个，写import scipy报错没有stats
+        import numpy as np
+        x = np.random.randn(10000)
+        norm_cdf = scipy.stats.norm().cdf(x)
+        print(norm_cdf[0:5])
+        print(norm_cdf.shape)
+
+
 1.6 pytorch学习
 -------------------
 
@@ -733,3 +764,7 @@ reStructedText中的数学公式指令：
     :language: python 
     :lines: 0-
 
+1.9 tensorflow相关
+---------------------------------------
+
+.. include:: tensorflow相关.rst 

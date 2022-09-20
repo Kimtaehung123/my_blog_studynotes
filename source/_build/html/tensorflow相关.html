@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>第一章 知乎学习搭建博客 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+    <title>&lt;no title&gt; &#8212; XIA&#39;s BLOG 1.0 文档</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,10 +14,9 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/translations.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="第二章 信号分解" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" />
-    <link rel="prev" title="笔记NicholasTeo" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -34,13 +33,20 @@
 
           <div class="body" role="main">
             
-  <section id="id1">
-<h1>第一章 知乎学习搭建博客<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<section id="id2">
-<h2>1.1 参考<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
-<p><a class="reference external" href="https://www.zhihu.com/question/342416006/answer/1992318387">如何使用python搭建自己的博客? - Lumos的回答 - 知乎</a></p>
-</section>
-</section>
+  <ol class="arabic">
+<li><p>tensorflow中的两种卷积填充方式padding——valid和same</p>
+<blockquote>
+<div><p><a class="reference external" href="https://blog.csdn.net/Hunter_Murphy/article/details/108742120?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.pc_relevant_paycolumn_v2&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.pc_relevant_paycolumn_v2&amp;utm_relevant_index=2">参考1</a></p>
+<ul class="simple">
+<li><p>same意思是卷积核可以按照步长移动到图像边缘；</p></li>
+<li><p>valid不对图像进行填充，实际能有多少个输出就是多少个。</p></li>
+<li><p>same的计算公式: <span class="math notranslate nohighlight">\(output \_ size = \lceil input \_ size / stride \rceil\)</span></p></li>
+<li><p>valid的计算公式：<span class="math notranslate nohighlight">\(output \_ size = \lfloor (input \_ size - kernel \_ size)/stride + 1 \rfloor\)</span></p></li>
+<li><p>因此 <strong>只使用same不能保证输出尺寸不变</strong>，必须 <strong>使用same且stride为1</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
 
 
           </div>
@@ -60,11 +66,8 @@
 
 <h3>导航</h3>
 <p><span class="caption-text">目录：</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">第一章 知乎学习搭建博客</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">1.1 参考</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
 <li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
@@ -80,8 +83,6 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="上一章"><strong>笔记NicholasTeo</strong></a></li>
-      <li>Next: <a href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" title="下一章">第二章 信号分解</a></li>
   </ul></li>
 </ul>
 </div>
@@ -115,7 +116,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/How_to_build_a_blog_C1.rst.txt"
+      <a href="_sources/tensorflow相关.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
