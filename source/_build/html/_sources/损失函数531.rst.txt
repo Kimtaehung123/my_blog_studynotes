@@ -1,5 +1,30 @@
 5.3.1 损失函数相关
-------------------------
+--------------------------------------
+
+损失函数的输入是真实标签和预测值，一般需要 **预设（初始化）**
+* 预测值是否from_logits（如果是，则应用反函数sigmoid函数得到概率值，再进行损失的计算）；
+* 沿着哪个轴计算损失，一般是最后一个维度（计算损失就是减少一个维度）；
+* 应用到损失值的reduction方法（一般有auto根据上下文语境选择；大部分情况是sum_over_batch_size；当使用分布式策略时，这两种reduction方法报错）；
+* 标签平滑label smoothing `参考 <https://blog.csdn.net/qq_43211132/article/details/100510113>`_;
+* 算符Op的命名
+
+
+**调用** （以tensorflow为例）
+* 真实标签
+* 预测值
+* 权值(可以是一个标量用于损失值整体的缩放；或者是一个向量用于对不同的batch进行加权；或者是更高维的向量（广播机制），用于更细致的加权)
+
+**类方法**
+* from_config(config_dict): 输入配置参数，返回损失实例化对象 
+* get_config(): 返回损失实例的配置字典
+* __call__(y_true,y_pred,sample_weights): 激活损失实例对象，返回加权浮点损失tensor(reduction不是None的时候，否则为向量)
+
+
+**appendix : label smoothing**
+* 一种正则化方法 
+* 防止过拟合（数据或多或少存在一定的噪声；训练数据只是使用了部分数据，模型的学习能力太强容易过拟合）
+* 公式为 :math:`outputs = (1-\epsilon) * inputs + \frac{\epsilon}{k}` （inputs是真实标签，outputs是平滑后的标签）
+* `一个小例子搞懂transformer中的label smoothing(标签平滑) <https://blog.csdn.net/weixin_44305115/article/details/106605237?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1>`_
 
 1. CategoricalCrossentropy
    
@@ -12,10 +37,9 @@
        * 多分类交叉熵
        * 标签是one-hot表示
        * 真实标签与预测值的形状都为（批量数，分类数）
-       * 公式看着是两项，实则只保留了一项
   
    * **公式：** 
-       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))`
+       * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} t_k (ln p_k)`
        * n是样本数，
        * :math:`t_k` 是真实类别k的二值标签（为1），
        * :math:`p_k` 是对真实类别k的预测概率
@@ -66,11 +90,11 @@
        * 用于分类问题 
        * 二分类交叉熵
        * from_logits，指的是预测值与概率值符合logit函数关系，
-         预测值是来自logit函数，所以通过对预测值做logit反函数变换，可以得到概率值(0,1)
+         预测值是来自logit函数（即预测值是属于-INF~+INF范围内），所以通过对预测值做logit反函数变换（即加一个sigmoid函数），可以得到概率值(0,1)
 
    * **公式：** 
        * :math:`loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_i (ln p_i) + (1-t_i)(ln(1-p_i)))`
-       * n是样本数，
+       * n是计算一次损失时所有样本的所有输出数，
        * :math:`t_i` 是真实二值标签，
        * :math:`p_i` 是预测概率；
   
@@ -115,10 +139,11 @@
    * **公式：** 
        * :math:`logit(p) = ln \frac{p}{1-p} = ln odds`
        * :math:`odds = \frac{p}{1-p}`
-       * :math:`logit^{-1}(p) = \frac{1}{1-e^(-p)}` 
+       * :math:`logit^{-1}(p) = \frac{1}{1+e^(-p)}`  **logit函数的反函数是sigmoid函数，把logit值输入到sigmoid函数得到概率值** 
   
    * **参考资料：** 
        `Logit究竟是个啥？——离散选择模型之三 <https://zhuanlan.zhihu.com/p/27188729>`_
        `Wikipedia Logit <https://en.wikipedia.org/wiki/Logit>`_
 
        
+    

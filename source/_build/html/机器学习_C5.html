@@ -1,40 +1,102 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-<html lang="zh_CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
-    <title>第五章 机器学习 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第五章 机器学习 &mdash; XIA&#39;s BLOG 1.0 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="第六章 文献阅读笔记" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html" />
-    <link rel="prev" title="第四章 电脑操作" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="第四章 电脑操作" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> XIA's BLOG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">目录：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第五章 机器学习</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.1 稀疏自编码器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#swin-transformer">5.2 swin Transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">5.3 基本概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">5.3.1 损失函数相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id14">5.3.2 机器学习方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transformer">5.4 Transformer相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vanilla-transformer">5.4.1 vanilla transformer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">5.4.1.1 参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">5.4.1.2 详情</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tips">5.4.1.3 tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#a-survey-of-transformers">5.4.2 a_survey_of_transformers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">5.5 科研方法见解相关</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">5.5.1 科研方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">5.5.2 概念见解</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">5.6 概念-学者-资源</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id22">5.7 科研目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test">5.8 test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tricks">5.9 机器学习tricks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id23">5.9 机器学习tricks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%88%AC%E8%99%AB%E7%9B%B8%E5%85%B3_C10.html">python 爬虫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023%E6%A0%A1%E6%8B%9B%E6%B1%82%E8%81%8C-%E7%AC%94%E8%AF%95%26%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95_C11.html">第十一章 2023校招求职-笔试&amp;面试记录</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">XIA's BLOG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>第五章 机器学习</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/机器学习_C5.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="id1">
 <h1>第五章 机器学习<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
 <section id="id2">
@@ -105,10 +167,10 @@
      believe that we still have a lot to improve in terms of our unsupervised learning algorithms.
 </pre></div>
 </div>
-<figure class="align-center" id="id22">
+<figure class="align-center" id="id24">
 <span id="id4"></span><img alt="_images/DAE.png" src="_images/DAE.png" />
 <figcaption>
-<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id22" title="永久链接至图片">¶</a></p>
+<p><span class="caption-text"><strong>降噪自编码器原理图</strong></span><a class="headerlink" href="#id24" title="永久链接至图片">¶</a></p>
 </figcaption>
 </figure>
 <hr class="docutils" />
@@ -850,6 +912,25 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 </section>
 <section id="id8">
 <h2>5.3.1 损失函数相关<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>损失函数的输入是真实标签和预测值，一般需要 <strong>预设（初始化）</strong>
+* 预测值是否from_logits（如果是，则应用反函数sigmoid函数得到概率值，再进行损失的计算）；
+* 沿着哪个轴计算损失，一般是最后一个维度（计算损失就是减少一个维度）；
+* 应用到损失值的reduction方法（一般有auto根据上下文语境选择；大部分情况是sum_over_batch_size；当使用分布式策略时，这两种reduction方法报错）；
+* 标签平滑label smoothing <a class="reference external" href="https://blog.csdn.net/qq_43211132/article/details/100510113">参考</a>;
+* 算符Op的命名</p>
+<p><strong>调用</strong> （以tensorflow为例）
+* 真实标签
+* 预测值
+* 权值(可以是一个标量用于损失值整体的缩放；或者是一个向量用于对不同的batch进行加权；或者是更高维的向量（广播机制），用于更细致的加权)</p>
+<p><strong>类方法</strong>
+* from_config(config_dict): 输入配置参数，返回损失实例化对象
+* get_config(): 返回损失实例的配置字典
+* __call__(y_true,y_pred,sample_weights): 激活损失实例对象，返回加权浮点损失tensor(reduction不是None的时候，否则为向量)</p>
+<p><strong>appendix : label smoothing</strong>
+* 一种正则化方法
+* 防止过拟合（数据或多或少存在一定的噪声；训练数据只是使用了部分数据，模型的学习能力太强容易过拟合）
+* 公式为 <span class="math notranslate nohighlight">\(outputs = (1-\epsilon) * inputs + \frac{\epsilon}{k}\)</span> （inputs是真实标签，outputs是平滑后的标签）
+* <a class="reference external" href="https://blog.csdn.net/weixin_44305115/article/details/106605237?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&amp;utm_relevant_index=1">一个小例子搞懂transformer中的label smoothing(标签平滑)</a></p>
 <ol class="arabic simple">
 <li><p>CategoricalCrossentropy</p>
 <ul class="simple">
@@ -865,14 +946,13 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <li><p>多分类交叉熵</p></li>
 <li><p>标签是one-hot表示</p></li>
 <li><p>真实标签与预测值的形状都为（批量数，分类数）</p></li>
-<li><p>公式看着是两项，实则只保留了一项</p></li>
 </ul>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><strong>公式：</strong></dt><dd><ul>
-<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_k (ln p_k) + (1-t_k)(ln(1-p_k)))\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} t_k (ln p_k)\)</span></p></li>
 <li><p>n是样本数，</p></li>
 <li><p><span class="math notranslate nohighlight">\(t_k\)</span> 是真实类别k的二值标签（为1），</p></li>
 <li><p><span class="math notranslate nohighlight">\(p_k\)</span> 是对真实类别k的预测概率</p></li>
@@ -961,7 +1041,7 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <li><p>用于分类问题</p></li>
 <li><p>二分类交叉熵</p></li>
 <li><p>from_logits，指的是预测值与概率值符合logit函数关系，
-预测值是来自logit函数，所以通过对预测值做logit反函数变换，可以得到概率值(0,1)</p></li>
+预测值是来自logit函数（即预测值是属于-INF~+INF范围内），所以通过对预测值做logit反函数变换（即加一个sigmoid函数），可以得到概率值(0,1)</p></li>
 </ul>
 </dd>
 </dl>
@@ -969,7 +1049,7 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <li><dl class="simple">
 <dt><strong>公式：</strong></dt><dd><ul>
 <li><p><span class="math notranslate nohighlight">\(loss = - \frac{1}{n} \sum_{i = 1}^{n} (t_i (ln p_i) + (1-t_i)(ln(1-p_i)))\)</span></p></li>
-<li><p>n是样本数，</p></li>
+<li><p>n是计算一次损失时所有样本的所有输出数，</p></li>
 <li><p><span class="math notranslate nohighlight">\(t_i\)</span> 是真实二值标签，</p></li>
 <li><p><span class="math notranslate nohighlight">\(p_i\)</span> 是预测概率；</p></li>
 </ul>
@@ -1042,7 +1122,7 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 <dt><strong>公式：</strong></dt><dd><ul>
 <li><p><span class="math notranslate nohighlight">\(logit(p) = ln \frac{p}{1-p} = ln odds\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(odds = \frac{p}{1-p}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(logit^{-1}(p) = \frac{1}{1-e^(-p)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(logit^{-1}(p) = \frac{1}{1+e^(-p)}\)</span>  <strong>logit函数的反函数是sigmoid函数，把logit值输入到sigmoid函数得到概率值</strong></p></li>
 </ul>
 </dd>
 </dl>
@@ -1057,8 +1137,8 @@ and values in B are taken from <span class="math notranslate nohighlight">\(\hat
 </li>
 </ol>
 </section>
-<section id="id13">
-<h2>5.3.2 机器学习方法<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<section id="id14">
+<h2>5.3.2 机器学习方法<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>curriculum learning</p>
 <ul class="simple">
@@ -1078,13 +1158,13 @@ gradually increase the level of difficulty.</p>
 <section id="vanilla-transformer">
 <h2>5.4.1 vanilla transformer<a class="headerlink" href="#vanilla-transformer" title="永久链接至标题">¶</a></h2>
 </section>
-<section id="id14">
-<h2>5.4.1.1 参考<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h2>
+<section id="id15">
+<h2>5.4.1.1 参考<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
 <p><a class="reference external" href="https://blog.csdn.net/sinat_37574187/article/details/119890682">vanilla transformer</a></p>
 <p><a class="reference external" href="https://blog.csdn.net/u010366748/article/details/114301942">论文笔记-Vanilla Transformer：Character-Level Language Modeling with Deeper Self-Attention</a></p>
 </section>
-<section id="id16">
-<h2>5.4.1.2 详情<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<section id="id17">
+<h2>5.4.1.2 详情<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Vanilla Transformer的三个缺点：</strong></dt><dd><ul>
@@ -1208,11 +1288,11 @@ it is hard to train on small-scale data.</p>
 </li>
 </ol>
 </section>
-<section id="id17">
-<h2>5.5 科研方法见解相关<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h2>
-</section>
 <section id="id18">
-<h2>5.5.1 科研方法<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+<h2>5.5 科研方法见解相关<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id19">
+<h2>5.5.1 科研方法<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>要认识到某种神经网络的本质机制，才能对应的提出这种类型网络的优势和缺点；
 在应用这种方法到某个领域时，要清楚该方法在这个领域问题中的优势和劣势，据此
@@ -1220,8 +1300,8 @@ it is hard to train on small-scale data.</p>
 <li><p>对于一个概念，可以从多个角度被提出和解释，实现一致的功能；</p></li>
 </ol>
 </section>
-<section id="id19">
-<h2>5.5.2 概念见解<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h2>
+<section id="id20">
+<h2>5.5.2 概念见解<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p>胶囊网络 &amp; CNN</p>
 <ul class="simple">
@@ -1287,8 +1367,8 @@ it is hard to train on small-scale data.</p>
 </li>
 </ol>
 </section>
-<section id="id20">
-<h2>5.6 概念-学者-资源<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h2>
+<section id="id21">
+<h2>5.6 概念-学者-资源<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
 <ol class="arabic">
 <li><p>capsule network</p>
 <blockquote>
@@ -1340,8 +1420,8 @@ it is hard to train on small-scale data.</p>
 </li>
 </ol>
 </section>
-<section id="id21">
-<h2>5.7 科研目标<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h2>
+<section id="id22">
+<h2>5.7 科研目标<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h2>
 <ol class="arabic simple">
 <li><p><strong>复合故障诊断</strong></p>
 <ul class="simple">
@@ -1408,103 +1488,61 @@ it is hard to train on small-scale data.</p>
 <h2>5.8 test<a class="headerlink" href="#test" title="永久链接至标题">¶</a></h2>
 <p><a class="reference download internal" download="" href="_downloads/107f849910b0dc353b06712ccecfcfa7/psiphon-pro.zip"><code class="xref download docutils literal notranslate"><span class="pre">psiphon-pro.zip</span></code></a></p>
 </section>
+<section id="tricks">
+<h2>5.9 机器学习tricks<a class="headerlink" href="#tricks" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id23">
+<h2>5.9 机器学习tricks<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>约束项的使用constraints</p>
+<blockquote>
+<div><p>constraints模块的函数允许在优化期间对网络参数设置约束（例如非负性）。
+其实就是优化问题对可调参数设置了取值范围约束。
+常见的约束项包括：非负约束、范数大小约束等。</p>
+</div></blockquote>
+</li>
+<li><p>正则化器的使用regularizer</p>
+<blockquote>
+<div><p>正则化器允许在优化过程中对 <strong>层的参数</strong> 或 <strong>层的激活情况</strong> 进行惩罚penalty。
+网络优化的损失函数也包括这些惩罚项。
+即基本的损失函数是 <strong>目标标签和模型预测标签之间的差异衡量</strong>，正则化器并不是描述这种差异的，但是加入到了损失函数中，影响了优化过程，提高了模型的泛化能力。
+常见的正则化器就是L1正则化器、L2正则化器、L1和L2正则化器
+You can access a layer’s regularization penalties by calling layer.losses after calling the layer on inputs.</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" class="btn btn-neutral float-left" title="第四章 电脑操作" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html" class="btn btn-neutral float-right" title="第六章 文献阅读笔记" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, xia liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>导航</h3>
-<p><span class="caption-text">目录：</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E4%BB%A3%E7%A0%81%E7%9B%B8%E5%85%B3_C3.html">第三章 python篇</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">第五章 机器学习</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">5.1 稀疏自编码器</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#swin-transformer">5.2 swin Transformer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">5.3 基本概念</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">5.3.1 损失函数相关</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id13">5.3.2 机器学习方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#transformer">5.4 Transformer相关</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vanilla-transformer">5.4.1 vanilla transformer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">5.4.1.1 参考</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id16">5.4.1.2 详情</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tips">5.4.1.3 tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#a-survey-of-transformers">5.4.2 a_survey_of_transformers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id17">5.5 科研方法见解相关</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">5.5.1 科研方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">5.5.2 概念见解</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">5.6 概念-学者-资源</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id21">5.7 科研目标</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#test">5.8 test</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" title="上一章">第四章 电脑操作</a></li>
-      <li>Next: <a href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html" title="下一章">第六章 文献阅读笔记</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">快速搜索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="转向" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, xia liu.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/机器学习_C5.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

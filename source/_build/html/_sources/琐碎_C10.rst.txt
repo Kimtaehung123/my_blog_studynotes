@@ -1,0 +1,98 @@
+第十章 琐碎
+=====================
+    
+10.1 马来西亚境外汇款相关
+-------------------------------------
+
+Maybank基本信息如下图：（`Maybank官网 <https://www.maybank.com/en/index.page?>`_）
+
+.. figure::
+    _static\\images\\琐碎\\Maybank基本信息.png
+    :align: center
+
+马来语救助汇款说明示例:
+
+.. figure::
+    _static\\images\\琐碎\\马来语救助汇款说明示例.png
+    :align: center
+
+原文：
+
+* Sumbangan anda boleh disalurkan ke akaun Maybank atau cekatas nama Tabung Bencana NSTP-Media Prima dan dihantar ke alamat:
+  Jabatan Komunikasi Strategik,Media Prima Berhad Tingkat 4,Anjung Riong,Balai Berita,31 Jalan Riong
+  59100 Bangsar,Kuala Lumpur
+
+大概翻译：
+
+* 您的捐款可以汇入马来亚银行账户或灾难基金名称NSTP-Media Prima并发送到您的地址，
+  战略传播部，媒体有限公司4楼，安戎戎，巴莱贝里塔，31路兰里翁，59100 孟沙，吉隆坡
+
+马来西亚令吉汇率：
+
+.. figure::
+    _static\\images\\琐碎\\马来西亚令吉汇率.png
+    :align: center
+
+SWIFT CODE说明：
+
+.. figure::
+    _static\\images\\琐碎\\SWIFTCODE.png
+    :align: center
+
+北京银行支持的境外币种：
+
+.. figure::
+    _static\\images\\琐碎\\北京银行支持的境外币种.jpg
+    :align: center
+
+北京银行境外汇款操作说明：
+
+.. figure::
+    _static\\images\\琐碎\\北京银行境外汇款操作说明.jpg
+    :align: center
+
+北京银行境外汇款收费标准：
+
+.. figure::
+    _static\\images\\琐碎\\北京银行境外汇款收费标准.jpg
+    :align: center
+
+10.2 马来西亚地图相关
+-------------------------------
+
+吉隆坡基本信息如下图：
+
+.. figure::
+    _static\\images\\琐碎\\吉隆坡基本信息.png
+    :align: center    
+
+马来西亚、新加坡、印度尼西亚相对位置示意图：
+
+.. figure::
+    _static\\images\\琐碎\\马来西亚-新加坡-印度尼西亚相对位置.png
+    :align: center
+
+孟沙南城BangsarSouth简介：
+
+.. figure::
+    _static\\images\\琐碎\\孟沙南城BangsarSouth简介.png
+    :align: center
+
+马来西亚地图如下：
+
+.. figure::
+    _static\\images\\琐碎\\马来西亚地图1.png
+    :align: center
+
+.. figure::
+    _static\\images\\琐碎\\马来西亚地图2.jpg
+    :align: center
+
+
+10.3 资讯信息
+---------------------
+
+1. getty images
+   Getty Images是全球最牛逼的图片库。1995年成立于美国西雅图，作为全球数字媒体的缔造者首创并引领了独特的在线授权模式——在线提供数字媒体管理工具以及创意类图片、编辑类图片、影视素材和音乐产品。
+   `官网 <https://www.gettyimages.in/>`_
+

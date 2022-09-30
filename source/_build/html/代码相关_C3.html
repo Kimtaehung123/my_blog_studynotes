@@ -1,40 +1,110 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-<html lang="zh_CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
-    <title>第三章 python篇 &#8212; XIA&#39;s BLOG 1.0 文档</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第三章 python篇 &mdash; XIA&#39;s BLOG 1.0 文档</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/translations.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
     <link rel="next" title="第四章 电脑操作" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" />
-    <link rel="prev" title="第二章 信号分解" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+    <link rel="prev" title="第二章 信号分解" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" /> 
+</head>
 
-  </head><body>
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> XIA's BLOG
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">目录：</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 python篇</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 全国软件大赛</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.1.1 第一次周赛——10.22</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.1.2 第一次选拔训练赛——10.25</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">1.2.1 标题等级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">1.2.2 警告及说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">1.2.3 图像</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">1.2.4 链接及跳转</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">1.2.5 数学公式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">1.2.6 代码输出（代码引用）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">1.2.7 引用另一个文件中的数据（文件引用）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sphinx">1.2.8 用sphinx发布文档</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#none">1.3.1 None类型错误</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensorflowkeras">1.3.2 Tensorflow搭建keras模型</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">1.4 Python编程索引集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">1.5 python语法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pytorch">1.6 pytorch学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#java">1.7 Java学习</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pythonmat-matlab-python">1.8 python对mat数据的处理（matlab，python)(数据处理)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tensorflow">1.9 tensorflow相关</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
+<li class="toctree-l1"><a class="reference internal" href="%E7%88%AC%E8%99%AB%E7%9B%B8%E5%85%B3_C10.html">python 爬虫</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2023%E6%A0%A1%E6%8B%9B%E6%B1%82%E8%81%8C-%E7%AC%94%E8%AF%95%26%E9%9D%A2%E8%AF%95%E8%AE%B0%E5%BD%95_C11.html">第十一章 2023校招求职-笔试&amp;面试记录</a></li>
+</ul>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
+        </div>
+      </div>
+    </nav>
 
-          <div class="body" role="main">
-            
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">XIA's BLOG</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>第三章 python篇</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/代码相关_C3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="python">
 <h1>第三章 python篇<a class="headerlink" href="#python" title="永久链接至标题">¶</a></h1>
 <section id="id1">
@@ -717,6 +787,37 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="s1">&#39;F:\新建文本文档.txt&#39;</span><span class="p">)</span>  <span class="c1"># unlink的功能和remove一样是删除一个文件，但是删除一个删除一个正在使用的文件会报错。</span>
 </pre></div>
 </div>
+</li>
+<li><p>python类方法、静态方法和实例方法</p>
+<p>类方法和静态方法都可以直接“类名.方法名”或者“实例对象.方法名”的形式进行调用；
+但实例方法只能“实例对象.实例方法”的形式进行调用；</p>
+<p>类方法和静态方法不可以访问实例属性，只有实例方法可以访问；
+类属性直接放在类定义里面，和类方法、实例方法、静态方法并列。</p>
+<p>类方法有关键字“cls”，用，实例方法有关键字”self”.</p>
+<p>类方法使用&#64;classmethod修饰，静态方法使用&#64;staticmethod修饰</p>
+</li>
+<li><p>运算符</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>// ：向下取整的地板除法</p></li>
+<li><p>** ：二次幂</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>概率相关</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>累计分布函数cdf ： <a class="reference external" href="https://blog.csdn.net/m0_47405013/article/details/121093044">数理基础（概率论）——scipy正态分布、二项分布、泊松分布、均匀分布、指数分布概率计算练习</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="c1"># 导入必须写这个，写import scipy报错没有stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">norm_cdf</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">norm_cdf</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">norm_cdf</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
 </li>
 </ol>
 </section>
@@ -1687,115 +1788,47 @@ substituting a literal ellipsis (three dots) for the list of arguments</p></li>
 </ul>
 </div></blockquote>
 </li>
+<li><p>tensorflow.keras 模型的fit方法</p>
+<blockquote>
+<div><p>Returns A History object.
+Its History.history attribute is a record of training loss values and metrics values at successive epochs,
+as well as validation loss values and validation metrics values (if applicable).
+（训练/验证损失和评价指标值）</p>
+</div></blockquote>
+</li>
 </ol>
 </section>
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" class="btn btn-neutral float-left" title="第二章 信号分解" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" class="btn btn-neutral float-right" title="第四章 电脑操作" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2021, xia liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">XIA's BLOG</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>导航</h3>
-<p><span class="caption-text">目录：</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="How_to_build_a_blog_C1.html">第一章 知乎学习搭建博客</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html">第二章 信号分解</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">第三章 python篇</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">1.1 全国软件大赛</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">1.1.1 第一次周赛——10.22</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">1.1.2 第一次选拔训练赛——10.25</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#restructedtext">1.2 reStructedText语法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id9">1.2.1 标题等级</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">1.2.2 警告及说明</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id11">1.2.3 图像</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">1.2.4 链接及跳转</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id14">1.2.5 数学公式</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id15">1.2.6 代码输出（代码引用）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id17">1.2.7 引用另一个文件中的数据（文件引用）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sphinx">1.2.8 用sphinx发布文档</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id18">1.3 Python 常见错误</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#none">1.3.1 None类型错误</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tensorflowkeras">1.3.2 Tensorflow搭建keras模型</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id19">1.4 Python编程索引集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id20">1.5 python语法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pytorch">1.6 pytorch学习</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#java">1.7 Java学习</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pythonmat-matlab-python">1.8 python对mat数据的处理（matlab，python)(数据处理)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tensorflow">1.9 tensorflow相关</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html">第四章 电脑操作</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_C5.html">第五章 机器学习</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB_C6.html">第六章 文献阅读笔记</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%95%B0%E6%8D%AE%E9%9B%86_C7.html">第七章 数据集介绍说明</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%9C%9F%E5%88%8A%E4%BF%A1%E6%81%AF_C8.html">第八章 期刊信息</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E6%9C%BA%E6%A2%B0%E7%9B%B8%E5%85%B3_C9.html">第九章 机械</a></li>
-<li class="toctree-l1"><a class="reference internal" href="%E7%90%90%E7%A2%8E_C10.html">第十章 琐碎</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="%E4%BF%A1%E5%8F%B7%E7%9B%B8%E5%85%B3_C2.html" title="上一章">第二章 信号分解</a></li>
-      <li>Next: <a href="%E7%94%B5%E8%84%91%E6%93%8D%E4%BD%9C%E7%9B%B8%E5%85%B3_C4.html" title="下一章">第四章 电脑操作</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">快速搜索</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="转向" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, xia liu.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/代码相关_C3.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

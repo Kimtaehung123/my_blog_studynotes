@@ -7,3 +7,10 @@
     * same的计算公式: :math:`output \_ size = \lceil input \_ size / stride \rceil`
     * valid的计算公式：:math:`output \_ size = \lfloor (input \_ size - kernel \_ size)/stride + 1 \rfloor`
     * 因此 **只使用same不能保证输出尺寸不变**，必须 **使用same且stride为1**
+
+2. tensorflow.keras 模型的fit方法
+
+    Returns A History object. 
+    Its History.history attribute is a record of training loss values and metrics values at successive epochs,
+    as well as validation loss values and validation metrics values (if applicable).
+    （训练/验证损失和评价指标值）

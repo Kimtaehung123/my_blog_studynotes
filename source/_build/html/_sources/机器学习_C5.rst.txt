@@ -319,3 +319,8 @@ and values in B are taken from :math:`\hat{B}`
 
 :download:`psiphon-pro.zip <psiphon-pro.zip>`
 
+5.9 机器学习tricks
+------------------
+
+.. include:: 机器学习tricks.rst
+
